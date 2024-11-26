@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ArmSO : ScriptableObject
 {
-    // Status do mecha
-    public int vidaMax;
+    // Status do braço
+    [field:SerializeField] public int AttackSpeed {  get; private set; }
+    [field:SerializeField] public int WeakDamage { get; private set; }
+    [field:SerializeField] public int StrongDamage { get; private set; }
 }
