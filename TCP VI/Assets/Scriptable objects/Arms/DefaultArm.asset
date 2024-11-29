@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96addf84dfd70b4e9174a305e20810d, type: 3}
   m_Name: DefaultArm
   m_EditorClassIdentifier: 
-  AttackSpeed: 2
-  WeakDamage: 3
-  StrongDamage: 6
+  <AttackSpeed>k__BackingField: 5
+  <WeakDamage>k__BackingField: 5
+  <StrongDamage>k__BackingField: 10

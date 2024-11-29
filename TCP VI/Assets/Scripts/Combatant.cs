@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SaintsField;
 
 public abstract class Combatant : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public abstract class Combatant : MonoBehaviour
     [SerializeField] BrandSO _brandSO;
 
     // Funções de uso geral para os mechas
-    public void WeakPunch()
+    public void QuickPunch()
     {
 
     }

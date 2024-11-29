@@ -5,19 +5,37 @@ using UnityEngine.Video;
 
 public class PlayerMecha : Combatant
 {
+    Animator animator;
     void Start()
     {
         RestoreHealth();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        WeakPunch();
+        QuickPunch();
+        StrongPunch();
     }
 
-    public new void WeakPunch()
+    public new void QuickPunch()
     {
-        base.WeakPunch();
+        base.QuickPunch();
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            animator.SetTrigger("isQuickPunching");
+        }
+    }
+
+    public new void StrongPunch()
+    {
+        base.StrongPunch();
+
+        if(Input.GetMouseButtonDown(1))
+        {
+            animator.SetTrigger("isStrongPunching");
+        }
 
     }
 }
