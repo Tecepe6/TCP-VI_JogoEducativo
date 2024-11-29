@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -591,8 +591,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.3641951, y: 1.4040921, z: 1.0726714}
-  m_Center: {x: -1.7286803, y: -0.4473878, z: -3.1612198}
+  m_Size: {x: 0.364195, y: 1.4040918, z: 0.89101285}
+  m_Center: {x: -1.7286803, y: -0.4473878, z: -2.6378675}
 --- !u!1 &631427741
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 631427743}
   - component: {fileID: 631427744}
   - component: {fileID: 631427745}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,6 +667,9 @@ MonoBehaviour:
   _rightArmSO: {fileID: 11400000, guid: 8982915b37e10e445b362daeb00fccb1, type: 2}
   _leftArmSO: {fileID: 11400000, guid: 8982915b37e10e445b362daeb00fccb1, type: 2}
   _brandSO: {fileID: 11400000, guid: c63a15b2dd54d7c4d961179bcc252b1f, type: 2}
+  rightCollider: {fileID: 888579540}
+  leftCollider: {fileID: 1442360780}
+  damageTaken: 0
 --- !u!95 &631427745
 Animator:
   serializedVersion: 5
@@ -971,7 +974,7 @@ Transform:
   m_GameObject: {fileID: 1120808481}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.9404729, y: 0.353256, z: 0.14579082}
+  m_LocalPosition: {x: 0.9404729, y: 0.353256, z: 0.1457908}
   m_LocalScale: {x: 0.36, y: 0.73666793, z: 0.35999998}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1868,6 +1871,9 @@ MonoBehaviour:
   _rightArmSO: {fileID: 11400000, guid: addbe2679109fe446bac5490e0a65434, type: 2}
   _leftArmSO: {fileID: 11400000, guid: addbe2679109fe446bac5490e0a65434, type: 2}
   _brandSO: {fileID: 11400000, guid: 71fe5ec721412e644841837e7007dffb, type: 2}
+  rightCollider: {fileID: 0}
+  leftCollider: {fileID: 0}
+  damageTaken: 0
 --- !u!1001 &1938587350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2158,8 +2164,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.36772847, y: 1.4040922, z: 1.1090078}
-  m_Center: {x: 1.7544099, y: -0.44738775, z: -3.179388}
+  m_Size: {x: 0.36772838, y: 1.4040922, z: 0.8581474}
+  m_Center: {x: 1.7544098, y: -0.44738773, z: -2.6214342}
 --- !u!1 &2143984971
 GameObject:
   m_ObjectHideFlags: 0

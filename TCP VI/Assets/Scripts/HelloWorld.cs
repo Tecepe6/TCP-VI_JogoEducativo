@@ -11,6 +11,6 @@ public class HelloWorld : Combatant
 
     void Update()
     {
-        
+
     }
 }

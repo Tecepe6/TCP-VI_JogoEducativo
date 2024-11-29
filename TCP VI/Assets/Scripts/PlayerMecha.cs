@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Video;
 
 public class PlayerMecha : Combatant
 {
     Animator animator;
+
     void Start()
     {
         RestoreHealth();
@@ -16,6 +18,11 @@ public class PlayerMecha : Combatant
     {
         QuickPunch();
         StrongPunch();
+
+        TakeDamage();
+
+        DodgeLeft();
+        DodgeRight();
     }
 
     public new void QuickPunch()
@@ -37,5 +44,26 @@ public class PlayerMecha : Combatant
             animator.SetTrigger("isStrongPunching");
         }
 
+    }
+
+    public new void DodgeLeft()
+    {
+        base.DodgeLeft();
+        
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            animator.SetTrigger("isLeftDodging");
+        }
+        
+    }
+
+    public new void DodgeRight()
+    {
+        base.DodgeRight();
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            animator.SetTrigger("isRightDodging");
+        }
     }
 }
