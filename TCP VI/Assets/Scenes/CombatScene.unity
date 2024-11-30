@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -380,7 +380,7 @@ Transform:
   m_GameObject: {fileID: 466624861}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.21558756, z: 0.97648454, w: 0}
-  m_LocalPosition: {x: 0.221, y: 0.229, z: -0}
+  m_LocalPosition: {x: 0.221, y: 0.229, z: 0}
   m_LocalScale: {x: 66.71, y: 66.71, z: 66.71}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -621,6 +621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 569919773}
   - component: {fileID: 569919774}
+  - component: {fileID: 569919775}
   m_Layer: 0
   m_Name: Right Arm
   m_TagString: Untagged
@@ -637,7 +638,7 @@ Transform:
   m_GameObject: {fileID: 569919772}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.73, y: 0.78, z: -0.086000085}
+  m_LocalPosition: {x: 1.73, y: 0.78, z: -0.08600008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -659,12 +660,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.364195, y: 1.4040918, z: 0.89101285}
   m_Center: {x: -1.7286803, y: -0.4473878, z: -2.6378675}
+--- !u!114 &569919775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569919772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776c568956cda7344bd3d41566a44b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDamage: 0
 --- !u!1 &631427741
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,8 +756,6 @@ MonoBehaviour:
   _brandSO: {fileID: 11400000, guid: c63a15b2dd54d7c4d961179bcc252b1f, type: 2}
   rightFist: {fileID: 888579541}
   leftFist: {fileID: 1442360781}
-  rightCollider: {fileID: 888579540}
-  leftCollider: {fileID: 1442360780}
   currentDamage: 0
 --- !u!95 &631427745
 Animator:
@@ -2084,6 +2096,7 @@ GameObject:
   - component: {fileID: 1856959337}
   - component: {fileID: 1856959336}
   - component: {fileID: 1856959338}
+  - component: {fileID: 1856959339}
   m_Layer: 7
   m_Name: Hello World
   m_TagString: Untagged
@@ -2146,11 +2159,10 @@ MonoBehaviour:
   _rightArmSO: {fileID: 11400000, guid: addbe2679109fe446bac5490e0a65434, type: 2}
   _leftArmSO: {fileID: 11400000, guid: addbe2679109fe446bac5490e0a65434, type: 2}
   _brandSO: {fileID: 11400000, guid: 71fe5ec721412e644841837e7007dffb, type: 2}
-  rightFist: {fileID: 0}
-  leftFist: {fileID: 0}
-  rightCollider: {fileID: 569919774}
-  leftCollider: {fileID: 2086167712}
+  rightFist: {fileID: 569919775}
+  leftFist: {fileID: 2086167713}
   currentDamage: 0
+  currentState: 0
 --- !u!54 &1856959338
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2178,6 +2190,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &1856959339
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856959334}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 91494be20f7d2204f868d268d4cfa036, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1938587350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2426,6 +2459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2086167711}
   - component: {fileID: 2086167712}
+  - component: {fileID: 2086167713}
   m_Layer: 0
   m_Name: Left Arm
   m_TagString: Untagged
@@ -2464,12 +2498,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.36772838, y: 1.4040922, z: 0.8581474}
   m_Center: {x: 1.7544098, y: -0.44738773, z: -2.6214342}
+--- !u!114 &2086167713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086167710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776c568956cda7344bd3d41566a44b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDamage: 0
 --- !u!1 &2143984971
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: HelloWorldArm
   m_EditorClassIdentifier: 
   <AttackSpeed>k__BackingField: 3
-  <WeakDamage>k__BackingField: 3
+  <QuickDamage>k__BackingField: 3
   <StrongDamage>k__BackingField: 7

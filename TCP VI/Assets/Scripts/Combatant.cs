@@ -14,10 +14,6 @@ public abstract class Combatant : MonoBehaviour
     public Fist rightFist;
     public Fist leftFist;
 
-    [Header("COLLIDERS DOS BRAÇOS")]
-    [SerializeField] protected BoxCollider rightCollider;
-    [SerializeField] protected BoxCollider leftCollider;
-
     public int currentDamage;
 
     // Função abstrata para socos e esquivas
