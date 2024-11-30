@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DefaultArm
   m_EditorClassIdentifier: 
   <AttackSpeed>k__BackingField: 5
-  <WeakDamage>k__BackingField: 5
+  <QuickDamage>k__BackingField: 5
   <StrongDamage>k__BackingField: 10

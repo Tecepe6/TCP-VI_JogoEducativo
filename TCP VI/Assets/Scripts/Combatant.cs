@@ -4,70 +4,40 @@ using UnityEngine;
 
 public abstract class Combatant : MonoBehaviour
 {
-    [SerializeField] int currentLife;
+    [SerializeField] protected int currentLife;
 
     [Header("PEÇAS DO MECHA")]
-    [SerializeField] ArmSO _rightArmSO;
-    [SerializeField] ArmSO _leftArmSO;
-    [SerializeField] BrandSO _brandSO;
+    public ArmSO _rightArmSO;
+    public ArmSO _leftArmSO;
+    public BrandSO _brandSO;
+
+    public Fist rightFist;
+    public Fist leftFist;
 
     [Header("COLLIDERS DOS BRAÇOS")]
-    [SerializeField] BoxCollider rightCollider;
-    [SerializeField] BoxCollider leftCollider;
+    [SerializeField] protected BoxCollider rightCollider;
+    [SerializeField] protected BoxCollider leftCollider;
 
-    public int damageTaken;
+    public int currentDamage;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        // Verifica se o objeto que colidiu pertence à layer "Mecha"
-        if (other.gameObject.layer == LayerMask.NameToLayer("Mecha"))
-        {
-            // Verifica se o collider do braço direito causou a colisão
-            if (rightCollider.bounds.Intersects(other.bounds))
-            {
-                damageTaken = _rightArmSO.QuickDamage;
-            }
-            // Verifica se o collider do braço esquerdo causou a colisão
-            else if (leftCollider.bounds.Intersects(other.bounds))
-            {
-                damageTaken = _leftArmSO.QuickDamage;
-            }
+    // Função abstrata para socos e esquivas
+    public abstract void QuickPunch();
+    public abstract void StrongPunch();
+    public abstract void DodgeRight();
+    public abstract void DodgeLeft();
 
-            // Aplica o dano após identificar o braço que causou a colisão
-            TakeDamage();
-        }
-    }
-
-    // Funções de uso geral para os mechas
-    public void QuickPunch()
-    {
-        // Lógica para um soco rápido
-    }
-
-    public void StrongPunch()
-    {
-        // Lógica para um soco forte
-    }
-
+    // Restaura a vida ao máximo
     public void RestoreHealth()
     {
         currentLife = _brandSO.MaxLife;
+        Debug.Log(currentLife);
     }
 
-    public void DodgeRight()
-    {
-        // Lógica para desvio à direita
-    }
-
-    public void DodgeLeft()
-    {
-        // Lógica para desvio à esquerda
-    }
-
-    public void TakeDamage()
+    // Aplica dano ao Mecha
+    public void TakeDamage(int damageTaken)
     {
         currentLife -= damageTaken;
-        currentLife = Mathf.Clamp(currentLife, 0, _brandSO.MaxLife);  // Limita a vida entre 0 e o máximo
+        Debug.Log("Vida restante: " + currentLife);
 
         if (currentLife <= 0)
         {
@@ -75,9 +45,10 @@ public abstract class Combatant : MonoBehaviour
         }
     }
 
+    // Lógica para a derrota do Mecha
     public void Defeated()
     {
         Debug.Log(gameObject.name + " foi derrotado!");
-        // Lógica para o caso de derrota
+        Destroy(gameObject); // Exemplo: destrói o Mecha derrotado
     }
 }

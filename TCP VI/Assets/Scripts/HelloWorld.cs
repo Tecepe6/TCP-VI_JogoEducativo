@@ -13,4 +13,24 @@ public class HelloWorld : Combatant
     {
 
     }
+
+    public override void QuickPunch()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void StrongPunch()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void DodgeLeft()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void DodgeRight()
+    {
+        throw new System.NotImplementedException();
+    }
 }
