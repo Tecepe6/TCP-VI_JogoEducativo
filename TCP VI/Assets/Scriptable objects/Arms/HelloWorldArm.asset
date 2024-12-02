@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Hello World (Arm)
   <Description>k__BackingField: Arm Gained kicking Hello World's ass.
-  <Mesh>k__BackingField: {fileID: 4805421134766800955, guid: 9c475ef314014ab40a438e85435531bb,
+  <Mesh>k__BackingField: {fileID: -2848884097826431284, guid: 4d8acd3798c2fc34fbef7aca05f16c63,
     type: 3}
+  <Material>k__BackingField: {fileID: -876546973899608171, guid: 4d8acd3798c2fc34fbef7aca05f16c63,
+    type: 3}
+  <SkMesh>k__BackingField: {fileID: 0}
   <AttackSpeed>k__BackingField: 3
   <QuickDamage>k__BackingField: 0
   <StrongDamage>k__BackingField: 7

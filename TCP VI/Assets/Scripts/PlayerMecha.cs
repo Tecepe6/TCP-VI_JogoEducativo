@@ -19,37 +19,31 @@ public class PlayerMecha : Combatant
         QuickPunch();
         StrongPunch();
 
-        TakeDamage();
-
         DodgeLeft();
         DodgeRight();
     }
 
-    public new void QuickPunch()
+    public override void QuickPunch()
     {
-        base.QuickPunch();
-
         if(Input.GetMouseButtonDown(0))
         {
+            rightFist.QuickDamage();
             animator.SetTrigger("isQuickPunching");
         }
     }
 
-    public new void StrongPunch()
+    public override void StrongPunch()
     {
-        base.StrongPunch();
-
         if(Input.GetMouseButtonDown(1))
         {
+            leftFist.StrongDamage();
             animator.SetTrigger("isStrongPunching");
         }
 
     }
 
-    public new void DodgeLeft()
+    public override void DodgeLeft()
     {
-        base.DodgeLeft();
-        
         if(Input.GetKeyDown(KeyCode.A))
         {
             animator.SetTrigger("isLeftDodging");
@@ -57,10 +51,8 @@ public class PlayerMecha : Combatant
         
     }
 
-    public new void DodgeRight()
+    public override void DodgeRight()
     {
-        base.DodgeRight();
-
         if (Input.GetKeyDown(KeyCode.D))
         {
             animator.SetTrigger("isRightDodging");
