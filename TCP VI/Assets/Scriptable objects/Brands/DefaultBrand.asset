@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b6fd554abf7fd4aaab062518cacc6a, type: 3}
   m_Name: DefaultBrand
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Default (Brand)
+  <Description>k__BackingField: Just the default brand. Specialized in nothing.
+  <Mesh>k__BackingField: {fileID: -2848884097826431284, guid: 63a9d282a6d01f948b2689683eaa1f9e,
+    type: 3}
+  <Material>k__BackingField: {fileID: -876546973899608171, guid: 63a9d282a6d01f948b2689683eaa1f9e,
+    type: 3}
+  <SkMesh>k__BackingField: {fileID: 0}
   <MaxLife>k__BackingField: 15
   <Defense>k__BackingField: 5
   <DodgeSpeed>k__BackingField: 5
