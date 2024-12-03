@@ -10,9 +10,9 @@ public class MechaManager : MonoBehaviour
 {
     public static MechaManager instance;
 
-    public event Action PartChanged;
+    public event Action<Selected> PartChanged;
 
-    private enum Selected
+    public enum Selected
     {
         RightArm, Brand, LeftArm
     }
@@ -26,6 +26,7 @@ public class MechaManager : MonoBehaviour
     [SerializeField] ArmSO rightArmPart;
     [SerializeField] BrandSO brandPart;
     [SerializeField] ArmSO leftArmPart;
+    //recommended: select defaults for these in the inspector, always (maybe?)
 
     
     [Header ("UI Components")]
@@ -51,8 +52,8 @@ public class MechaManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         //getting UI components
-        partsUI = getUIComponents("/Canvas/PartsUI");
-        detailsUI = getUIComponents("/Canvas/DetailsUI");
+        partsUI = getUIComponent("/Canvas/PartsUI");
+        detailsUI = getUIComponent("/Canvas/DetailsUI");
     }
 
     private void Start() 
@@ -125,12 +126,12 @@ public class MechaManager : MonoBehaviour
         }
     }
 
-    private GameObject getUIComponents(string compenentName)
+    private GameObject getUIComponent(string componentName)
     {
-        GameObject uiComponent = GameObject.Find(compenentName);
+        GameObject uiComponent = GameObject.Find(componentName);
         if(uiComponent == null)
         {
-            Debug.LogError($"<color=red>[DEV_ERROR] Cannot Find {compenentName} object in scene.");
+            Debug.LogError($"[DEV_ERROR] Cannot Find {componentName} object in scene.");
             return null;
         }
         else
@@ -262,11 +263,13 @@ public class MechaManager : MonoBehaviour
                     this.leftArmPart = leftArms[selectedPartID];
                     break;
                 default:
-                    Debug.LogError("Selected Part is out of scope");
+                    Debug.LogError("Selected BodyPart is not recognized");
                     break;
             }
             choosePart = false;
-            PartChanged?.Invoke(); // basically copying Godot signals here ;)
+
+            PartChanged?.Invoke(selectedBodyPart);
+            //basically copying Godot signals with eventActions here ;)
         }
     }
     

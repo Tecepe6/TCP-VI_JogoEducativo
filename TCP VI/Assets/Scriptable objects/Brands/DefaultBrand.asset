@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefaultBrand
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Default (Brand)
-  <Description>k__BackingField: Just the default brand. Specialized in nothing.
+  <Description>k__BackingField: Just a default brand.
   <Mesh>k__BackingField: {fileID: -2848884097826431284, guid: 63a9d282a6d01f948b2689683eaa1f9e,
     type: 3}
   <Material>k__BackingField: {fileID: -876546973899608171, guid: 63a9d282a6d01f948b2689683eaa1f9e,

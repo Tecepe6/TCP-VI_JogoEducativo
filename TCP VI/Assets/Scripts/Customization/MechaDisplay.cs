@@ -26,6 +26,10 @@ public class MechaDisplay : MonoBehaviour
 
     private void Awake() 
     {
+        loadGameObject(rightArmObj, "/MechaDisplay/RightArm");
+        loadGameObject(brandObj, "/MechaDisplay/Brand");
+        loadGameObject(leftArmObj, "/MechaDisplay/LeftArm");
+
         
         rightArmMeshFilter = rightArmObj.GetComponentInChildren<MeshFilter>();
         brandMeshFilter = brandObj.GetComponentInChildren<MeshFilter>();
@@ -39,10 +43,11 @@ public class MechaDisplay : MonoBehaviour
 
     private void Start() 
     {
-        MechaManager.instance.PartChanged += ChangeMeshes; //subscribe method to the event
+        //subscribe method to the event
+        MechaManager.instance.PartChanged += ChangeMeshes;
     }
 
-    private void ChangeMeshes()
+    private void ChangeMeshes(MechaManager.Selected bodyPart)
     {
         //Get Each Mesh or Material from the SOs
         newRArmMesh = MechaManager.instance.GetRightArm?.Mesh;
@@ -53,10 +58,18 @@ public class MechaDisplay : MonoBehaviour
         newBrandMaterial = MechaManager.instance.GetBrand?.Material;
         newLArmMaterial = MechaManager.instance.GetLeftArm?.Material;
 
-        
-        LoadNewMesh(rightArmMeshFilter, newRArmMesh,newRArmMaterial);
-        LoadNewMesh(brandMeshFilter, newBrandMesh, newBrandMaterial);
-        LoadNewMesh(leftArmMeshFilter, newLArmMesh, newLArmMaterial);
+        switch(bodyPart) 
+        {
+        case MechaManager.Selected.RightArm:
+            LoadNewMesh(rightArmMeshFilter, newRArmMesh,newRArmMaterial);
+            break;
+        case MechaManager.Selected.Brand:
+            LoadNewMesh(brandMeshFilter, newBrandMesh, newBrandMaterial);
+            break;
+        case MechaManager.Selected.LeftArm:
+            LoadNewMesh(leftArmMeshFilter, newLArmMesh, newLArmMaterial);
+            break;
+        }
     }
 
     private void LoadNewMesh(MeshFilter meshFilter, Mesh newMesh, Material newMaterial)
@@ -70,7 +83,7 @@ public class MechaDisplay : MonoBehaviour
         }
         else
         {
-             Debug.LogWarning($"<color=yellow>[DEV_WARNING] New Mesh is null | Not loaded.");
+             Debug.LogWarning($"[DEV_WARNING] New Mesh is null | Not loaded.");
         }
     }
 
@@ -82,6 +95,25 @@ public class MechaDisplay : MonoBehaviour
             newMeshScale.x *= -1;
         }
         meshFilter.transform.localScale = newMeshScale;
+    }
+
+    private void loadGameObject(GameObject go, string goPath)
+    {
+        if(go != null)
+        {
+            return;
+        }
+        
+        GameObject goToLoad = GameObject.Find(goPath);
+        if(goToLoad == null)
+        {
+            Debug.LogError($"[DEV_ERROR] Cannot Find {goPath} object in scene.");
+            return;
+        }
+        else
+        {
+            go = GameObject.Find(goPath);
+        }
     }
 
 
