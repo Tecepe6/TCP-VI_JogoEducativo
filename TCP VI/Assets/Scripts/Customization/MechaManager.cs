@@ -10,6 +10,9 @@ public class MechaManager : MonoBehaviour
 {
     public static MechaManager instance;
 
+    public event Action< Selected, List<ArmSO>, List<BrandSO>, List<ArmSO> > ChangingMenuToggled;
+    public event Action ChangingMenuUntoggled;
+    public event Action<Selected, List<ArmSO>, List<BrandSO>, List<ArmSO> > PartSelected;
     public event Action<Selected> PartChanged;
 
     public enum Selected
@@ -17,31 +20,26 @@ public class MechaManager : MonoBehaviour
         RightArm, Brand, LeftArm
     }
 
-    [Header ("Selection Visualizer")]
+    [Header("Selection Visualizer")]
     [SerializeField] Selected selectedBodyPart;
     [SerializeField] int selectedPartID;
     [SerializeField] bool changingPart = false;
     [SerializeField] bool choosePart = false;
-    
+
     [SerializeField] ArmSO rightArmPart;
     [SerializeField] BrandSO brandPart;
     [SerializeField] ArmSO leftArmPart;
     //recommended: select defaults for these in the inspector, always (maybe?)
 
-    
-    [Header ("UI Components")]
-    [SerializeField] GameObject partsUI;
-    [SerializeField] GameObject detailsUI;
-    
-    [Header ("Avaiable Parts")]
+    [Header("Avaiable Parts")]
     [SerializeField] List<ArmSO> rightArms;
     [SerializeField] List<BrandSO> brands;
     [SerializeField] List<ArmSO> leftArms;
 
-    private void Awake() 
+    private void Awake()
     {
-        //singleton managing
-        if(instance != null && instance != this)
+        //singleton
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
         }
@@ -50,99 +48,21 @@ public class MechaManager : MonoBehaviour
             instance = this;
         }
         DontDestroyOnLoad(gameObject);
-
-        //getting UI components
-        partsUI = getUIComponent("/Canvas/PartsUI");
-        detailsUI = getUIComponent("/Canvas/DetailsUI");
     }
 
-    private void Start() 
+    private void Start()
     {
         SetupDefaultParts();
     }
 
-    private void Update() 
+    private void Update()
     {
-        // TODO: Clean UI Controller Stuff
-        
-        //Selecting
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            SelectPreviousEnum();
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            SelectNextEnum();
-
-            Debug.Log($"{selectedBodyPart}");
-        }
-
-        //Go back and forth the ChangingParts Menu
-        UIVisibility();
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            changingPart = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            changingPart = false;
-            ResetSelectedPartID();
-        }
-
-        //Go up and down our list of parts
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            SelectPreviousPartID();
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SelectNextPartID();
-        }
-
-        //Confirm an option
-        if (Input.GetKeyUp(KeyCode.Z))
-        {
-            ConfirmChoice();
-        }
-
         ChangePart();
-
-    }
-
-    private void UIVisibility()
-    {
-        if(changingPart)
-        {
-            partsUI.SetActive(true);
-            detailsUI.SetActive(true);
-        }
-        else
-        {
-            partsUI.SetActive(false);
-            detailsUI.SetActive(false);
-        }
-    }
-
-    private GameObject getUIComponent(string componentName)
-    {
-        GameObject uiComponent = GameObject.Find(componentName);
-        if(uiComponent == null)
-        {
-            Debug.LogError($"[DEV_ERROR] Cannot Find {componentName} object in scene.");
-            return null;
-        }
-        else
-        {
-            return uiComponent;
-        }
     }
 
     private void SetupDefaultParts()
     {
-        if(rightArms != null && leftArms != null && brands !=null)
+        if (rightArms != null && leftArms != null && brands != null)
         {
             rightArmPart = rightArms[0];
             brandPart = brands[0];
@@ -153,9 +73,9 @@ public class MechaManager : MonoBehaviour
     private int getPartsListSize(Selected _selectedBodyPart)
     {
         int partsListSize = 0; //default size
-        switch(_selectedBodyPart) 
+        switch (_selectedBodyPart)
         {
-            
+
             case Selected.RightArm:
                 partsListSize = rightArms.Count;
                 break;
@@ -173,9 +93,9 @@ public class MechaManager : MonoBehaviour
         return partsListSize;
     }
 
-    private void SelectNextEnum()
+    public void SelectNextEnum()
     {
-        if(!this.changingPart)
+        if (!this.changingPart)
         {
             Array enumValues = Enum.GetValues(typeof(Selected));
             int currentIndex = Array.IndexOf(enumValues, selectedBodyPart);
@@ -185,63 +105,84 @@ public class MechaManager : MonoBehaviour
         }
     }
 
-    private void SelectPreviousEnum()
+    public void SelectPreviousEnum()
     {
-        if(!this.changingPart)
+        if (!this.changingPart)
         {
             Array enumValues = Enum.GetValues(typeof(Selected));
             int currentIndex = Array.IndexOf(enumValues, selectedBodyPart);
 
-            int prevIndex = (currentIndex - 1 + enumValues.Length) % enumValues.Length; 
+            int prevIndex = (currentIndex - 1 + enumValues.Length) % enumValues.Length;
             // we are adding the length here because remainder operator would return -1 instead of 2
             selectedBodyPart = (Selected)enumValues.GetValue(prevIndex);
         }
     }
 
-    private void SelectNextPartID()
+    public void ToggleChangingPart(bool toggle)
     {
-        if(changingPart)
+        bool wasToggled = changingPart;
+        if (!choosePart)
+        {
+            changingPart = toggle;
+        }
+
+        if(!wasToggled && toggle)
+        {
+            ChangingMenuToggled?.Invoke(selectedBodyPart, leftArms, brands, rightArms);
+            ResetSelectedPartID();
+        }
+        else if (!toggle)
+        {
+            ChangingMenuUntoggled?.Invoke();
+        }
+    }
+
+    public void SelectNextPartID()
+    {
+        if (changingPart)
         {
             int partsListSize = getPartsListSize(selectedBodyPart);
 
             int currentIndex = selectedPartID;
             int nextIndex = (currentIndex + 1) % partsListSize;
-                
+
             selectedPartID = nextIndex;
+            PartSelected?.Invoke(selectedBodyPart, leftArms, brands, rightArms);
         }
-        
+
     }
 
-    private void SelectPreviousPartID()
+    public void SelectPreviousPartID()
     {
-        if(changingPart)
+        if (changingPart)
         {
             int partsListSize = getPartsListSize(selectedBodyPart);
 
             int currentIndex = selectedPartID;
             int prevIndex = (currentIndex - 1 + partsListSize) % partsListSize;
-                
+
             selectedPartID = prevIndex;
+            PartSelected?.Invoke(selectedBodyPart, leftArms, brands, rightArms);
         }
     }
 
-    private void SelectPartID(int partId)
+    public void SelectPartID(int partId)
     {
-        if(changingPart)
+        if (changingPart)
         {
             selectedPartID = partId;
+            PartSelected?.Invoke(selectedBodyPart, leftArms, brands, rightArms);
         }
     }
 
-    private void ResetSelectedPartID()
+    public void ResetSelectedPartID()
     {
-        selectedPartID = 0;
+        SelectPartID(0);
     }
-
 
     public void ConfirmChoice()
     {
-        if(changingPart)
+        if (changingPart)
         {
             choosePart = true;
         }
@@ -249,9 +190,9 @@ public class MechaManager : MonoBehaviour
 
     private void ChangePart()
     {
-        if(choosePart)
+        if (choosePart)
         {
-            switch(this.selectedBodyPart) 
+            switch (this.selectedBodyPart)
             {
                 case Selected.RightArm:
                     this.rightArmPart = rightArms[selectedPartID];
@@ -272,8 +213,39 @@ public class MechaManager : MonoBehaviour
             //basically copying Godot signals with eventActions here ;)
         }
     }
-    
+
+    public void AddPartToList(ScriptableObject newPart)
+    {
+        if (newPart is ArmSO newArmPart)
+        {
+            leftArms.Add(newArmPart);
+            return;
+        }
+
+        if (newPart is BrandSO newBrandPart)
+        {
+            brands.Add(newBrandPart);
+            return;
+        }
+
+        Debug.LogError("Error adding the desired part");
+    }
+
+    public void GetMechaChanges()
+    {
+        // TODO: add this method logic for using in loading the mecha changes in
+        //PlayerMecha script
+    }
+
     //below are PROPERTIES to acess the parts SOs (read-only) in other classes
+    public bool GetChangingPart
+    {
+        get { return changingPart; }
+    }
+    public int GetSelectedPartID
+    {
+        get { return selectedPartID; }
+    }
     public ArmSO GetRightArm
     {
         get { return rightArmPart; }
@@ -286,7 +258,7 @@ public class MechaManager : MonoBehaviour
     {
         get { return leftArmPart; }
     }
-    
+
 
 
 }

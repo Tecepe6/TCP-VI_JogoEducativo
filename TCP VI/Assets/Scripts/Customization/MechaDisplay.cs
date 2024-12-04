@@ -60,15 +60,15 @@ public class MechaDisplay : MonoBehaviour
 
         switch(bodyPart) 
         {
-        case MechaManager.Selected.RightArm:
-            LoadNewMesh(rightArmMeshFilter, newRArmMesh,newRArmMaterial);
-            break;
-        case MechaManager.Selected.Brand:
-            LoadNewMesh(brandMeshFilter, newBrandMesh, newBrandMaterial);
-            break;
-        case MechaManager.Selected.LeftArm:
-            LoadNewMesh(leftArmMeshFilter, newLArmMesh, newLArmMaterial);
-            break;
+            case MechaManager.Selected.RightArm:
+                LoadNewMesh(rightArmMeshFilter, newRArmMesh,newRArmMaterial);
+                break;
+            case MechaManager.Selected.Brand:
+                LoadNewMesh(brandMeshFilter, newBrandMesh, newBrandMaterial);
+                break;
+            case MechaManager.Selected.LeftArm:
+                LoadNewMesh(leftArmMeshFilter, newLArmMesh, newLArmMaterial);
+                break;
         }
     }
 
