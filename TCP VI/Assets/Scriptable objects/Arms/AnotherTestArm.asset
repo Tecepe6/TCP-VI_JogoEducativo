@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a96addf84dfd70b4e9174a305e20810d, type: 3}
-  m_Name: HelloWorldArm
+  m_Name: AnotherTestArm
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: HelloWorld (Arm)
-  <Description>k__BackingField: Arm you got from HelloWorld.
-  <Mesh>k__BackingField: {fileID: 6524377572475876587, guid: b06b3963ad37bd043bf6e43fb2159d12,
+  <Name>k__BackingField: AnotherTestArm
+  <Description>k__BackingField: Just another Arm.
+  <Mesh>k__BackingField: {fileID: 5958927517257933001, guid: 9a9345a8d2d417849a0d02abea6083a6,
     type: 3}
-  <Material>k__BackingField: {fileID: -5904023941931156751, guid: b06b3963ad37bd043bf6e43fb2159d12,
+  <Material>k__BackingField: {fileID: -3908103174281388195, guid: 9a9345a8d2d417849a0d02abea6083a6,
     type: 3}
   <SkMesh>k__BackingField: {fileID: 0}
   <AttackSpeed>k__BackingField: 3

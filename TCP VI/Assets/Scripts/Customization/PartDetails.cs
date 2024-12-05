@@ -25,15 +25,24 @@ public class Details : MonoBehaviour
         {
             case MechaManager.Selected.RightArm:
                 ID = MechaManager.instance.GetSelectedPartID;
-                detailsTMP.text = rightArms[ID].Description;
+                detailsTMP.text = $"{rightArms[ID].Description}\n\n"+
+                $">AtkSpeed: {rightArms[ID].AttackSpeed}\n" +
+                $">QuickDmg: {rightArms[ID].QuickDamage}\n" +
+                $">StrongDmg: {rightArms[ID].StrongDamage}";
                 break;
             case MechaManager.Selected.Brand:
                 ID = MechaManager.instance.GetSelectedPartID;
-                detailsTMP.text = brands[ID].Description;
+                detailsTMP.text = $"{brands[ID].Description}\n\n"+
+                $">MaxLife: {brands[ID].MaxLife}\n" +
+                $">Defense: {brands[ID].Defense}\n" +
+                $">DodgeSpeed: {brands[ID].DodgeSpeed}";
                 break;
             case MechaManager.Selected.LeftArm:
                 ID = MechaManager.instance.GetSelectedPartID;
-                detailsTMP.text = leftArms[ID].Description;
+                detailsTMP.text = $"{leftArms[ID].Description}\n\n"+
+                $">AtkSpeed: {leftArms[ID].AttackSpeed}\n" +
+                $">QuickDmg: {leftArms[ID].QuickDamage}\n" +
+                $">StrongDmg: {leftArms[ID].StrongDamage}";
                 break;
         }
     }

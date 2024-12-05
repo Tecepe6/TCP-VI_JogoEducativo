@@ -1,12 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
-using UnityEngine.Video;
 
 public class PlayerMecha : Combatant
 {
     Animator animator;
+
+    void Awake()
+    {
+        if(MechaManager.instance != null)
+        {
+            MechaManager.instance.SetPlayerReference(this);
+            MechaManager.instance.SetMechaChanges();
+        }
+        
+    }
 
     void Start()
     {

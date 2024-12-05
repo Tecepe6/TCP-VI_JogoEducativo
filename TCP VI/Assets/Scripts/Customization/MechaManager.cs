@@ -1,8 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-using Unity.VisualScripting;
 
 
 
@@ -35,6 +34,8 @@ public class MechaManager : MonoBehaviour
     [SerializeField] List<ArmSO> rightArms;
     [SerializeField] List<BrandSO> brands;
     [SerializeField] List<ArmSO> leftArms;
+    
+    private PlayerMecha playerMechaInstance;
 
     private void Awake()
     {
@@ -53,6 +54,7 @@ public class MechaManager : MonoBehaviour
     private void Start()
     {
         SetupDefaultParts();
+        //PlayerMecha.PlayerCreated += GetPlayerMecha;
     }
 
     private void Update()
@@ -214,6 +216,9 @@ public class MechaManager : MonoBehaviour
         }
     }
 
+    #region ExternalR&W
+    
+    //can be called when enemy DIES
     public void AddPartToList(ScriptableObject newPart)
     {
         if (newPart is ArmSO newArmPart)
@@ -230,12 +235,20 @@ public class MechaManager : MonoBehaviour
 
         Debug.LogError("Error adding the desired part");
     }
-
-    public void GetMechaChanges()
+    
+    public void SetPlayerReference(PlayerMecha _player)
     {
-        // TODO: add this method logic for using in loading the mecha changes in
-        //PlayerMecha script
+        playerMechaInstance = _player;
     }
+
+    public void SetMechaChanges()
+    {
+        //retrieve the SOs from this class and pass to others
+        playerMechaInstance._rightArmSO = rightArmPart;
+        playerMechaInstance._brandSO = brandPart;
+        playerMechaInstance._leftArmSO = leftArmPart;
+    }
+    #endregion
 
     //below are PROPERTIES to acess the parts SOs (read-only) in other classes
     public bool GetChangingPart
@@ -258,7 +271,5 @@ public class MechaManager : MonoBehaviour
     {
         get { return leftArmPart; }
     }
-
-
 
 }

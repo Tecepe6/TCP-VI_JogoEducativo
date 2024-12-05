@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MechaUIController : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class MechaUIController : MonoBehaviour
         UIVisibility();
 
         KeyboardControls();
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            SceneManager.LoadScene("CombatScene");
+        }
     }
 
     private void CreateButtons(MechaManager.Selected bodyPart)

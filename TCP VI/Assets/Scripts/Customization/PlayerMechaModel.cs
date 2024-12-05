@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MechaDisplay : MonoBehaviour
+public class PlayerMechaModel : MonoBehaviour
 {
     [Header ("Mecha GOs")]
     [SerializeField] GameObject rightArmObj;
@@ -22,16 +22,13 @@ public class MechaDisplay : MonoBehaviour
     [SerializeField] Material newBrandMaterial;
     [SerializeField] Material newLArmMaterial;
     
-    private void Update() 
-    {
-        this.transform.Rotate(0f,30f * Time.deltaTime,0f);
-    }
+
 
     private void Awake() 
     {
-        loadGameObject(ref rightArmObj, "/MechaDisplay/RightArm");
-        loadGameObject(ref brandObj, "/MechaDisplay/Brand");
-        loadGameObject(ref leftArmObj, "/MechaDisplay/LeftArm");
+        loadGameObject(ref rightArmObj, "/Player/Right Arm");
+        loadGameObject(ref brandObj, "/Player/Body");
+        loadGameObject(ref leftArmObj, "/Player/Left Arm");
 
         
         rightArmMeshFilter = rightArmObj.GetComponentInChildren<MeshFilter>();
@@ -41,16 +38,16 @@ public class MechaDisplay : MonoBehaviour
         // TODO: Add a SkinnedMeshRenderer Implementation path. 
         //(this will probably make MeshFilter obsolete if everything is animated with bones)
 
-        ReverseMesh(leftArmMeshFilter); //reverse leftie
+        ReverseMesh(leftArmMeshFilter);  //reverse leftie
     }
 
     private void Start() 
     {
-        //subscribe method to the event
-        MechaManager.instance.PartChanged += ChangeMeshes;
+        // TODO: Uncomment this when the Combat Scene is fixed
+        //ChangeMeshes();
     }
 
-    private void ChangeMeshes(MechaManager.Selected bodyPart)
+    private void ChangeMeshes()
     {
         //Get Each Mesh or Material from the SOs
         newRArmMesh = MechaManager.instance.GetRightArm?.Mesh;
@@ -61,19 +58,10 @@ public class MechaDisplay : MonoBehaviour
         newBrandMaterial = MechaManager.instance.GetBrand?.Material;
         newLArmMaterial = MechaManager.instance.GetLeftArm?.Material;
 
-        switch(bodyPart) 
-        {
-            case MechaManager.Selected.RightArm:
-                LoadNewMesh(rightArmMeshFilter, newRArmMesh,newRArmMaterial);
-                break;
-            case MechaManager.Selected.Brand:
-                LoadNewMesh(brandMeshFilter, newBrandMesh, newBrandMaterial);
-                break;
-            case MechaManager.Selected.LeftArm:
-                LoadNewMesh(leftArmMeshFilter, newLArmMesh, newLArmMaterial);
-                ReverseMesh(leftArmMeshFilter);
-                break;
-        }
+        LoadNewMesh(rightArmMeshFilter, newRArmMesh,newRArmMaterial);
+        LoadNewMesh(brandMeshFilter, newBrandMesh, newBrandMaterial);
+        LoadNewMesh(leftArmMeshFilter, newLArmMesh, newLArmMaterial);
+        ReverseMesh(leftArmMeshFilter);
     }
 
     private void LoadNewMesh(MeshFilter meshFilter, Mesh newMesh, Material newMaterial)

@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Default (Arm)
   <Description>k__BackingField: Arm from Default Brand.
-  <Mesh>k__BackingField: {fileID: 5028398121792350185, guid: 716ba7a04de3e4b4eb612404efbf17bc,
+  <Mesh>k__BackingField: {fileID: -1668112904775075524, guid: 51ecdb1bcc5ec7b4980e0cfeaba1214c,
     type: 3}
-  <Material>k__BackingField: {fileID: 0}
+  <Material>k__BackingField: {fileID: 2100000, guid: 5b73e48699d0f6042a0f79621875bb6f,
+    type: 2}
   <SkMesh>k__BackingField: {fileID: 0}
   <AttackSpeed>k__BackingField: 5
   <QuickDamage>k__BackingField: 5

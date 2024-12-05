@@ -16,8 +16,8 @@ MonoBehaviour:
   <Description>k__BackingField: Just a default brand.
   <Mesh>k__BackingField: {fileID: -2848884097826431284, guid: 63a9d282a6d01f948b2689683eaa1f9e,
     type: 3}
-  <Material>k__BackingField: {fileID: -876546973899608171, guid: 63a9d282a6d01f948b2689683eaa1f9e,
-    type: 3}
+  <Material>k__BackingField: {fileID: 2100000, guid: 3624314766222f240bea7a9e042744ad,
+    type: 2}
   <SkMesh>k__BackingField: {fileID: 0}
   <MaxLife>k__BackingField: 15
   <Defense>k__BackingField: 5

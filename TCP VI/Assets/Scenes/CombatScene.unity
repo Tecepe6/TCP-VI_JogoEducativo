@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -688,10 +688,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 631427742}
-  - component: {fileID: 631427744}
   - component: {fileID: 631427745}
   - component: {fileID: 631427743}
   - component: {fileID: 631427746}
+  - component: {fileID: 631427744}
+  - component: {fileID: 631427747}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -805,6 +806,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &631427747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631427741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21304ff064b6d5b46a73f1c1a813961f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightArmObj: {fileID: 0}
+  brandObj: {fileID: 0}
+  leftArmObj: {fileID: 0}
+  rightArmMeshFilter: {fileID: 0}
+  brandMeshFilter: {fileID: 0}
+  leftArmMeshFilter: {fileID: 0}
+  newRArmMesh: {fileID: 0}
+  newBrandMesh: {fileID: 0}
+  newLArmMesh: {fileID: 0}
+  newRArmMaterial: {fileID: 0}
+  newBrandMaterial: {fileID: 0}
+  newLArmMaterial: {fileID: 0}
 --- !u!1 &722842070
 GameObject:
   m_ObjectHideFlags: 0
