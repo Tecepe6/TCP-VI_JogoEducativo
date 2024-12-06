@@ -41,11 +41,16 @@ public class MechaDisplay : MonoBehaviour
         // TODO: Add a SkinnedMeshRenderer Implementation path. 
         //(this will probably make MeshFilter obsolete if everything is animated with bones)
 
+        
         ReverseMesh(leftArmMeshFilter); //reverse leftie
     }
 
     private void Start() 
     {
+        ChangeMeshes(MechaManager.Selected.RightArm);
+        ChangeMeshes(MechaManager.Selected.Brand);
+        ChangeMeshes(MechaManager.Selected.LeftArm);
+        
         //subscribe method to the event
         MechaManager.instance.PartChanged += ChangeMeshes;
     }
