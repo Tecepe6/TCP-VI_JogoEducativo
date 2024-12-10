@@ -30,16 +30,7 @@ public abstract class Combatant : MonoBehaviour
     }
 
     // Aplica dano ao Mecha
-    public void TakeDamage(int damageTaken)
-    {
-        currentLife -= damageTaken;
-        Debug.Log("Vida restante: " + currentLife);
-
-        if (currentLife <= 0)
-        {
-            Defeated();
-        }
-    }
+    public abstract void TakeDamage(int damageTaken);
 
     // L�gica para a derrota do Mecha
     public void Defeated()

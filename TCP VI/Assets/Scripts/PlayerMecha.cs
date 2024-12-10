@@ -7,12 +7,12 @@ public class PlayerMecha : Combatant
 
     void Awake()
     {
-        if(MechaManager.instance != null)
+        if (MechaManager.instance != null)
         {
             MechaManager.instance.SetPlayerReference(this);
             MechaManager.instance.SetMechaChanges();
         }
-        
+
     }
 
     void Start()
@@ -32,7 +32,7 @@ public class PlayerMecha : Combatant
 
     public override void QuickPunch()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             rightFist.QuickDamage();
             animator.SetTrigger("isQuickPunching");
@@ -41,7 +41,7 @@ public class PlayerMecha : Combatant
 
     public override void StrongPunch()
     {
-        if(Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))
         {
             leftFist.StrongDamage();
             animator.SetTrigger("isStrongPunching");
@@ -51,11 +51,11 @@ public class PlayerMecha : Combatant
 
     public override void DodgeLeft()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             animator.SetTrigger("isLeftDodging");
         }
-        
+
     }
 
     public override void DodgeRight()
@@ -63,6 +63,19 @@ public class PlayerMecha : Combatant
         if (Input.GetKeyDown(KeyCode.D))
         {
             animator.SetTrigger("isRightDodging");
+        }
+    }
+
+    public override void TakeDamage(int damageTaken)
+    {
+        currentLife -= damageTaken;
+        animator.SetTrigger("isTakingDamage");
+
+        Debug.Log("Vida restante: " + currentLife);
+
+        if (currentLife <= 0)
+        {
+            Defeated();
         }
     }
 }

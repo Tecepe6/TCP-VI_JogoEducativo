@@ -63,7 +63,8 @@ public class HelloWorld : Combatant
     public void HandleIdle()
     {
         // Inicia a corrotina para esperar antes de decidir o próximo movimento
-        StartCoroutine(WaitAndExecute(2f, () => {
+        StartCoroutine(WaitAndExecute(2f, () =>
+        {
             int randomNumber = Random.Range(1, 10);
             Debug.Log("Número Sorteado: " + randomNumber);
 
@@ -93,7 +94,8 @@ public class HelloWorld : Combatant
         animator.SetTrigger("isQuickPunching");
 
         // Espera pela duração da animação antes de voltar ao estado Idle
-        StartCoroutine(WaitAndExecute(1f, () => {
+        StartCoroutine(WaitAndExecute(1f, () =>
+        {
             // Transição para Idle após a animação
             currentState = HelloWorldState.Idle;
         }));
@@ -107,7 +109,8 @@ public class HelloWorld : Combatant
         animator.SetTrigger("isStrongPunching");
 
         // Espera pela duração da animação antes de voltar ao estado Idle
-        StartCoroutine(WaitAndExecute(2f, () => {
+        StartCoroutine(WaitAndExecute(2f, () =>
+        {
             // Transição para Idle após a animação
             currentState = HelloWorldState.Idle;
         }));
@@ -118,7 +121,8 @@ public class HelloWorld : Combatant
         animator.SetTrigger("isLeftDodging");
 
         // Espera pela duração da animação antes de voltar ao estado Idle
-        StartCoroutine(WaitAndExecute(1f, () => {
+        StartCoroutine(WaitAndExecute(1f, () =>
+        {
             // Transição para Idle após a animação
             currentState = HelloWorldState.Idle;
         }));
@@ -126,12 +130,26 @@ public class HelloWorld : Combatant
 
     public override void DodgeRight()
     {
-        animator.SetTrigger("isRightDodgin");
+        animator.SetTrigger("isRightDodging");
 
         // Espera pela duração da animação antes de voltar ao estado Idle
-        StartCoroutine(WaitAndExecute(1f, () => {
+        StartCoroutine(WaitAndExecute(1f, () =>
+        {
             // Transição para Idle após a animação
             currentState = HelloWorldState.Idle;
         }));
+    }
+
+    public override void TakeDamage(int damageTaken)
+    {
+        currentLife -= damageTaken;
+        animator.SetTrigger("isTakingDamage");
+
+        Debug.Log("Vida restante: " + currentLife);
+
+        if (currentLife <= 0)
+        {
+            Defeated();
+        }
     }
 }
