@@ -44,7 +44,7 @@ public class PlayerMechaModel : MonoBehaviour
     private void Start() 
     {
         // TODO: Uncomment this when the Combat Scene is fixed
-        //ChangeMeshes();
+        ChangeMeshes();
     }
 
     private void ChangeMeshes()
