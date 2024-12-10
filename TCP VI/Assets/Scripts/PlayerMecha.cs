@@ -73,6 +73,15 @@ public class PlayerMecha : Combatant
 
         Debug.Log("Vida restante: " + currentLife);
 
+        if (healthManager != null)
+        {
+            healthManager.UpdateHealthBar();
+        }
+        else
+        {
+            Debug.LogWarning("HealthManager não está configurado corretamente.");
+        }
+
         if (currentLife <= 0)
         {
             Defeated();

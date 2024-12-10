@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement; // TODO: Move this to another place
 public abstract class Combatant : MonoBehaviour
 {
-    [SerializeField] protected int currentLife;
+    public int currentLife;
 
     [Header("PE�AS DO MECHA")]
     public ArmSO _rightArmSO;
@@ -15,6 +15,8 @@ public abstract class Combatant : MonoBehaviour
     public Fist leftFist;
 
     public int currentDamage;
+
+    public HealthManager healthManager;
 
     // Fun��o abstrata para socos e esquivas
     public abstract void QuickPunch();
@@ -27,6 +29,15 @@ public abstract class Combatant : MonoBehaviour
     {
         currentLife = _brandSO.MaxLife;
         Debug.Log(currentLife);
+
+        if (healthManager != null)
+        {
+            healthManager.UpdateHealthBar();
+        }
+        else
+        {
+            Debug.LogWarning("HealthManager não está configurado corretamente.");
+        }
     }
 
     // Aplica dano ao Mecha

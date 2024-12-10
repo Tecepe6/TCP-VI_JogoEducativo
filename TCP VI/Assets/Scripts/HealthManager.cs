@@ -5,16 +5,21 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public Image healthBar;
-    public float healthAmount = 100f;
-    void Start()
+    public Combatant combatant;
+
+    public Image healthBarImage;
+
+    private void Start()
     {
-        
+        UpdateHealthBar();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateHealthBar()
     {
-        
+        float healthPercent = (float)combatant.currentLife / combatant._brandSO.MaxLife;
+
+        healthPercent = Mathf.Clamp01(healthPercent);
+
+        healthBarImage.fillAmount = healthPercent;
     }
 }
