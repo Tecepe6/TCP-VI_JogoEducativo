@@ -6,6 +6,8 @@ public class Fist : MonoBehaviour
 {
     Combatant combatant;
 
+    public string tipoDeDano;
+
     public int currentDamage;
 
     void Start()
@@ -22,17 +24,19 @@ public class Fist : MonoBehaviour
     {
         if(collision.TryGetComponent(out Combatant opponent))
         {
-            opponent.TakeDamage(currentDamage);
+            opponent.TakeDamage(currentDamage, tipoDeDano);
         }
     }
 
     public void QuickDamage()
     {
         currentDamage = combatant._rightArmSO.QuickDamage;
+        tipoDeDano = "Dano Fraco";
     }
 
     public void StrongDamage()
     {
         currentDamage = combatant._leftArmSO.StrongDamage;
+        tipoDeDano = "Dano Forte";
     }
 }

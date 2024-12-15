@@ -140,10 +140,20 @@ public class HelloWorld : Combatant
         }));
     }
 
-    public override void TakeDamage(int damageTaken)
+    public override void TakeDamage(int damageTaken, string tipoDeDano)
     {
         currentLife -= damageTaken;
-        animator.SetTrigger("isTakingDamage");
+
+        if (tipoDeDano == "Dano Fraco")
+        {
+            animator.SetTrigger("isTakingLightDamage");
+        }
+
+        else if(tipoDeDano == "Dano Forte")
+        {
+            animator.SetTrigger("isTakingHeavyDamage");
+        }
+        
 
         Debug.Log("Vida restante: " + currentLife);
 
