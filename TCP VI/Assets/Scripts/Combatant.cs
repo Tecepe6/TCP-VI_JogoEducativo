@@ -6,6 +6,9 @@ public abstract class Combatant : MonoBehaviour
 {
     public int currentLife;
 
+    [Header("BARRA DE VIDA")]
+    public HealthBar healthBar;
+
     [Header("PE�AS DO MECHA")]
     public ArmSO _rightArmSO;
     public ArmSO _leftArmSO;
@@ -15,8 +18,6 @@ public abstract class Combatant : MonoBehaviour
     public Fist leftFist;
 
     public int currentDamage;
-
-    public HealthManager healthManager;
 
     // Fun��o abstrata para socos e esquivas
     public abstract void QuickPunch();
@@ -28,16 +29,8 @@ public abstract class Combatant : MonoBehaviour
     public void RestoreHealth()
     {
         currentLife = _brandSO.MaxLife;
+        healthBar.SetMaxHealth(_brandSO.MaxLife);
         Debug.Log(currentLife);
-
-        if (healthManager != null)
-        {
-            healthManager.UpdateHealthBar();
-        }
-        else
-        {
-            Debug.LogWarning("HealthManager não está configurado corretamente.");
-        }
     }
 
     // Aplica dano ao Mecha

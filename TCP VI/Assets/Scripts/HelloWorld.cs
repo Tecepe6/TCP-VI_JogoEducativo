@@ -153,18 +153,10 @@ public class HelloWorld : Combatant
         {
             animator.SetTrigger("isTakingHeavyDamage");
         }
-        
+
+        healthBar.SetHealth(currentLife);
 
         Debug.Log("Vida restante: " + currentLife);
-
-        if (healthManager != null)
-        {
-            healthManager.UpdateHealthBar();
-        }
-        else
-        {
-            Debug.LogWarning("HealthManager não está configurado corretamente.");
-        }
 
         if (currentLife <= 0)
         {

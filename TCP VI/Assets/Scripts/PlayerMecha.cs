@@ -80,16 +80,9 @@ public class PlayerMecha : Combatant
             animator.SetTrigger("isTakingHeavyDamage");
         }
 
-        Debug.Log("Vida restante: " + currentLife);
+        healthBar.SetHealth(currentLife);
 
-        if (healthManager != null)
-        {
-            healthManager.UpdateHealthBar();
-        }
-        else
-        {
-            Debug.LogWarning("HealthManager não está configurado corretamente.");
-        }
+        Debug.Log("Vida restante: " + currentLife);
 
         if (currentLife <= 0)
         {
