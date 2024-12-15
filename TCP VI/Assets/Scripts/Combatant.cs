@@ -29,7 +29,7 @@ public abstract class Combatant : MonoBehaviour
     public void RestoreHealth()
     {
         currentLife = _brandSO.MaxLife;
-        healthBar.SetMaxHealth(_brandSO.MaxLife);
+        healthBar.SetMaxHealth(currentLife);
         Debug.Log(currentLife);
     }
 
