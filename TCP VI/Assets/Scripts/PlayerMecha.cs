@@ -66,16 +66,16 @@ public class PlayerMecha : Combatant
         }
     }
 
-    public override void TakeDamage(int damageTaken, string tipoDeDano)
+    public override void TakeDamage(int damageTaken, int tipoDano)
     {
         currentLife -= damageTaken;
 
-        if(tipoDeDano == "Dano Fraco")
+        if(tipoDano == 1)
         {
             animator.SetTrigger("isTakingLightDamage");
         }
 
-        else if(tipoDeDano == "Dano Forte")
+        else if(tipoDano == 2)
         {
             animator.SetTrigger("isTakingHeavyDamage");
         }
