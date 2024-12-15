@@ -716,7 +716,6 @@ GameObject:
   - component: {fileID: 350478751}
   - component: {fileID: 350478750}
   - component: {fileID: 350478749}
-  - component: {fileID: 350478756}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -855,27 +854,6 @@ Transform:
   - {fileID: 940934252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &350478756
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350478748}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &368397267
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,7 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c568956cda7344bd3d41566a44b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeDano: 
+  tipoDano: 0
   currentDamage: 0
 --- !u!65 &368397269
 BoxCollider:
@@ -1435,7 +1413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c568956cda7344bd3d41566a44b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeDano: 
+  tipoDano: 0
   currentDamage: 0
 --- !u!1 &627030862
 GameObject:
@@ -1467,7 +1445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c568956cda7344bd3d41566a44b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeDano: 
+  tipoDano: 0
   currentDamage: 0
 --- !u!65 &627030864
 BoxCollider:
@@ -1868,7 +1846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c568956cda7344bd3d41566a44b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeDano: 
+  tipoDano: 0
   currentDamage: 0
 --- !u!1 &928183198
 GameObject:
@@ -2034,7 +2012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c568956cda7344bd3d41566a44b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeDano: 
+  tipoDano: 0
   currentDamage: 0
 --- !u!65 &940934251
 BoxCollider:
@@ -2055,8 +2033,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 3.9785423, y: 15.605594, z: 2.0207944}
-  m_Center: {x: 1, y: 6.4152327, z: 9.141939}
+  m_Size: {x: 3.9785423, y: 13.6289215, z: 2.0207944}
+  m_Center: {x: 1, y: 5.4268975, z: 9.141939}
 --- !u!4 &940934252
 Transform:
   m_ObjectHideFlags: 0
@@ -2653,7 +2631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c568956cda7344bd3d41566a44b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeDano: 
+  tipoDano: 0
   currentDamage: 0
 --- !u!1 &1496906901
 GameObject:
@@ -3100,7 +3078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c568956cda7344bd3d41566a44b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeDano: 
+  tipoDano: 0
   currentDamage: 0
 --- !u!65 &1801712240
 BoxCollider:
@@ -3121,8 +3099,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 3.9785423, y: 15.605594, z: 2.0207937}
-  m_Center: {x: -1, y: 6.4152327, z: 9.100717}
+  m_Size: {x: 3.9785423, y: 13.476868, z: 2.0207944}
+  m_Center: {x: -1, y: 5.3508725, z: 9.100717}
 --- !u!4 &1801712241
 Transform:
   m_ObjectHideFlags: 0
@@ -3756,7 +3734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776c568956cda7344bd3d41566a44b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoDeDano: 
+  tipoDano: 0
   currentDamage: 0
 --- !u!1 &2143984971
 GameObject:

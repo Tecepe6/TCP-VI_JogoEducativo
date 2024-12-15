@@ -19,6 +19,6 @@ MonoBehaviour:
   <Material>k__BackingField: {fileID: -876546973899608171, guid: 4d8acd3798c2fc34fbef7aca05f16c63,
     type: 3}
   <SkMesh>k__BackingField: {fileID: 0}
-  <MaxLife>k__BackingField: 30
+  <MaxLife>k__BackingField: 100
   <Defense>k__BackingField: 0
   <DodgeSpeed>k__BackingField: 3

@@ -34,7 +34,7 @@ public abstract class Combatant : MonoBehaviour
     }
 
     // Aplica dano ao Mecha
-    public abstract void TakeDamage(int damageTaken, string tipoDeDano);
+    public abstract void TakeDamage(int damageTaken, int tipoDeDano);
 
     // L�gica para a derrota do Mecha
     public void Defeated()

@@ -34,7 +34,7 @@ public class PlayerMecha : Combatant
     {
         if (Input.GetMouseButtonDown(0))
         {
-            rightFist.QuickDamage();
+            leftFist.QuickDamage();
             animator.SetTrigger("isQuickPunching");
         }
     }
@@ -43,7 +43,7 @@ public class PlayerMecha : Combatant
     {
         if (Input.GetMouseButtonDown(1))
         {
-            leftFist.StrongDamage();
+            rightFist.StrongDamage();
             animator.SetTrigger("isStrongPunching");
         }
 
@@ -66,16 +66,16 @@ public class PlayerMecha : Combatant
         }
     }
 
-    public override void TakeDamage(int damageTaken, string tipoDeDano)
+    public override void TakeDamage(int damageTaken, int tipoDeDano)
     {
         currentLife -= damageTaken;
 
-        if(tipoDeDano == "Dano Fraco")
+        if (tipoDeDano == 1)
         {
             animator.SetTrigger("isTakingLightDamage");
         }
 
-        else if(tipoDeDano == "Dano Forte")
+        else if (tipoDeDano == 2)
         {
             animator.SetTrigger("isTakingHeavyDamage");
         }

@@ -6,6 +6,8 @@ public class HelloWorld : Combatant
 {
     Animator animator;
 
+    public HelloWorldState nextState;
+
     // Estados do HelloWorld
     public enum HelloWorldState
     {
@@ -13,7 +15,8 @@ public class HelloWorld : Combatant
         QuickPunching,
         StrongPunching,
         LeftDodging,
-        RightDodging
+        RightDodging,
+        Null
     }
 
     [Header("ESTADO ATUAL")]
@@ -25,6 +28,7 @@ public class HelloWorld : Combatant
         animator = GetComponent<Animator>();
 
         currentState = HelloWorldState.Idle;
+        nextState = HelloWorldState.Null;
     }
 
     void Update()
@@ -53,6 +57,25 @@ public class HelloWorld : Combatant
     // Função para esperar e executar uma ação após um tempo
     IEnumerator WaitAndExecute(float seconds, System.Action onComplete = null)
     {
+        int randomNumber = Random.Range(1, 10);
+        Debug.Log("Número Sorteado: " + randomNumber);
+
+        // 30% de chance de usar um quick punch
+        if (randomNumber <= 3)
+        {
+            nextState = HelloWorldState.QuickPunching;
+        }
+        // 20% de chance de usar strong punch
+        else if (randomNumber >= 9)
+        {
+            nextState = HelloWorldState.StrongPunching;
+        }
+        // 50% de chance de não fazer nada e voltar para o estado Idle
+        else
+        {
+            nextState = HelloWorldState.Idle;
+        }
+
         Debug.Log("Esperando por " + seconds + " segundos...");
         yield return new WaitForSeconds(seconds);
 
@@ -63,26 +86,15 @@ public class HelloWorld : Combatant
     public void HandleIdle()
     {
         // Inicia a corrotina para esperar antes de decidir o próximo movimento
+        if(nextState != HelloWorldState.Null)
+        {
+            return;
+        }
+
         StartCoroutine(WaitAndExecute(2f, () =>
         {
-            int randomNumber = Random.Range(1, 10);
-            Debug.Log("Número Sorteado: " + randomNumber);
-
-            // 30% de chance de usar um quick punch
-            if (randomNumber <= 3)
-            {
-                currentState = HelloWorldState.QuickPunching;
-            }
-            // 20% de chance de usar strong punch
-            else if (randomNumber >= 9)
-            {
-                currentState = HelloWorldState.StrongPunching;
-            }
-            // 50% de chance de não fazer nada e voltar para o estado Idle
-            else
-            {
-                currentState = HelloWorldState.Idle;
-            }
+            currentState = nextState;
+            nextState = HelloWorldState.Null;
         }));
     }
 
@@ -90,30 +102,30 @@ public class HelloWorld : Combatant
     {
         Debug.Log("QUICK PUNCH!");
 
-        rightFist.QuickDamage();
+        leftFist.QuickDamage();
         animator.SetTrigger("isQuickPunching");
 
-        // Espera pela duração da animação antes de voltar ao estado Idle
-        StartCoroutine(WaitAndExecute(1f, () =>
+        if (animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("QuickAttack"))
         {
-            // Transição para Idle após a animação
-            currentState = HelloWorldState.Idle;
-        }));
+            return;
+        }
+
+        currentState = HelloWorldState.Idle;
     }
 
     public override void StrongPunch()
     {
         Debug.Log("STRONG PUNCH!!!");
 
-        leftFist.StrongDamage();
+        rightFist.StrongDamage();
         animator.SetTrigger("isStrongPunching");
 
-        // Espera pela duração da animação antes de voltar ao estado Idle
-        StartCoroutine(WaitAndExecute(2f, () =>
+        if (animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("StrongAttack"))
         {
-            // Transição para Idle após a animação
-            currentState = HelloWorldState.Idle;
-        }));
+            return;
+        }
+
+        currentState = HelloWorldState.Idle;
     }
 
     public override void DodgeLeft()
@@ -140,16 +152,16 @@ public class HelloWorld : Combatant
         }));
     }
 
-    public override void TakeDamage(int damageTaken, string tipoDeDano)
+    public override void TakeDamage(int damageTaken, int tipoDeDano)
     {
         currentLife -= damageTaken;
 
-        if (tipoDeDano == "Dano Fraco")
+        if (tipoDeDano == 1)
         {
             animator.SetTrigger("isTakingLightDamage");
         }
 
-        else if(tipoDeDano == "Dano Forte")
+        else if (tipoDeDano == 2)
         {
             animator.SetTrigger("isTakingHeavyDamage");
         }
