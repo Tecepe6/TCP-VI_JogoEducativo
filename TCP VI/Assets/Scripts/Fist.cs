@@ -24,7 +24,9 @@ public class Fist : MonoBehaviour
     {
         if(collision.TryGetComponent(out Combatant opponent))
         {
-            opponent.TakeDamage(currentDamage, tipoDano);
+            opponent.TakeDamage(currentDamage, this.tipoDano);
+            
+            Debug.Log("colisão" + gameObject.name);
         }
     }
 
@@ -32,11 +34,15 @@ public class Fist : MonoBehaviour
     {
         currentDamage = combatant._rightArmSO.QuickDamage;
         tipoDano = 1;
+
+        Debug.Log("braçoFraco" + gameObject.name);
     }
 
     public void StrongDamage()
     {
         currentDamage = combatant._leftArmSO.StrongDamage;
         tipoDano = 2;
+
+        Debug.Log("braçoForte" + gameObject.name);
     }
 }
