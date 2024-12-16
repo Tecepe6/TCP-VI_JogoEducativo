@@ -916,7 +916,7 @@ Transform:
   m_GameObject: {fileID: 368397267}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -1.25, z: 0}
+  m_LocalPosition: {x: 1, y: -1.68, z: -0.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3366,6 +3366,7 @@ MonoBehaviour:
   rightFist: {fileID: 569919775}
   leftFist: {fileID: 2086167713}
   currentDamage: 0
+  nextState: 0
   currentState: 0
 --- !u!54 &1856959338
 Rigidbody:
@@ -3514,6 +3515,7 @@ MonoBehaviour:
   rightFist: {fileID: 368397268}
   leftFist: {fileID: 627030863}
   currentDamage: 0
+  nextState: 0
   currentState: 0
 --- !u!1001 &1938587350
 PrefabInstance:
@@ -3661,7 +3663,7 @@ Transform:
   m_GameObject: {fileID: 2006616956}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.42, z: -0.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
