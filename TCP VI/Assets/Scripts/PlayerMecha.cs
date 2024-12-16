@@ -42,8 +42,11 @@ public class PlayerMecha : Combatant
             staminaBar.SetStamina(currentStamina);
             OnActionUsed();
         }
-
-        //Implementar animação de falha
+        
+        else if(currentStamina < _brandSO.QuickPunchRequiredStamina)
+        {
+            animator.SetTrigger("insuficientStamina");
+        }
     }
 
     public override void StrongPunch()
@@ -58,6 +61,10 @@ public class PlayerMecha : Combatant
             OnActionUsed();
         }
 
+        else if (currentStamina < _brandSO.StrongPunchRequiredStamina)
+        {
+            animator.SetTrigger("insuficientStamina");
+        }
     }
 
     public override void DodgeLeft()
@@ -71,6 +78,10 @@ public class PlayerMecha : Combatant
             OnActionUsed();
         }
 
+        else if (currentStamina < _brandSO.DodgeRequiredStamina)
+        {
+            animator.SetTrigger("insuficientStamina");
+        }
     }
 
     public override void DodgeRight()
@@ -82,6 +93,11 @@ public class PlayerMecha : Combatant
             currentStamina -= 5;
             staminaBar.SetStamina(currentStamina);
             OnActionUsed();
+        }
+
+        else if(currentStamina < _brandSO.DodgeRequiredStamina)
+        {
+            animator.SetTrigger("insuficientStamina");
         }
     }
 
