@@ -24,7 +24,7 @@ public class HelloWorld : Combatant
 
     void Start()
     {
-        RestoreHealth();
+        RestoreBars();
         animator = GetComponent<Animator>();
 
         currentState = HelloWorldState.Idle;
@@ -52,6 +52,8 @@ public class HelloWorld : Combatant
                 DodgeRight();
                 break;
         }
+        
+        StartStaminaRecovery();
     }
 
     // Função para esperar e executar uma ação após um tempo
@@ -100,56 +102,90 @@ public class HelloWorld : Combatant
 
     public override void QuickPunch()
     {
-        Debug.Log("QUICK PUNCH!");
-
-        leftFist.QuickDamage();
-        animator.SetTrigger("isQuickPunching");
-
-        if (animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("QuickAttack"))
+        if(currentStamina >= _brandSO.QuickPunchRequiredStamina)
         {
-            return;
-        }
+            Debug.Log("QUICK PUNCH!");
 
-        currentState = HelloWorldState.Idle;
+            currentStamina -= 5;
+            staminaBar.SetStamina(currentStamina);
+            OnActionUsed();
+
+            leftFist.QuickDamage();
+            animator.SetTrigger("isQuickPunching");
+
+            if (animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("QuickAttack"))
+            {
+                return;
+            }
+
+            currentState = HelloWorldState.Idle;
+        }
+        
+        // Implementar animação de falha
     }
 
     public override void StrongPunch()
     {
-        Debug.Log("STRONG PUNCH!!!");
-
-        rightFist.StrongDamage();
-        animator.SetTrigger("isStrongPunching");
-
-        if (animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("StrongAttack"))
+        if(currentStamina >= _brandSO.StrongPunchRequiredStamina)
         {
-            return;
-        }
+            Debug.Log("STRONG PUNCH!!!");
 
-        currentState = HelloWorldState.Idle;
+            currentStamina -= 10;
+            staminaBar.SetStamina(currentStamina);
+            OnActionUsed();
+
+            rightFist.StrongDamage();
+            animator.SetTrigger("isStrongPunching");
+
+            if (animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("StrongAttack"))
+            {
+                return;
+            }
+
+            currentState = HelloWorldState.Idle;
+        }
+        
+        // Implementar animação de falha
     }
 
     public override void DodgeLeft()
     {
-        animator.SetTrigger("isLeftDodging");
-
-        // Espera pela duração da animação antes de voltar ao estado Idle
-        StartCoroutine(WaitAndExecute(1f, () =>
+        if(currentStamina >= _brandSO.DodgeRequiredStamina)
         {
-            // Transição para Idle após a animação
-            currentState = HelloWorldState.Idle;
-        }));
+            animator.SetTrigger("isLeftDodging");
+
+            OnActionUsed();
+            currentStamina -= 5;
+            staminaBar.SetStamina(currentStamina);
+
+            // Espera pela duração da animação antes de voltar ao estado Idle
+            StartCoroutine(WaitAndExecute(1f, () =>
+            {
+                // Transição para Idle após a animação
+                currentState = HelloWorldState.Idle;
+            }));
+        }
+
+        // Implementação de falha
     }
 
     public override void DodgeRight()
     {
-        animator.SetTrigger("isRightDodging");
-
-        // Espera pela duração da animação antes de voltar ao estado Idle
-        StartCoroutine(WaitAndExecute(1f, () =>
+        if(currentStamina >= _brandSO.DodgeRequiredStamina)
         {
-            // Transição para Idle após a animação
-            currentState = HelloWorldState.Idle;
-        }));
+            animator.SetTrigger("isRightDodging");
+
+            currentStamina -= 5;
+            staminaBar.SetStamina(currentStamina);
+            OnActionUsed();
+
+            // Espera pela duração da animação antes de voltar ao estado Idle
+            StartCoroutine(WaitAndExecute(1f, () =>
+            {
+                // Transição para Idle após a animação
+                currentState = HelloWorldState.Idle;
+            }));
+        }
     }
 
     public override void TakeDamage(int damageTaken, int tipoDeDano)

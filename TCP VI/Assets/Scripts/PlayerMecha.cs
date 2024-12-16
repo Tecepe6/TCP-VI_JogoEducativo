@@ -12,12 +12,11 @@ public class PlayerMecha : Combatant
             MechaManager.instance.SetPlayerReference(this);
             MechaManager.instance.SetMechaChanges();
         }
-
     }
 
     void Start()
     {
-        RestoreHealth();
+        RestoreBars();
         animator = GetComponent<Animator>();
     }
 
@@ -28,41 +27,61 @@ public class PlayerMecha : Combatant
 
         DodgeLeft();
         DodgeRight();
+
+        StartStaminaRecovery();
     }
 
     public override void QuickPunch()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && currentStamina >= _brandSO.QuickPunchRequiredStamina)
         {
             leftFist.QuickDamage();
             animator.SetTrigger("isQuickPunching");
+
+            currentStamina -= 5;
+            staminaBar.SetStamina(currentStamina);
+            OnActionUsed();
         }
+
+        //Implementar animação de falha
     }
 
     public override void StrongPunch()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && currentStamina >= _brandSO.StrongPunchRequiredStamina)
         {
             rightFist.StrongDamage();
             animator.SetTrigger("isStrongPunching");
+
+            currentStamina -= 10;
+            staminaBar.SetStamina(currentStamina);
+            OnActionUsed();
         }
 
     }
 
     public override void DodgeLeft()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && currentStamina >= _brandSO.DodgeRequiredStamina)
         {
             animator.SetTrigger("isLeftDodging");
+
+            currentStamina -= 5;
+            staminaBar.SetStamina(currentStamina);
+            OnActionUsed();
         }
 
     }
 
     public override void DodgeRight()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) && currentStamina >= _brandSO.DodgeRequiredStamina)
         {
             animator.SetTrigger("isRightDodging");
+
+            currentStamina -= 5;
+            staminaBar.SetStamina(currentStamina);
+            OnActionUsed();
         }
     }
 

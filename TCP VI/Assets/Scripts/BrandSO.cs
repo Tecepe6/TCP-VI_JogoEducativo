@@ -16,6 +16,11 @@ public class BrandSO : ScriptableObject
     
     // Status do chassi
     [field:SerializeField] public int MaxLife { get; private set; }
-    [field:SerializeField] public int Defense { get; private set; }
+    [field: SerializeField] public int MaxStamina { get; private set; }
+    [field: SerializeField] public int StaminaRecoveryRate { get; private set; }
+    [field: SerializeField] public int QuickPunchRequiredStamina {  get; private set; }
+    [field: SerializeField] public int StrongPunchRequiredStamina { get; private set; }
+    [field: SerializeField] public int DodgeRequiredStamina { get; private set; }
+    [field: SerializeField] public int Defense { get; private set; }
     [field:SerializeField] public int DodgeSpeed { get; private set; }
 }

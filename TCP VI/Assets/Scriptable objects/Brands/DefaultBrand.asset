@@ -20,5 +20,10 @@ MonoBehaviour:
     type: 2}
   <SkMesh>k__BackingField: {fileID: 0}
   <MaxLife>k__BackingField: 40
+  <MaxStamina>k__BackingField: 40
+  <StaminaRecoveryRate>k__BackingField: 4
+  <QuickPunchRequiredStamina>k__BackingField: 5
+  <StrongPunchRequiredStamina>k__BackingField: 10
+  <DodgeRequiredStamina>k__BackingField: 5
   <Defense>k__BackingField: 5
   <DodgeSpeed>k__BackingField: 5
