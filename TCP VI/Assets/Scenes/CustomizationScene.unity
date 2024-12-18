@@ -2922,14 +2922,14 @@ MonoBehaviour:
       expression: Normal
       options: []
       goTo: []
-      text: "Sim, bonit\xE3o. Esse a\xED \xE9 o meu! ~hihihihi"
+      text: "Siimmm... BONIT\xC3O. Esse a\xED \xE9 o meu! ~hihihihi"
       isEnd: 0
     - id: TestDialogue_3
       character: Trainee
       expression: Nervosa
       options: []
       goTo: []
-      text: AAARGHH, queria que fosse meu!
+      text: AAARGHH, queria ter dinheiro pra comprar um asssim!
       isEnd: 1
     - id: END_NODE
       character: None

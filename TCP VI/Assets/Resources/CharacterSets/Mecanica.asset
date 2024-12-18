@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a36953e2cd1a794fb35a83e418a619c, type: 3}
   m_Name: Mecanica
   m_EditorClassIdentifier: 
-  <CharacterName>k__BackingField: 
+  <CharacterName>k__BackingField: Mecanica
   Expressions:
     _serializedList:
     - Key: Normal

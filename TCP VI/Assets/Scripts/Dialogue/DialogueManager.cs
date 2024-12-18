@@ -95,7 +95,11 @@ public class DialogueManager : MonoBehaviour
         while(currentDialogueIndex < dialogueEndIndex + 1)
         {
             DialogueHolder.DialogueLine line = dialogue.dialogueLines[currentDialogueIndex];
-            ChangeCharacterImage(line.character, line.expression);
+            if(line.character != null && line.expression != null)
+            {
+                ChangeCharacterImage(line.character, line.expression);
+            }
+            
 
             if(line.options != null && line.goTo != null && line.goTo.Length >= 2) //check if it has options of answer
             {
