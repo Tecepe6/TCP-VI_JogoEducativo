@@ -1,0 +1,33 @@
+{
+  "dialogueLines": [
+    {
+      "id": "TestDialogue_1",
+      "character": "Trainee",
+      "expression": "Normal",
+      "text": "Que mecha bonito!",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_2",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "Siimmm... BONITÃO. Esse aí é o meu! ~hihihihi",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_3",
+      "character": "Trainee",
+      "expression": "Nervosa",
+      "text": "AAARGHH, queria ter dinheiro pra comprar um asssim!",
+      "isEnd": true
+    },
+
+    
+    {
+      "id": "END_NODE",
+      "character": "None",
+      "text": "End of Dialogue",
+      "isEnd": true
+    }
+  ]
+}
