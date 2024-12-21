@@ -12,6 +12,7 @@ public class MechaManager : MonoBehaviour
     public event Action< Selected, List<ArmSO>, List<BrandSO>, List<ArmSO> > ChangingMenuToggled;
     public event Action ChangingMenuUntoggled;
     public event Action<Selected, List<ArmSO>, List<BrandSO>, List<ArmSO> > PartSelected;
+    public event Action<Selected> BodyPartChanged;
     public event Action<Selected> PartChanged;
 
     public enum Selected
@@ -54,7 +55,6 @@ public class MechaManager : MonoBehaviour
     private void Start()
     {
         SetupDefaultParts();
-        //PlayerMecha.PlayerCreated += GetPlayerMecha;
     }
 
     private void Update()
@@ -77,7 +77,6 @@ public class MechaManager : MonoBehaviour
         int partsListSize = 0; //default size
         switch (_selectedBodyPart)
         {
-
             case Selected.RightArm:
                 partsListSize = rightArms.Count;
                 break;
@@ -95,7 +94,7 @@ public class MechaManager : MonoBehaviour
         return partsListSize;
     }
 
-    public void SelectNextEnum()
+    public void SelectNextBodyPart()
     {
         if (!this.changingPart)
         {
@@ -104,10 +103,11 @@ public class MechaManager : MonoBehaviour
 
             int nextIndex = (currentIndex + 1) % enumValues.Length;
             selectedBodyPart = (Selected)enumValues.GetValue(nextIndex);
+            BodyPartChanged?.Invoke(selectedBodyPart);
         }
     }
 
-    public void SelectPreviousEnum()
+    public void SelectPreviousBodyPart()
     {
         if (!this.changingPart)
         {
@@ -117,6 +117,7 @@ public class MechaManager : MonoBehaviour
             int prevIndex = (currentIndex - 1 + enumValues.Length) % enumValues.Length;
             // we are adding the length here because remainder operator would return -1 instead of 2
             selectedBodyPart = (Selected)enumValues.GetValue(prevIndex);
+            BodyPartChanged?.Invoke(selectedBodyPart);
         }
     }
 

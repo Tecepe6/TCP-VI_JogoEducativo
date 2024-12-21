@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MechaDisplay : MonoBehaviour
@@ -21,11 +22,6 @@ public class MechaDisplay : MonoBehaviour
     [SerializeField] Material newRArmMaterial;
     [SerializeField] Material newBrandMaterial;
     [SerializeField] Material newLArmMaterial;
-    
-    private void Update() 
-    {
-        this.transform.Rotate(0f,30f * Time.deltaTime,0f);
-    }
 
     private void Awake() 
     {
@@ -53,6 +49,41 @@ public class MechaDisplay : MonoBehaviour
         
         //subscribe method to the event
         MechaManager.instance.PartChanged += ChangeMeshes;
+        MechaManager.instance.BodyPartChanged += OutlineBodyPart;
+        RemoveBodyOutline(); //for first refresh
+
+    }
+
+    private void Update() 
+    {
+        //this.transform.Rotate(0f,30f * Time.deltaTime,0f);
+    }
+
+    //only works for MeshFilter:
+    private void OutlineBodyPart(MechaManager.Selected bodyPart)
+    {
+        //first make all unselected every frame
+        RemoveBodyOutline();
+
+        switch(bodyPart) 
+        {
+            case MechaManager.Selected.RightArm:
+                rightArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 1);
+                break;
+            case MechaManager.Selected.Brand:
+                brandMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 1);
+                break;
+            case MechaManager.Selected.LeftArm:
+                leftArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 1);
+                break;
+        }
+    }
+
+    private void RemoveBodyOutline()
+    {
+        rightArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 0);
+        brandMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 0);
+        leftArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 0);
     }
 
     private void ChangeMeshes(MechaManager.Selected bodyPart)
@@ -95,7 +126,7 @@ public class MechaDisplay : MonoBehaviour
         }
         else
         {
-             Debug.LogWarning($"[DEV_WARNING] New Mesh is null | Not loaded.");
+            Debug.LogWarning($"[DEV_WARNING] New Mesh is null | Not loaded.");
         }
     }
 

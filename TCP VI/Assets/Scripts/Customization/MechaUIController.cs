@@ -87,12 +87,12 @@ public class MechaUIController : MonoBehaviour
         //Selecting Body Parts
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            MechaManager.instance.SelectPreviousEnum();
+            MechaManager.instance.SelectPreviousBodyPart();
         }
 
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            MechaManager.instance.SelectNextEnum();
+            MechaManager.instance.SelectNextBodyPart();
         }
 
         //Go back and forth the ChangingParts Menu
