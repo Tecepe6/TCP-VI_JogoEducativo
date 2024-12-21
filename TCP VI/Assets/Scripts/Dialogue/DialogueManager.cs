@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Objetos")]
     [SerializeField] GameObject dialogueParent;
     [SerializeField] TMP_Text dialogueText;
+    [SerializeField] TMP_Text characterText;
     [SerializeField] Image character1Image;
     [SerializeField] Button option1Button;
     [SerializeField] Button option2Button;
@@ -23,11 +24,10 @@ public class DialogueManager : MonoBehaviour
     [Header("Velocidade do texto")]
     [SerializeField] float typingSpeed = 0.05f;
 
-    private DialogueHolder.Dialogue dialogue;
-
     [Header("Config Atual:")]
+    private DialogueHolder.Dialogue dialogue;
     [SerializeField] CharacterSetSO characterSet;
-    [SerializeField]private int currentDialogueIndex = 0;
+    [SerializeField] int currentDialogueIndex = 0;
 
     void Start()
     {
@@ -98,6 +98,7 @@ public class DialogueManager : MonoBehaviour
             if(line.character != null && line.expression != null)
             {
                 ChangeCharacterImage(line.character, line.expression);
+                ChangeCharacterName(line.character);
             }
             
 
@@ -169,9 +170,17 @@ public class DialogueManager : MonoBehaviour
         Debug.Log($"Incrementou current: {currentDialogueIndex}");
     }
 
-    private void ChangeCharacterImage(string character, string expression)
+    private void ChangeCharacterName(string characterName)
     {
-        string SOPAth = "CharacterSets/" + character;
+        string SOPAth = "CharacterSets/" + characterName;
+        this.characterSet = Resources.Load<CharacterSetSO>(SOPAth);
+
+        characterText.text = characterSet.CharacterName;
+    }
+
+    private void ChangeCharacterImage(string characterName, string expression)
+    {
+        string SOPAth = "CharacterSets/" + characterName;
         this.characterSet = Resources.Load<CharacterSetSO>(SOPAth);
 
         character1Image.sprite = characterSet.Expressions[expression];

@@ -674,6 +674,7 @@ Transform:
   m_Children:
   - {fileID: 6848154180283258189}
   - {fileID: 6143540502433929928}
+  - {fileID: 5038845315800621233}
   - {fileID: 7375641210843086513}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2669,14 +2670,14 @@ MonoBehaviour:
   m_text: Fulanin
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: a23a095828e46e9498b1f3f35c01db19, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280427042
-  m_fontColor: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
+    rgba: 4280690214
+  m_fontColor: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2699,7 +2700,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 25
   m_fontSizeMax: 55
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2915,21 +2916,21 @@ MonoBehaviour:
       expression: Normal
       options: []
       goTo: []
-      text: Que mecha bonito!
+      text: Wow! What a sick mecha you have here, huh?
       isEnd: 0
     - id: TestDialogue_2
       character: Mecanica
       expression: Normal
       options: []
       goTo: []
-      text: "Siimmm... BONIT\xC3O. Esse a\xED \xE9 o meu! ~hihihihi"
+      text: Oh yeah, pretty fit, dont't you think? That beauty is all mine, hehe.
       isEnd: 0
     - id: TestDialogue_3
       character: Trainee
       expression: Nervosa
       options: []
       goTo: []
-      text: AAARGHH, queria ter dinheiro pra comprar um asssim!
+      text: Can't imagine how much it costs. Being poor is so lame...
       isEnd: 1
     - id: END_NODE
       character: None
@@ -3291,10 +3292,10 @@ RectTransform:
   - {fileID: 9123240491016793022}
   m_Father: {fileID: 7323808557120227942}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 460, y: -35}
-  m_SizeDelta: {x: 580, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2673228970062958231
 CanvasRenderer:
@@ -3544,10 +3545,10 @@ RectTransform:
   - {fileID: 3678950310752509518}
   m_Father: {fileID: 7323808557120227942}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 460, y: -115}
-  m_SizeDelta: {x: 580, y: 70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &5038845315800621233
 Transform:
@@ -3562,7 +3563,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6143540502433929928}
+  m_Father: {fileID: 300972209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5180768579470915574
 MonoBehaviour:
@@ -3701,8 +3702,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 5038845315800621233}
+  m_Children: []
   m_Father: {fileID: 300972209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4034,6 +4034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueParent: {fileID: 6589010802781403175}
   dialogueText: {fileID: 5180768579470915574}
+  characterText: {fileID: 1919161610}
   character1Image: {fileID: 604224618}
   option1Button: {fileID: 9218343970606644011}
   option2Button: {fileID: 8709889799043598640}

@@ -1,0 +1,33 @@
+{
+  "dialogueLines": [
+    {
+      "id": "TestDialogue_1",
+      "character": "Trainee",
+      "expression": "Normal",
+      "text": "Wow! What a sick mecha you have here, huh?",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_2",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "Oh yeah, pretty fit, dont't you think? That beauty is all mine, hehe.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_3",
+      "character": "Trainee",
+      "expression": "Nervosa",
+      "text": "Can't imagine how much it costs. Being poor is so lame...",
+      "isEnd": true
+    },
+
+    
+    {
+      "id": "END_NODE",
+      "character": "None",
+      "text": "End of Dialogue",
+      "isEnd": true
+    }
+  ]
+}
