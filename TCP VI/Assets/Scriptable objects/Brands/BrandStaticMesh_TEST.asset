@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b6fd554abf7fd4aaab062518cacc6a, type: 3}
+  m_Name: BrandStaticMesh_TEST
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: STATIC MESH TEST
+  <Description>k__BackingField: Just a default brand.
+  <Mesh>k__BackingField: {fileID: -6162000312115537295, guid: f62bf3b4852d8ed4b98f34da9e0b740e,
+    type: 3}
+  <Material>k__BackingField: {fileID: -876546973899608171, guid: f62bf3b4852d8ed4b98f34da9e0b740e,
+    type: 3}
+  <SkMesh>k__BackingField: {fileID: 0}
+  <MaxLife>k__BackingField: 40
+  <MaxStamina>k__BackingField: 40
+  <StaminaRecoveryRate>k__BackingField: 4
+  <QuickPunchRequiredStamina>k__BackingField: 5
+  <StrongPunchRequiredStamina>k__BackingField: 10
+  <DodgeRequiredStamina>k__BackingField: 5
+  <Defense>k__BackingField: 5
+  <DodgeSpeed>k__BackingField: 5

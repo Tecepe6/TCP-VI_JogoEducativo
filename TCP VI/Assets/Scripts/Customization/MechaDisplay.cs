@@ -3,15 +3,28 @@ using UnityEngine;
 
 public class MechaDisplay : MonoBehaviour
 {
+    private enum MeshType
+    {
+        Static,
+        Skinned
+    }
     [Header ("Mecha GOs")]
     [SerializeField] GameObject rightArmObj;
     [SerializeField] GameObject brandObj;
     [SerializeField] GameObject leftArmObj;
 
+    [Header ("Select the Type")]
+    [SerializeField] MeshType meshType;
+
     [Header ("Mecha Mesh Filters")]
     [SerializeField] MeshFilter rightArmMeshFilter;    
     [SerializeField] MeshFilter brandMeshFilter;
     [SerializeField] MeshFilter leftArmMeshFilter;
+
+    [Header ("Mecha SKMesh Renderer")]
+    [SerializeField] SkinnedMeshRenderer rightArmMeshRend;    
+    [SerializeField] SkinnedMeshRenderer brandMeshRend;
+    [SerializeField] SkinnedMeshRenderer leftArmMeshRend;
 
     [Header ("Mecha Meshes")]
     [SerializeField] Mesh newRArmMesh;
@@ -29,20 +42,20 @@ public class MechaDisplay : MonoBehaviour
         loadGameObject(ref brandObj, "/MechaDisplay/Brand");
         loadGameObject(ref leftArmObj, "/MechaDisplay/LeftArm");
 
-        
+        //Getting MeshFilters
         rightArmMeshFilter = rightArmObj.GetComponentInChildren<MeshFilter>();
         brandMeshFilter = brandObj.GetComponentInChildren<MeshFilter>();
         leftArmMeshFilter = leftArmObj.GetComponentInChildren<MeshFilter>();
 
-        // TODO: Add a SkinnedMeshRenderer Implementation path. 
-        //(this will probably make MeshFilter obsolete if everything is animated with bones)
-
-        
-        ReverseMesh(leftArmMeshFilter); //reverse leftie
+        //Getting SKMesh Renderers
+        rightArmMeshRend = rightArmObj.GetComponentInChildren<SkinnedMeshRenderer>();
+        brandMeshRend = brandObj.GetComponentInChildren<SkinnedMeshRenderer>();
+        leftArmMeshRend = leftArmObj.GetComponentInChildren<SkinnedMeshRenderer>();
     }
 
     private void Start() 
     {
+        //Setup when starting
         ChangeMeshes(MechaManager.Selected.RightArm);
         ChangeMeshes(MechaManager.Selected.Brand);
         ChangeMeshes(MechaManager.Selected.LeftArm);
@@ -51,7 +64,6 @@ public class MechaDisplay : MonoBehaviour
         MechaManager.instance.PartChanged += ChangeMeshes;
         MechaManager.instance.BodyPartChanged += OutlineBodyPart;
         RemoveBodyOutline(); //for first refresh
-
     }
 
     private void Update() 
@@ -65,25 +77,54 @@ public class MechaDisplay : MonoBehaviour
         //first make all unselected every frame
         RemoveBodyOutline();
 
-        switch(bodyPart) 
+        if(meshType == MeshType.Static)
         {
-            case MechaManager.Selected.RightArm:
-                rightArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 1);
-                break;
-            case MechaManager.Selected.Brand:
-                brandMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 1);
-                break;
-            case MechaManager.Selected.LeftArm:
-                leftArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 1);
-                break;
+            switch(bodyPart) 
+            {
+                case MechaManager.Selected.RightArm:
+                    rightArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 1);
+                    break;
+                case MechaManager.Selected.Brand:
+                    brandMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 1);
+                    break;
+                case MechaManager.Selected.LeftArm:
+                    leftArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 1);
+                    break;
+            }
+        }
+        
+        if(meshType == MeshType.Skinned)
+        {
+            switch(bodyPart) 
+            {
+                case MechaManager.Selected.RightArm:
+                    rightArmMeshRend.materials[1].SetInt("_Visible", 1);
+                    break;
+                case MechaManager.Selected.Brand:
+                    brandMeshRend.materials[1].SetInt("_Visible", 1);
+                    break;
+                case MechaManager.Selected.LeftArm:
+                    leftArmMeshRend.materials[1].SetInt("_Visible", 1);
+                    break;
+            }
         }
     }
 
     private void RemoveBodyOutline()
     {
-        rightArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 0);
-        brandMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 0);
-        leftArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 0);
+        if(meshType == MeshType.Static)
+        {
+            rightArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 0);
+            brandMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 0);
+            leftArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 0);
+        }
+
+        if(meshType == MeshType.Skinned)
+        {
+            rightArmMeshRend.materials[1].SetInt("_Visible", 0);
+            brandMeshRend.materials[1].SetInt("_Visible", 0);
+            leftArmMeshRend.materials[1].SetInt("_Visible", 0);
+        }
     }
 
     private void ChangeMeshes(MechaManager.Selected bodyPart)
@@ -97,19 +138,40 @@ public class MechaDisplay : MonoBehaviour
         newBrandMaterial = MechaManager.instance.GetBrand?.Material;
         newLArmMaterial = MechaManager.instance.GetLeftArm?.Material;
 
-        switch(bodyPart) 
+        if(meshType == MeshType.Static)
         {
-            case MechaManager.Selected.RightArm:
-                LoadNewMesh(rightArmMeshFilter, newRArmMesh,newRArmMaterial);
-                break;
-            case MechaManager.Selected.Brand:
-                LoadNewMesh(brandMeshFilter, newBrandMesh, newBrandMaterial);
-                break;
-            case MechaManager.Selected.LeftArm:
-                LoadNewMesh(leftArmMeshFilter, newLArmMesh, newLArmMaterial);
-                ReverseMesh(leftArmMeshFilter);
-                break;
+            switch(bodyPart) 
+            {
+                case MechaManager.Selected.RightArm:
+                    LoadNewMesh(rightArmMeshFilter, newRArmMesh,newRArmMaterial);
+                    break;
+                case MechaManager.Selected.Brand:
+                    LoadNewMesh(brandMeshFilter, newBrandMesh, newBrandMaterial);
+                    break;
+                case MechaManager.Selected.LeftArm:
+                    LoadNewMesh(leftArmMeshFilter, newLArmMesh, newLArmMaterial);
+                    ReverseMesh(leftArmMeshFilter);
+                    break;
+            }
         }
+        
+        if (meshType == MeshType.Skinned)
+        {
+            switch(bodyPart) 
+            {
+                case MechaManager.Selected.RightArm:
+                    LoadNewSKMesh(rightArmMeshRend, newRArmMesh,newRArmMaterial);
+                    break;
+                case MechaManager.Selected.Brand:
+                    LoadNewSKMesh(brandMeshRend, newBrandMesh, newBrandMaterial);
+                    break;
+                case MechaManager.Selected.LeftArm:
+                    LoadNewSKMesh(leftArmMeshRend, newLArmMesh, newLArmMaterial);
+                    ReverseMesh(leftArmMeshRend);
+                    break;
+            }
+        }
+        
     }
 
     private void LoadNewMesh(MeshFilter meshFilter, Mesh newMesh, Material newMaterial)
@@ -130,6 +192,22 @@ public class MechaDisplay : MonoBehaviour
         }
     }
 
+    private void LoadNewSKMesh(SkinnedMeshRenderer meshRend, Mesh newMesh, Material newMaterial)
+    {
+        if (newMesh != null)
+        {
+            meshRend.sharedMesh = newMesh;
+            Material[] materials = meshRend.materials;
+            
+            materials[0] = newMaterial;
+            meshRend.sharedMaterials = materials;
+        }
+        else
+        {
+            Debug.LogWarning($"[DEV_WARNING] New Mesh is null | Not loaded.");
+        }
+    }
+
     private void ReverseMesh(MeshFilter meshFilter) //to reverse when it's the leftie arm
     {
         Vector3 newMeshScale = meshFilter.transform.localScale;
@@ -138,6 +216,16 @@ public class MechaDisplay : MonoBehaviour
             newMeshScale.x *= -1;
         }
         meshFilter.transform.localScale = newMeshScale;
+    }
+
+    private void ReverseMesh(SkinnedMeshRenderer meshRenderer) //to reverse when it's the leftie arm
+    {
+        Vector3 newMeshScale = meshRenderer.transform.localScale;
+        if(newMeshScale.x > 0) //reverse only if it isn't already
+        {
+            newMeshScale.x *= -1;
+        }
+        meshRenderer.transform.localScale = newMeshScale;
     }
 
     private void loadGameObject(ref GameObject go, string goPath)

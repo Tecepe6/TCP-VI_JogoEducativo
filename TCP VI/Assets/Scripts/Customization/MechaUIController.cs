@@ -16,8 +16,8 @@ public class MechaUIController : MonoBehaviour
     private void Awake() 
     {
         //getting UI components
-        partsUI = getUIComponent("/Canvas/PartsUI");
-        detailsUI = getUIComponent("/Canvas/DetailsUI");
+        partsUI = getUIComponent("/CustomizationCanvas/PartsUI");
+        detailsUI = getUIComponent("/CustomizationCanvas/DetailsUI");
     }
 
     private void Start() 

@@ -35,8 +35,8 @@ public class PlayerMechaModel : MonoBehaviour
         brandMeshFilter = brandObj.GetComponentInChildren<MeshFilter>();
         leftArmMeshFilter = leftArmObj.GetComponentInChildren<MeshFilter>();
 
-        // TODO: Add a SkinnedMeshRenderer Implementation path. 
-        //(this will probably make MeshFilter obsolete if everything is animated with bones)
+        // TODO: Add a SkinnedMeshRenderer Implementation path here. 
+        //Copy from MechaDisplay
 
         ReverseMesh(leftArmMeshFilter);  //reverse leftie
     }
@@ -110,6 +110,5 @@ public class PlayerMechaModel : MonoBehaviour
             go = GameObject.Find(goPath);
         }
     }
-
-
+    
 }
