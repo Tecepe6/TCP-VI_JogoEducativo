@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class MechaUIController : MonoBehaviour
 {
-    [SerializeField] GameObject buttonsPrefab;
-    [SerializeField] Transform content;
-
     [Header ("UI Components")]
     [SerializeField] GameObject partsUI;
     [SerializeField] GameObject detailsUI;
@@ -20,12 +17,7 @@ public class MechaUIController : MonoBehaviour
         detailsUI = getUIComponent("/CustomizationCanvas/DetailsUI");
     }
 
-    private void Start() 
-    {
-        Instantiate(buttonsPrefab, content);
-    }
-
-    private void Update() 
+    private void Update()
     {
         UIVisibility();
 
@@ -35,23 +27,6 @@ public class MechaUIController : MonoBehaviour
         {
             SceneManager.LoadScene("CombatScene");
         }
-    }
-
-    private void CreateButtons(MechaManager.Selected bodyPart)
-    {
-        switch(bodyPart) 
-        {
-        case MechaManager.Selected.RightArm:
-            Debug.Log("cheguei aqui");
-            Instantiate(buttonsPrefab, content);
-            break;
-        case MechaManager.Selected.Brand:
-            Instantiate(buttonsPrefab, content);
-            break;
-        case MechaManager.Selected.LeftArm:
-            Instantiate(buttonsPrefab, content);
-            break;
-        }      
     }
 
     private GameObject getUIComponent(string componentName)
