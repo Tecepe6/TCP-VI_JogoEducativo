@@ -29,6 +29,7 @@ public class PlayerMecha : Combatant
         DodgeLeft();
         DodgeRight();
 
+        StartStaminaRecovery();
     }
 
     // /*

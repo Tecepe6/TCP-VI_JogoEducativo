@@ -14,7 +14,8 @@ public abstract class Combatant : MonoBehaviour
     public HealthBar healthBar;
     public StaminaBar staminaBar;
 
-    protected Coroutine staminaRecoveryCoroutine;
+    protected Coroutine recoverStaminaCoroutine;
+    protected float staminaRecoveryAccumulated = 0f;
 
     [Header("PEÇAS DO MECHA")]
     public ArmSO _rightArmSO;
@@ -59,7 +60,7 @@ public abstract class Combatant : MonoBehaviour
         if (isRecoveringStamina)
         {
             Debug.Log("OnActionUsed()");
-            StopCoroutine(staminaRecoveryCoroutine);
+            StopCoroutine(recoverStaminaCoroutine);
             isRecoveringStamina = false;
         }
     }
@@ -71,26 +72,33 @@ public abstract class Combatant : MonoBehaviour
             Debug.Log("StartStaminaRecovery()");
             isRecoveringStamina = true;
 
-            staminaRecoveryCoroutine = StartCoroutine(RecoverStamina());
+            StartCoroutine(RecoverStamina());
         }
     }
 
     protected virtual IEnumerator RecoverStamina()
     {
-        Debug.Log("RecoverStamina()");
+        Debug.Log("Corrotina de recuperação de estamina iniciada");
+        yield return new WaitForSeconds(1f);
+
         while (currentStamina < _brandSO.MaxStamina)
         {
-            currentStamina += Convert.ToInt32(_brandSO.StaminaRecoveryRate * Time.deltaTime);
+            staminaRecoveryAccumulated += (_brandSO.StaminaRecoveryRate) * Time.deltaTime;
 
-            if (currentStamina >= _brandSO.MaxStamina)
+            if (staminaRecoveryAccumulated >= 1f)
             {
-                currentStamina = _brandSO.MaxStamina;
-            }
+                int increment = Mathf.FloorToInt(staminaRecoveryAccumulated);
+                currentStamina += increment;
+                staminaRecoveryAccumulated -= increment;
 
-            staminaBar.SetStamina(currentStamina);
+                currentStamina = Mathf.Min(currentStamina, _brandSO.MaxStamina);
+                staminaBar.SetStamina(currentStamina);
+            }
 
             yield return null;
         }
+
+        yield return null;
     }
 
     // */
