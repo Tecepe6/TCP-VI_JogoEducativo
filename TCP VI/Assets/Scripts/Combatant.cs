@@ -1,17 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; // TODO: Move this to another place
+using UnityEngine.SceneManagement;
 public abstract class Combatant : MonoBehaviour
 {
     public int currentLife;
     public int currentStamina;
 
-    private bool isRecoveringStamina = false;
+    [SerializeField] protected bool isRecoveringStamina = false;
 
     [Header("BARRAS")]
     public HealthBar healthBar;
     public StaminaBar staminaBar;
+
+    protected Coroutine staminaRecoveryCoroutine;
 
     [Header("PEÇAS DO MECHA")]
     public ArmSO _rightArmSO;
@@ -25,8 +28,11 @@ public abstract class Combatant : MonoBehaviour
 
     // Função abstrata para socos e esquivas
     public abstract void QuickPunch();
+
     public abstract void StrongPunch();
+
     public abstract void DodgeRight();
+
     public abstract void DodgeLeft();
 
     // Restaura a vida ao máximo
@@ -45,37 +51,49 @@ public abstract class Combatant : MonoBehaviour
     }
 
     // Funções de STAMINA
-    public void OnActionUsed()
+
+    // /*
+
+    public virtual void OnActionUsed()
     {
         if (isRecoveringStamina)
         {
-            StopCoroutine(RestoreStaminaOverTime());
+            Debug.Log("OnActionUsed()");
+            StopCoroutine(staminaRecoveryCoroutine);
             isRecoveringStamina = false;
         }
     }
 
-    public void StartStaminaRecovery()
+    public virtual void StartStaminaRecovery()
     {
-        if (!isRecoveringStamina && currentStamina < _brandSO.MaxStamina) 
+        if (!isRecoveringStamina && currentStamina < _brandSO.MaxStamina)
         {
+            Debug.Log("StartStaminaRecovery()");
             isRecoveringStamina = true;
-            StartCoroutine(RestoreStaminaOverTime());
+
+            staminaRecoveryCoroutine = StartCoroutine(RecoverStamina());
         }
     }
 
-    private IEnumerator RestoreStaminaOverTime()
+    protected virtual IEnumerator RecoverStamina()
     {
+        Debug.Log("RecoverStamina()");
         while (currentStamina < _brandSO.MaxStamina)
         {
-            currentStamina += Mathf.RoundToInt(_brandSO.StaminaRecoveryRate * Time.deltaTime); // alterações
-            currentStamina = Mathf.Clamp(currentStamina, 0, _brandSO.MaxStamina);
+            currentStamina += Convert.ToInt32(_brandSO.StaminaRecoveryRate * Time.deltaTime);
+
+            if (currentStamina >= _brandSO.MaxStamina)
+            {
+                currentStamina = _brandSO.MaxStamina;
+            }
+
             staminaBar.SetStamina(currentStamina);
 
             yield return null;
         }
-
-        isRecoveringStamina = false;
     }
+
+    // */
 
     // Aplica dano ao Mecha
     public abstract void TakeDamage(int damageTaken, int tipoDeDano);

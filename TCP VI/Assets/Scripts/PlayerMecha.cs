@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMecha : Combatant
@@ -28,8 +29,24 @@ public class PlayerMecha : Combatant
         DodgeLeft();
         DodgeRight();
 
-        StartStaminaRecovery();
     }
+
+    // /*
+    public override void OnActionUsed()
+    {
+        base.OnActionUsed();
+    }
+
+    public override void StartStaminaRecovery()
+    {
+        base.StartStaminaRecovery();
+    }
+
+    protected override IEnumerator RecoverStamina()
+    {
+        yield return base.RecoverStamina();
+    }
+    // */
 
     public override void QuickPunch()
     {
