@@ -72,14 +72,14 @@ public abstract class Combatant : MonoBehaviour
             Debug.Log("StartStaminaRecovery()");
             isRecoveringStamina = true;
 
-            StartCoroutine(RecoverStamina());
+            recoverStaminaCoroutine = StartCoroutine(RecoverStamina());
         }
     }
 
     protected virtual IEnumerator RecoverStamina()
     {
         Debug.Log("Corrotina de recuperação de estamina iniciada");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
 
         while (currentStamina < _brandSO.MaxStamina)
         {
