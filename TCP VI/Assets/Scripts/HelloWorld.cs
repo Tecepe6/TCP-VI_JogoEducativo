@@ -53,7 +53,7 @@ public class HelloWorld : Combatant
                 break;
         }
         
-        //StartStaminaRecovery();
+        StartStaminaRecovery();
     }
 
     // Função para esperar e executar uma ação após um tempo

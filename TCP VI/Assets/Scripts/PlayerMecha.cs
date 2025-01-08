@@ -15,11 +15,13 @@ public class PlayerMecha : Combatant
         }
     }
 
+
     void Start()
     {
         RestoreBars();
         animator = GetComponent<Animator>();
     }
+
 
     void Update()
     {
@@ -32,22 +34,24 @@ public class PlayerMecha : Combatant
         StartStaminaRecovery();
     }
 
-    // /*
+
     public override void OnActionUsed()
     {
         base.OnActionUsed();
     }
+
 
     public override void StartStaminaRecovery()
     {
         base.StartStaminaRecovery();
     }
 
+
     protected override IEnumerator RecoverStamina()
     {
         yield return base.RecoverStamina();
     }
-    // */
+
 
     public override void QuickPunch()
     {
