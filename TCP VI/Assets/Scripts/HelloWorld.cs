@@ -108,7 +108,7 @@ public class HelloWorld : Combatant
 
             currentStamina -= 5;
             staminaBar.SetStamina(currentStamina);
-            //OnActionUsed();
+            OnActionUsed();
 
             leftFist.QuickDamage();
             animator.SetTrigger("isQuickPunching");
@@ -132,7 +132,7 @@ public class HelloWorld : Combatant
 
             currentStamina -= 10;
             staminaBar.SetStamina(currentStamina);
-            //OnActionUsed();
+            OnActionUsed();
 
             rightFist.StrongDamage();
             animator.SetTrigger("isStrongPunching");
@@ -154,7 +154,7 @@ public class HelloWorld : Combatant
         {
             animator.SetTrigger("isLeftDodging");
 
-            //OnActionUsed();
+            OnActionUsed();
             currentStamina -= 5;
             staminaBar.SetStamina(currentStamina);
 
@@ -177,7 +177,7 @@ public class HelloWorld : Combatant
 
             currentStamina -= 5;
             staminaBar.SetStamina(currentStamina);
-            //OnActionUsed();
+            OnActionUsed();
 
             // Espera pela duração da animação antes de voltar ao estado Idle
             StartCoroutine(WaitAndExecute(1f, () =>
