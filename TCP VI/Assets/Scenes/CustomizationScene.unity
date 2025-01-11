@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -545,6 +545,140 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1009790169}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &519912022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519912023}
+  - component: {fileID: 519912025}
+  - component: {fileID: 519912024}
+  m_Layer: 5
+  m_Name: InstructionText (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &519912023
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519912022}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6275636356860646498}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -1200, y: 113}
+  m_SizeDelta: {x: 700, y: 50}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &519912024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519912022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "Conifrme a sele\xE7\xE3o com [ENTER]"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4286125324
+  m_fontColor: {r: 0.047058824, g: 0.08235294, b: 0.4745098, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 29
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 20
+  m_fontSizeMax: 29
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &519912025
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519912022}
+  m_CullTransparentMesh: 1
 --- !u!1 &604224616
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,6 +827,140 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8547944732c7b954d81afc409b806b54, type: 3}
+--- !u!1 &927239613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 927239614}
+  - component: {fileID: 927239616}
+  - component: {fileID: 927239615}
+  m_Layer: 5
+  m_Name: InstructionText (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &927239614
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927239613}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6275636356860646498}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -28, y: 113}
+  m_SizeDelta: {x: 700, y: 50}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &927239615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927239613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Selecione as partes do Mecha com [W] e [D] ou setas direcionais
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4286059788
+  m_fontColor: {r: 0.04672481, g: 0.082082786, b: 0.4716981, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 20
+  m_fontSizeMax: 29
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &927239616
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927239613}
+  m_CullTransparentMesh: 1
 --- !u!1 &1009790168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,31 +1475,137 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c75b3ef764a88c4fa11c1868db85674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueName: customizationDialogues
+  dialogueName: testeBuild1
   filePath: Assets/Resources/Dialogues/
   refresh: 0
   thisDialogue:
     dialogueLines:
     - id: TestDialogue_1
-      character: Trainee
-      expression: Normal
-      options: []
-      goTo: []
-      text: Que mecha bonito!
-      isEnd: 0
-    - id: TestDialogue_2
       character: Mecanica
       expression: Normal
       options: []
       goTo: []
-      text: "Siimmm... BONIT\xC3O. Esse a\xED \xE9 o meu! ~hihihihi"
+      text: "O primeiro passo para ser uma operadora de mechas, \xE9 ter um mecha.
+        E \xE9 isso que vamos fazer hoje."
+      isEnd: 0
+    - id: TestDialogue_2
+      character: Trainee
+      expression: Normal
+      options: []
+      goTo: []
+      text: "Irado! As pe\xE7as est\xE3o naquela caixa ali? Vou abrir."
       isEnd: 0
     - id: TestDialogue_3
       character: Trainee
       expression: Nervosa
       options: []
       goTo: []
-      text: AAARGHH, queria ter dinheiro pra comprar um asssim!
+      text: "U\xE9... cad\xEA as pe\xE7as? Aqui s\xF3 tem um CINZA e CHATO CUBO."
+      isEnd: 0
+    - id: TestDialogue_4
+      character: Mecanica
+      expression: Normal
+      options: []
+      goTo: []
+      text: "Hahaha! \xC9 assim mesmo. Por enquanto, esse cubo \xE9 apenas um objeto
+        vazio. Para transform\xE1lo em um mecha, precisamos adicionar uma CLASSE
+        \xE0 ele."
+      isEnd: 0
+    - id: TestDialogue_5
+      character: Mecanica
+      expression: Normal
+      options: []
+      goTo: []
+      text: Aqui, insira um daqueles cores da marca Hello World no cubo e veja o
+        que acontece.
+      isEnd: 0
+    - id: TestDialogue_6
+      character: Trainee
+      expression: Normal
+      options: []
+      goTo: []
+      text: "A Trainee Promissora inseriu um core no cubo. Ao fazer isso, o cubo
+        se transformou em um mecha, sem os bra\xE7os."
+      isEnd: 0
+    - id: TestDialogue_7
+      character: Trainee
+      expression: Normal
+      options: []
+      goTo: []
+      text: Taporra! O que aconteceu? E o que eles colocam nesses cores de marca?
+      isEnd: 0
+    - id: TestDialogue_8
+      character: Mecanica
+      expression: Normal
+      options: []
+      goTo: []
+      text: "Esses cores de marca possuem classes atribu\xEDdas \xE0 eles. Basicamente,
+        ela \xE9 um molde de cria\xE7\xE3o de elementos que possuem as mesmas caracter\xEDsticas."
+      isEnd: 0
+    - id: TestDialogue_9
+      character: Mecanica
+      expression: Normal
+      options: []
+      goTo: []
+      text: "No caso, a marca Hello World define um tipo de mecha, com atributos
+        e fun\xE7\xF5es espec\xEDficas."
+      isEnd: 0
+    - id: TestDialogue_10
+      character: Trainee
+      expression: Normal
+      options: []
+      goTo: []
+      text: "Saquei. Mas se a classe, no caso a marca, define o que \xE9 um mecha,
+        por que precisamos do cubo?"
+      isEnd: 0
+    - id: TestDialogue_11
+      character: Mecanica
+      expression: Normal
+      options: []
+      goTo: []
+      text: "O cubo \xE9 apenas uma inst\xE2ncia da classe. Em outras palavras, \xE9
+        um OBJETO. Utilizamos eles para instanciar a classe."
+      isEnd: 0
+    - id: TestDialogue_12
+      character: Mecanica
+      expression: Normal
+      options: []
+      goTo: []
+      text: "Pense na classe como o DNA e o objeto como o corpo. Um precisa do outro
+        e, com essa separa\xE7\xE3o, podemos aplicar o mesmo 'DNA' em diferentes
+        'corpos' para criar m\xFAltiplas inst\xE2ncias."
+      isEnd: 0
+    - id: TestDialogue_13
+      character: Mecanica
+      expression: Normal
+      options: []
+      goTo: []
+      text: "No caso, interprete isso como uma forma f\xE1cil de produzir mechas
+        da marca Hello World."
+      isEnd: 0
+    - id: TestDialogue_14
+      character: Mecanica
+      expression: Normal
+      options: []
+      goTo: []
+      text: "Enfim, chega de papo por hora. Acredito que a pr\xE1tica seja a melhor
+        professora!"
+      isEnd: 0
+    - id: TestDialogue_15
+      character: Mecanica
+      expression: Normal
+      options: []
+      goTo: []
+      text: "Aqui, vamos por a m\xE3o na massa e configurar esse objeto e terminar
+        de montar o Hello World. E aperte [C] quando estiver pronta para um test
+        drive"
+      isEnd: 0
+    - id: TestDialogue_16
+      character: Trainee
+      expression: Normal
+      options: []
+      goTo: []
+      text: "Agora assim falou a minha l\xEDngua!"
       isEnd: 1
     - id: END_NODE
       character: None
@@ -3924,6 +4298,8 @@ RectTransform:
   - {fileID: 4389103774329773702}
   - {fileID: 9034487305726578891}
   - {fileID: 6251811947898190102}
+  - {fileID: 519912023}
+  - {fileID: 927239614}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3984,7 +4360,7 @@ MonoBehaviour:
   dialogueHolder: {fileID: 130948177566138048}
   dialogueManager: {fileID: 8200172361977035001}
   dialogueStartId: TestDialogue_1
-  dialogueEndId: TestDialogue_3
+  dialogueEndId: TestDialogue_16
 --- !u!222 &6576170586524363827
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4794,7 +5170,7 @@ MonoBehaviour:
   option2Button: {fileID: 8709889799043598640}
   nextButton: {fileID: 2978759235684694048}
   _dialogueMenuFirst: {fileID: 6311901001145478759}
-  typingSpeed: 0.05
+  typingSpeed: 0.005
   characterSet: {fileID: 0}
   currentDialogueIndex: 0
 --- !u!4 &8375090047758365537
