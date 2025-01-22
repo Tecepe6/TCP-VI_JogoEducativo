@@ -19,6 +19,6 @@ MonoBehaviour:
   <Material>k__BackingField: {fileID: 2100000, guid: 5b73e48699d0f6042a0f79621875bb6f,
     type: 2}
   <SkMesh>k__BackingField: {fileID: 0}
-  <AttackSpeed>k__BackingField: 5
-  <QuickDamage>k__BackingField: 5
-  <StrongDamage>k__BackingField: 10
+  attackSpeed: 1
+  quickDamage: 5
+  strongDamage: 100

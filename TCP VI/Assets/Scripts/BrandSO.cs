@@ -18,11 +18,11 @@ public class BrandSO : ScriptableObject
     [SerializeField][Range(1, 100)] private int maxLife;
     [SerializeField][Range(1, 100)] private int maxStamina;
     [SerializeField][Range(1, 100)] private int staminaRecoveryRate;
-    [SerializeField][Range(1, 25)] private int quickPunchRequiredStamina;
-    [SerializeField][Range(1, 35)] private int strongPunchRequiredStamina;
-    [SerializeField][Range(1, 10)] private int dodgeRequiredStamina;
-    [SerializeField] [Range(1, 40)] private int defense;
-    [SerializeField] [Range(1, 10)] private int dodgeSpeed;
+    [SerializeField][Range(1, 100)] private int quickPunchRequiredStamina;
+    [SerializeField][Range(1, 100)] private int strongPunchRequiredStamina;
+    [SerializeField][Range(1, 100)] private int dodgeRequiredStamina;
+    [SerializeField] [Range(1, 100)] private int defense;
+    [SerializeField] [Range(1, 100)] private int dodgeSpeed;
 
     // Propriedades públicas para acessar os campos privados de forma segura
     public int MaxLife { get { return maxLife; } private set { maxLife = value; } }

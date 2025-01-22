@@ -16,7 +16,17 @@ public class ArmSO : ScriptableObject
     [field:SerializeField] public SkinnedMeshRenderer SkMesh {  get; private set; } // Will only work after adding the logic in MechaDisplay
 
     // Status do bra�o
+    [SerializeField][Range(1, 100)] private int attackSpeed;
+    [SerializeField][Range(1, 100)] private int quickDamage;
+    [SerializeField][Range(1, 100)] private int strongDamage;
+
+    public int AttackSpeed { get { return attackSpeed; } set { attackSpeed = value; } }
+    public int QuickDamage { get { return quickDamage; } set { quickDamage = value; } }
+    public int StrongDamage { get { return strongDamage; } set { strongDamage = value; } }
+
+    /*
     [field:SerializeField] public int AttackSpeed {  get; private set; }
     [field:SerializeField] public int QuickDamage { get; private set; }
     [field:SerializeField] public int StrongDamage { get; private set; }
+    */
 }
