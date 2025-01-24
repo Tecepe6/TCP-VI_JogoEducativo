@@ -62,6 +62,11 @@ public abstract class Combatant : MonoBehaviour
             Debug.Log("OnActionUsed()");
             StopCoroutine(recoverStaminaCoroutine);
             isRecoveringStamina = false;
+
+            if(currentStamina < 0)
+            {
+                currentStamina = 0;
+            }
         }
     }
 
