@@ -19,11 +19,11 @@ MonoBehaviour:
   <Material>k__BackingField: {fileID: -876546973899608171, guid: f62bf3b4852d8ed4b98f34da9e0b740e,
     type: 3}
   <SkMesh>k__BackingField: {fileID: 0}
-  <MaxLife>k__BackingField: 40
-  <MaxStamina>k__BackingField: 40
-  <StaminaRecoveryRate>k__BackingField: 4
-  <QuickPunchRequiredStamina>k__BackingField: 5
-  <StrongPunchRequiredStamina>k__BackingField: 10
-  <DodgeRequiredStamina>k__BackingField: 5
-  <Defense>k__BackingField: 5
-  <DodgeSpeed>k__BackingField: 5
+  maxLife: 20
+  maxStamina: 20
+  staminaRecoveryRate: 20
+  quickPunchRequiredStamina: 3
+  strongPunchRequiredStamina: 5
+  dodgeRequiredStamina: 20
+  defense: 20
+  dodgeSpeed: 20

@@ -15,8 +15,8 @@ public class BrandSO : ScriptableObject
     [field: SerializeField] public SkinnedMeshRenderer SkMesh { get; private set; } // Will only work after adding the logic in MechaDisplay
 
     // Status do chassi
-    [SerializeField][Range(1, 100)] private int maxLife;
-    [SerializeField][Range(1, 100)] private int maxStamina;
+    [SerializeField][Range(1, 100)] public int maxLife;
+    [SerializeField][Range(1, 100)] public int maxStamina;
     [SerializeField][Range(1, 100)] private int staminaRecoveryRate;
     [SerializeField][Range(1, 100)] private int quickPunchRequiredStamina;
     [SerializeField][Range(1, 100)] private int strongPunchRequiredStamina;
