@@ -5,6 +5,7 @@ using UnityEngine;
 public class HelloWorld : Combatant
 {
     Animator animator;
+    [SerializeField] private float waitTime;
 
     public HelloWorldState nextState;
 
@@ -62,17 +63,18 @@ public class HelloWorld : Combatant
         int randomNumber = Random.Range(1, 10);
         Debug.Log("Número Sorteado: " + randomNumber);
 
-        // 30% de chance de usar um quick punch
-        if (randomNumber <= 3)
+        // 50% de chance de usar um quick punch
+        if (randomNumber <= 5)
         {
             nextState = HelloWorldState.QuickPunching;
         }
-        // 20% de chance de usar strong punch
-        else if (randomNumber >= 9)
+        
+        // 30% de chance de usar strong punch
+        if (randomNumber  >= 8)
         {
             nextState = HelloWorldState.StrongPunching;
         }
-        // 50% de chance de não fazer nada e voltar para o estado Idle
+        // 30% de chance de não fazer nada e voltar para o estado Idle
         else
         {
             nextState = HelloWorldState.Idle;
@@ -93,7 +95,7 @@ public class HelloWorld : Combatant
             return;
         }
 
-        StartCoroutine(WaitAndExecute(2f, () =>
+        StartCoroutine(WaitAndExecute(waitTime, () =>
         {
             currentState = nextState;
             nextState = HelloWorldState.Null;
@@ -106,7 +108,7 @@ public class HelloWorld : Combatant
         {
             Debug.Log("QUICK PUNCH!");
 
-            currentStamina -= 5;
+            currentStamina -= _brandSO.QuickPunchRequiredStamina;
             staminaBar.SetStamina(currentStamina);
             OnActionUsed();
 
@@ -117,7 +119,7 @@ public class HelloWorld : Combatant
             {
                 return;
             }
-
+            
             currentState = HelloWorldState.Idle;
         }
         
@@ -130,7 +132,7 @@ public class HelloWorld : Combatant
         {
             Debug.Log("STRONG PUNCH!!!");
 
-            currentStamina -= 10;
+            currentStamina -= _brandSO.StrongPunchRequiredStamina;
             staminaBar.SetStamina(currentStamina);
             OnActionUsed();
 
@@ -143,6 +145,7 @@ public class HelloWorld : Combatant
             }
 
             currentState = HelloWorldState.Idle;
+            
         }
         
         // Implementar animação de falha
@@ -155,7 +158,7 @@ public class HelloWorld : Combatant
             animator.SetTrigger("isLeftDodging");
 
             OnActionUsed();
-            currentStamina -= 5;
+            currentStamina -= _brandSO.DodgeRequiredStamina;
             staminaBar.SetStamina(currentStamina);
 
             // Espera pela duração da animação antes de voltar ao estado Idle
@@ -175,7 +178,7 @@ public class HelloWorld : Combatant
         {
             animator.SetTrigger("isRightDodging");
 
-            currentStamina -= 5;
+            currentStamina -= _brandSO.DodgeRequiredStamina;
             staminaBar.SetStamina(currentStamina);
             OnActionUsed();
 
@@ -191,7 +194,7 @@ public class HelloWorld : Combatant
     public override void TakeDamage(int damageTaken, int tipoDeDano)
     {
         currentLife -= damageTaken;
-
+        
         if (tipoDeDano == 1)
         {
             animator.SetTrigger("isTakingLightDamage");
@@ -210,5 +213,6 @@ public class HelloWorld : Combatant
         {
             Defeated();
         }
+        
     }
 }

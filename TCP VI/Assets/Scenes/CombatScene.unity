@@ -4785,6 +4785,7 @@ MonoBehaviour:
   rightFist: {fileID: 569919775}
   leftFist: {fileID: 2086167713}
   currentDamage: 0
+  waitTime: 0
   nextState: 0
   currentState: 0
 --- !u!54 &1856959338
@@ -5012,6 +5013,7 @@ MonoBehaviour:
   rightFist: {fileID: 368397268}
   leftFist: {fileID: 627030863}
   currentDamage: 0
+  waitTime: 1
   nextState: 0
   currentState: 0
 --- !u!1001 &1938587350

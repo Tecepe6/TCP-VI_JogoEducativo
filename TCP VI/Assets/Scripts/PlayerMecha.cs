@@ -55,72 +55,86 @@ public class PlayerMecha : Combatant
 
     public override void QuickPunch()
     {
-        if (Input.GetMouseButtonDown(0) && currentStamina >= _brandSO.QuickPunchRequiredStamina)
+        if (Input.GetMouseButtonDown(0))
         {
-            leftFist.QuickDamage();
-            animator.SetTrigger("isQuickPunching");
+            if(currentStamina >= _brandSO.QuickPunchRequiredStamina)
+            {
+                leftFist.QuickDamage();
+                animator.SetTrigger("isQuickPunching");
 
-            currentStamina -= 5;
-            staminaBar.SetStamina(currentStamina);
-            OnActionUsed();
-        }
-        
-        else if(currentStamina < _brandSO.QuickPunchRequiredStamina)
-        {
-            animator.SetTrigger("insuficientStamina");
+                currentStamina -= _brandSO.QuickPunchRequiredStamina;
+                staminaBar.SetStamina(currentStamina);
+                OnActionUsed();
+            }
+
+            else
+            {
+                animator.SetTrigger("insuficientStamina");
+            }
         }
     }
 
     public override void StrongPunch()
     {
-        if (Input.GetMouseButtonDown(1) && currentStamina >= _brandSO.StrongPunchRequiredStamina)
+        if (Input.GetMouseButtonDown(1))
         {
-            rightFist.StrongDamage();
-            animator.SetTrigger("isStrongPunching");
+            if(currentStamina >= _brandSO.StrongPunchRequiredStamina)
+            {
+                rightFist.StrongDamage();
+                animator.SetTrigger("isStrongPunching");
 
-            currentStamina -= 10;
-            staminaBar.SetStamina(currentStamina);
-            OnActionUsed();
-        }
+                currentStamina -= _brandSO.StrongPunchRequiredStamina;
+                staminaBar.SetStamina(currentStamina);
+                OnActionUsed();
+            }
 
-        else if (currentStamina < _brandSO.StrongPunchRequiredStamina)
-        {
-            animator.SetTrigger("insuficientStamina");
+            else
+            {
+                animator.SetTrigger("insuficientStamina");
+            }
         }
     }
 
     public override void DodgeLeft()
     {
-        if (Input.GetKeyDown(KeyCode.A) && currentStamina >= _brandSO.DodgeRequiredStamina)
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            animator.SetTrigger("isLeftDodging");
+            if(currentStamina >= _brandSO.DodgeRequiredStamina)
+            {
+                animator.SetTrigger("isLeftDodging");
 
-            currentStamina -= 5;
-            staminaBar.SetStamina(currentStamina);
-            OnActionUsed();
-        }
+                currentStamina -= _brandSO.DodgeRequiredStamina;
+                staminaBar.SetStamina(currentStamina);
+                OnActionUsed();
+            }
 
-        else if (currentStamina < _brandSO.DodgeRequiredStamina)
-        {
-            animator.SetTrigger("insuficientStamina");
+            else
+            {
+                animator.SetTrigger("insuficientStamina");
+            }
         }
     }
 
     public override void DodgeRight()
     {
-        if (Input.GetKeyDown(KeyCode.D) && currentStamina >= _brandSO.DodgeRequiredStamina)
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            animator.SetTrigger("isRightDodging");
+            if(currentStamina >= _brandSO.DodgeRequiredStamina)
+            {
+                animator.SetTrigger("isRightDodging");
 
-            currentStamina -= 5;
-            staminaBar.SetStamina(currentStamina);
-            OnActionUsed();
+                currentStamina -= _brandSO.DodgeRequiredStamina;
+                staminaBar.SetStamina(currentStamina);
+                OnActionUsed();
+            }
+            
+            else
+            {
+                animator.SetTrigger("insuficientStamina");
+            }
         }
 
-        else if(currentStamina < _brandSO.DodgeRequiredStamina)
-        {
-            animator.SetTrigger("insuficientStamina");
-        }
+        
     }
 
     public override void TakeDamage(int damageTaken, int tipoDeDano)
