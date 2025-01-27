@@ -65,7 +65,7 @@ public class MechaDisplay : MonoBehaviour
         MechaManager.instance.BodyPartChanged += OutlineBodyPart;
         RemoveBodyOutline(); //for first refresh
     }
-
+    
     private void Update() 
     {
         //this.transform.Rotate(0f,30f * Time.deltaTime,0f);

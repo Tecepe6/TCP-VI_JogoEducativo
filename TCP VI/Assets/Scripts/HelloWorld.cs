@@ -64,6 +64,7 @@ public class HelloWorld : Combatant
         Debug.Log("Número Sorteado: " + randomNumber);
 
         // 50% de chance de usar um quick punch
+        
         if (randomNumber <= 5)
         {
             nextState = HelloWorldState.QuickPunching;
@@ -102,9 +103,16 @@ public class HelloWorld : Combatant
         }));
     }
 
+    public void ReturnToIdle()
+    {
+        currentState = HelloWorldState.Idle;
+        animator.ResetTrigger("isTakingLightDamage");
+        animator.ResetTrigger("isTakingHeavyDamage");
+    }
+
     public override void QuickPunch()
     {
-        if(currentStamina >= _brandSO.QuickPunchRequiredStamina)
+        if (currentStamina >= _brandSO.QuickPunchRequiredStamina)
         {
             Debug.Log("QUICK PUNCH!");
 
@@ -114,14 +122,9 @@ public class HelloWorld : Combatant
 
             leftFist.QuickDamage();
             animator.SetTrigger("isQuickPunching");
-
-            if (animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("QuickAttack"))
-            {
-                return;
-            }
-            
-            currentState = HelloWorldState.Idle;
         }
+        else
+            ReturnToIdle();
         
         // Implementar animação de falha
     }
@@ -137,17 +140,10 @@ public class HelloWorld : Combatant
             OnActionUsed();
 
             rightFist.StrongDamage();
-            animator.SetTrigger("isStrongPunching");
-
-            if (animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("StrongAttack"))
-            {
-                return;
-            }
-
-            currentState = HelloWorldState.Idle;
-            
+            animator.SetTrigger("isStrongPunching");           
         }
-        
+        else
+            ReturnToIdle();
         // Implementar animação de falha
     }
 

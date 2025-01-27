@@ -100,4 +100,8 @@ public class MechaUIController : MonoBehaviour
         }
     }
 
+    private void MouseControls()
+    {
+        // Implementar lógica de inputs do mouse por colisão
+    }
 }
