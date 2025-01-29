@@ -373,7 +373,6 @@ AnimatorState:
   - {fileID: -6768975825434053609}
   - {fileID: -6583449211057932020}
   - {fileID: 8209079416286858964}
-  - {fileID: 8599386007128410386}
   - {fileID: -8079073680850482059}
   - {fileID: -4898248878098150717}
   m_StateMachineBehaviours: []
@@ -411,7 +410,7 @@ AnimatorStateMachine:
     m_Position: {x: 540, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2630100298233125095}
-    m_Position: {x: -170, y: 300, z: 0}
+    m_Position: {x: -210, y: 400, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3510432644306657882}
     m_Position: {x: 280, y: 300, z: 0}
@@ -993,7 +992,6 @@ AnimatorState:
   - {fileID: 5735334332793232301}
   - {fileID: 1350411111287411891}
   - {fileID: -3844079563397442878}
-  - {fileID: 7250733560059089040}
   - {fileID: 5391533980255802327}
   - {fileID: -8588905136286565549}
   m_StateMachineBehaviours: []
@@ -1392,31 +1390,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1101 &7250733560059089040
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: isRightDodging
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -3510432644306657882}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_ExitTime: 1
-  m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
 --- !u!1102 &7356124325641603880
 AnimatorState:
   serializedVersion: 6
@@ -1519,31 +1492,6 @@ AnimatorStateTransition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
---- !u!1101 &8599386007128410386
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: isLeftDodging
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 2630100298233125095}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_ExitTime: 1
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
