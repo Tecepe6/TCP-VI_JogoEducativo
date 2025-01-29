@@ -25,9 +25,13 @@ public class HelloWorld : Combatant
 
     void Start()
     {
+        // Define o valor de ambas as barras de vida e estamina para seu valor máximo (baseado nos atributos de cada mecha)
         RestoreBars();
+
+        // Pega o animator deste objeto
         animator = GetComponent<Animator>();
 
+        // Define o estado atual do Hello World
         currentState = HelloWorldState.Idle;
         nextState = HelloWorldState.Null;
     }
@@ -57,7 +61,7 @@ public class HelloWorld : Combatant
         StartStaminaRecovery();
     }
 
-    // Função para esperar e executar uma ação após um tempo
+    // Corrotina. Função para esperar e executar uma ação após um tempo
     IEnumerator WaitAndExecute(float seconds, System.Action onComplete = null)
     {
         int randomNumber = Random.Range(1, 10);
@@ -96,6 +100,7 @@ public class HelloWorld : Combatant
             return;
         }
 
+        // Faz a corrotina esperar o valor inserido na variável waitTime para então executar a troca de estados
         StartCoroutine(WaitAndExecute(waitTime, () =>
         {
             currentState = nextState;
@@ -103,6 +108,7 @@ public class HelloWorld : Combatant
         }));
     }
 
+    // Função chamada por eventos de animação que reseta os triggers de animação do Hello World. Servem para impedir que ele toque as animações de tomar dano imediatamente após sair do StrongPucnh
     public void ReturnToIdle()
     {
         currentState = HelloWorldState.Idle;
@@ -112,12 +118,18 @@ public class HelloWorld : Combatant
 
     public override void QuickPunch()
     {
+        // Verifica se a estamina atual é maior ou igual a estamina requerida para usar o QuickPunch
         if (currentStamina >= _brandSO.QuickPunchRequiredStamina)
         {
             Debug.Log("QUICK PUNCH!");
 
+            // Subtrai a estamina requerida para usar o soco pela estamina atual
             currentStamina -= _brandSO.QuickPunchRequiredStamina;
+
+            // Atualiza a barra de estamina com o valor atual
             staminaBar.SetStamina(currentStamina);
+
+            // Chama a função que interrompe a corrotina de recuperação de estamina
             OnActionUsed();
 
             leftFist.QuickDamage();
@@ -129,6 +141,7 @@ public class HelloWorld : Combatant
         // Implementar animação de falha
     }
 
+    // Mesma lógica do QuickPunch, contudo, segue as informações de soco forte
     public override void StrongPunch()
     {
         if(currentStamina >= _brandSO.StrongPunchRequiredStamina)
@@ -147,6 +160,7 @@ public class HelloWorld : Combatant
         // Implementar animação de falha
     }
 
+    // Mesma lógica de Quick Punch, mas com as informações de esquiva
     public override void DodgeLeft()
     {
         if(currentStamina >= _brandSO.DodgeRequiredStamina)
@@ -168,6 +182,7 @@ public class HelloWorld : Combatant
         // Implementação de falha
     }
 
+    // Mesma lógica de Quick Punch, mas com as informações de esquiva
     public override void DodgeRight()
     {
         if(currentStamina >= _brandSO.DodgeRequiredStamina)
@@ -189,8 +204,10 @@ public class HelloWorld : Combatant
 
     public override void TakeDamage(int damageTaken, int tipoDeDano)
     {
+        // Reduz a vida baseado no dano recebido
         currentLife -= damageTaken;
-        
+
+        // Difere as animações baseado no tipoDeDano recebido
         if (tipoDeDano == 1)
         {
             animator.SetTrigger("isTakingLightDamage");
@@ -201,10 +218,12 @@ public class HelloWorld : Combatant
             animator.SetTrigger("isTakingHeavyDamage");
         }
 
+        // Atualiza o valor da barra de vida para o valor da vida atual
         healthBar.SetHealth(currentLife);
 
         Debug.Log("Vida restante: " + currentLife);
 
+        // Se o valor da vida atual for menor ou igual a 0, chama a função de derrotado da classe mãe Combatant
         if (currentLife <= 0)
         {
             Defeated();

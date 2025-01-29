@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMecha : Combatant
 {
     Animator animator;
-
     void Awake()
     {
         if (MechaManager.instance != null)
@@ -18,7 +17,10 @@ public class PlayerMecha : Combatant
 
     void Start()
     {
+        // Define o valor de ambas as barras de vida e estamina para seu valor máximo (baseado nos atributos de cada mecha)
         RestoreBars();
+
+        // Pega o animator deste objeto
         animator = GetComponent<Animator>();
     }
 
@@ -34,46 +36,57 @@ public class PlayerMecha : Combatant
         StartStaminaRecovery();
     }
 
-
+    // Implementa a função que interrompe a corrotina de recuperação de estamina que é herdada da classe Combatant
     public override void OnActionUsed()
     {
         base.OnActionUsed();
     }
 
-
+    // Implementa a função que inicia a corrotina de recuperação de estamina que é herdada da classe Combatant
     public override void StartStaminaRecovery()
     {
         base.StartStaminaRecovery();
     }
 
-
+    // Implementa a corrotina de recuperação de estamina que é herdada da classe Combatant
     protected override IEnumerator RecoverStamina()
     {
         yield return base.RecoverStamina();
     }
 
-
+    // Lógica do soco rápido. As outras funções, StrongPunch, DodgeRight e DodgeLeft seguem a mesma lógica
     public override void QuickPunch()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            // Verifica se a estamina atual é maior ou igual a estamina necessária, de acordo com o ScriptableObject da marca
             if(currentStamina >= _brandSO.QuickPunchRequiredStamina)
             {
+                // Chama a função QuickDamage do Fist para que aplique o dano
                 leftFist.QuickDamage();
+
+                // Ativa a animação do golpe
                 animator.SetTrigger("isQuickPunching");
 
+                // Subtrai a estamina atual para a estamina utilizada
                 currentStamina -= _brandSO.QuickPunchRequiredStamina;
+
+                // Atualiza a barra de estamina para o valor atual
                 staminaBar.SetStamina(currentStamina);
+
+                // Interrompe a corrotina de recuperação de estamina
                 OnActionUsed();
             }
 
             else
             {
+                // Caso não tenha estamina o suficiente, toca a animação de estamina insuficiente
                 animator.SetTrigger("insuficientStamina");
             }
         }
     }
 
+    // Mesma lógica do QuickPunch, só que com as informações de ataque forte
     public override void StrongPunch()
     {
         if (Input.GetMouseButtonDown(1))
@@ -95,6 +108,7 @@ public class PlayerMecha : Combatant
         }
     }
 
+    // Mesma lógica de QuickPunch
     public override void DodgeLeft()
     {
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
@@ -115,6 +129,7 @@ public class PlayerMecha : Combatant
         }
     }
 
+    // Mesma lógica de QuickPunch
     public override void DodgeRight()
     {
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
@@ -138,7 +153,9 @@ public class PlayerMecha : Combatant
         }
     }
 
-
+    // Função que reseta os triggers de animação do mecha do jogador que É IMPLEMENTADO ATRAVÉS DE EVENTO DE ANIMAÇÃO, que é individual para cada animação. Estes eventos são implementados nos últimos frames
+    // Dessa forma, o mecha não irá guardar inputs que sejam detectados antes desta função ser chamada pelo evento da animação
+    // Contudo, inputs detectados após o evento da animação irão ser armazenados e executados assim que possível. Dessa forma, tem-se um input buffer
     public void ResetAnimationTriggers()
     {
         animator.ResetTrigger("isQuickPunching");
@@ -149,8 +166,10 @@ public class PlayerMecha : Combatant
 
     public override void TakeDamage(int damageTaken, int tipoDeDano)
     {
+        // Reduz a vida baseado no dano recebido
         currentLife -= damageTaken;
 
+        // Difere as animações baseado no tipoDeDano recebido
         if (tipoDeDano == 1)
         {
             animator.SetTrigger("isTakingLightDamage");
@@ -161,10 +180,12 @@ public class PlayerMecha : Combatant
             animator.SetTrigger("isTakingHeavyDamage");
         }
 
+        // Atualiza barra de vida para valor atual
         healthBar.SetHealth(currentLife);
 
         Debug.Log("Vida restante: " + currentLife);
 
+        // Se o ataque fez a vida atual chegar à 0 ou um número menor, chama a função Defeated, que encerra a luta
         if (currentLife <= 0)
         {
             Defeated();

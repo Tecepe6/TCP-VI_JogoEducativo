@@ -5,8 +5,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public abstract class Combatant : MonoBehaviour
 {
+    [Header("STATUS")]
     public int currentLife;
     public int currentStamina;
+    [SerializeField] private float staminaWaitTime;
 
     [SerializeField] protected bool isRecoveringStamina = false;
 
@@ -46,15 +48,11 @@ public abstract class Combatant : MonoBehaviour
         // Barra de Stamina
         currentStamina = _brandSO.MaxStamina;
         staminaBar.SetMaxStamina(currentStamina);
-        // Recuperação de stamina
-        // Alteração: Agora recupera diretamente do _brandSO
-        // Não é mais necessário armazenar em currentStaminaRecoveryRate.
     }
 
     // Funções de STAMINA
 
-    // /*
-
+    // É implementada nos scripts dos outros mechas para ser ativada quando estes usarem uma ação, parando a corrotina de recuperação de estamina
     public virtual void OnActionUsed()
     {
         if (isRecoveringStamina)
@@ -63,6 +61,7 @@ public abstract class Combatant : MonoBehaviour
             StopCoroutine(recoverStaminaCoroutine);
             isRecoveringStamina = false;
 
+            // Impede que a estamina receba um valor negativo
             if(currentStamina < 0)
             {
                 currentStamina = 0;
@@ -70,6 +69,7 @@ public abstract class Combatant : MonoBehaviour
         }
     }
 
+    // Função que inicia a corrotina de recuperação de estamina
     public virtual void StartStaminaRecovery()
     {
         if (!isRecoveringStamina && currentStamina < _brandSO.MaxStamina)
@@ -81,10 +81,11 @@ public abstract class Combatant : MonoBehaviour
         }
     }
 
+    // Corrotina de recuperação de estamina. Aumenta a estamina atual gradualmente, até seu valor máximo. É interrompida pela função OnActionUsed()
     protected virtual IEnumerator RecoverStamina()
     {
         Debug.Log("Corrotina de recuperação de estamina iniciada");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(staminaWaitTime);
 
         while (currentStamina < _brandSO.MaxStamina)
         {
@@ -106,8 +107,6 @@ public abstract class Combatant : MonoBehaviour
         yield return null;
     }
 
-    // */
-
     // Aplica dano ao Mecha
     public abstract void TakeDamage(int damageTaken, int tipoDeDano);
 
@@ -116,6 +115,8 @@ public abstract class Combatant : MonoBehaviour
     {
         Debug.Log(gameObject.name + " foi derrotado!");
         Destroy(gameObject);
+
+        // Transiciona da tela atual para a cena de customização
         SceneManager.LoadScene("CustomizationScene");
     }
 }
