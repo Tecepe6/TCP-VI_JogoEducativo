@@ -97,7 +97,7 @@ public class PlayerMecha : Combatant
 
     public override void DodgeLeft()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if(currentStamina >= _brandSO.DodgeRequiredStamina)
             {
@@ -117,7 +117,7 @@ public class PlayerMecha : Combatant
 
     public override void DodgeRight()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             if(currentStamina >= _brandSO.DodgeRequiredStamina)
             {
@@ -126,15 +126,25 @@ public class PlayerMecha : Combatant
                 currentStamina -= _brandSO.DodgeRequiredStamina;
                 staminaBar.SetStamina(currentStamina);
                 OnActionUsed();
-            }
             
+                
+            }
             else
             {
                 animator.SetTrigger("insuficientStamina");
             }
-        }
 
         
+        }
+    }
+
+
+    public void ResetAnimationTriggers()
+    {
+        animator.ResetTrigger("isQuickPunching");
+        animator.ResetTrigger("isStrongPunching");
+        animator.ResetTrigger("isRightDodging");
+        animator.ResetTrigger("isLeftDodging");
     }
 
     public override void TakeDamage(int damageTaken, int tipoDeDano)
