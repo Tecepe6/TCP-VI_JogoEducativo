@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerMecha : Combatant
 {
     Animator animator;
+
+    private bool isOnAnimation;
+
     void Awake()
     {
         if (MechaManager.instance != null)
@@ -57,11 +60,16 @@ public class PlayerMecha : Combatant
     // Lógica do soco rápido. As outras funções, StrongPunch, DodgeRight e DodgeLeft seguem a mesma lógica
     public override void QuickPunch()
     {
-        if (Input.GetMouseButtonDown(0))
+        // Verifica input do mouse e se a variável isOnAnimation está falsa antes de executar a lógica do golpe
+        if (Input.GetMouseButtonDown(0) && !isOnAnimation)
         {
             // Verifica se a estamina atual é maior ou igual a estamina necessária, de acordo com o ScriptableObject da marca
             if(currentStamina >= _brandSO.QuickPunchRequiredStamina)
             {
+                // Define a booleana como verdadeira, impedindo que outras funções sejam utilizadas
+                // Ela é redefinida como false dentro da função ResetAnimationTriggers
+                isOnAnimation = true;
+
                 // Chama a função QuickDamage do Fist para que aplique o dano
                 leftFist.QuickDamage();
 
@@ -89,10 +97,12 @@ public class PlayerMecha : Combatant
     // Mesma lógica do QuickPunch, só que com as informações de ataque forte
     public override void StrongPunch()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && !isOnAnimation)
         {
             if(currentStamina >= _brandSO.StrongPunchRequiredStamina)
             {
+                isOnAnimation = true;
+
                 rightFist.StrongDamage();
                 animator.SetTrigger("isStrongPunching");
 
@@ -111,10 +121,11 @@ public class PlayerMecha : Combatant
     // Mesma lógica de QuickPunch
     public override void DodgeLeft()
     {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) && !isOnAnimation)
         {
             if(currentStamina >= _brandSO.DodgeRequiredStamina)
             {
+                isOnAnimation = true;
                 animator.SetTrigger("isLeftDodging");
 
                 currentStamina -= _brandSO.DodgeRequiredStamina;
@@ -132,10 +143,11 @@ public class PlayerMecha : Combatant
     // Mesma lógica de QuickPunch
     public override void DodgeRight()
     {
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) && !isOnAnimation)
         {
             if(currentStamina >= _brandSO.DodgeRequiredStamina)
             {
+                isOnAnimation = true;
                 animator.SetTrigger("isRightDodging");
 
                 currentStamina -= _brandSO.DodgeRequiredStamina;
@@ -158,6 +170,9 @@ public class PlayerMecha : Combatant
     // Contudo, inputs detectados após o evento da animação irão ser armazenados e executados assim que possível. Dessa forma, tem-se um input buffer
     public void ResetAnimationTriggers()
     {
+        // Define a booleana como false, permitindo que outras ações sejam realizadas
+        isOnAnimation = false;
+
         animator.ResetTrigger("isQuickPunching");
         animator.ResetTrigger("isStrongPunching");
         animator.ResetTrigger("isRightDodging");

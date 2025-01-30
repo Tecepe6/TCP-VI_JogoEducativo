@@ -897,6 +897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLife: 0
   currentStamina: 0
+  staminaWaitTime: 0.75
   isRecoveringStamina: 0
   healthBar: {fileID: 1211006979}
   staminaBar: {fileID: 1228674457}
@@ -1840,6 +1841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLife: 0
   currentStamina: 0
+  staminaWaitTime: 0
   isRecoveringStamina: 0
   healthBar: {fileID: 0}
   staminaBar: {fileID: 0}
@@ -4776,6 +4778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLife: 0
   currentStamina: 0
+  staminaWaitTime: 0
   isRecoveringStamina: 0
   healthBar: {fileID: 0}
   staminaBar: {fileID: 0}
@@ -5004,6 +5007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLife: 0
   currentStamina: 0
+  staminaWaitTime: 0
   isRecoveringStamina: 0
   healthBar: {fileID: 1225522433}
   staminaBar: {fileID: 1766020041}
