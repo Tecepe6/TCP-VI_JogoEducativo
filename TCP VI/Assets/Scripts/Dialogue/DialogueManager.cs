@@ -199,7 +199,7 @@ public class DialogueManager : MonoBehaviour
         character1Image.enabled = false;
         
         EventSystem.current.SetSelectedGameObject(null); //deseleciona
-
+        
         // TODO: RESTART inputs when Dialogue STOPS;
         // Leo
         isInDialogue = false;

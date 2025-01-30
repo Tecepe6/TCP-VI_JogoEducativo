@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: HelloWorldArm
   m_EditorClassIdentifier: 
   <Name>k__BackingField: HelloWorld (Arm)
-  <Description>k__BackingField: Arm you got from HelloWorld.
+  <Description>k__BackingField: "Bra\xE7o com atributos medianos. \xDAtil para amaciar
+    mechas de operadores novatos."
   <Mesh>k__BackingField: {fileID: 6524377572475876587, guid: b06b3963ad37bd043bf6e43fb2159d12,
     type: 3}
   <Material>k__BackingField: {fileID: -5904023941931156751, guid: b06b3963ad37bd043bf6e43fb2159d12,

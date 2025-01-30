@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefaultBrand
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Default (Brand)
-  <Description>k__BackingField: Just a default brand.
+  <Description>k__BackingField: "Apenas uma marca padr\xE3o. N\xE3o fede nem cheira."
   <Mesh>k__BackingField: {fileID: -2848884097826431284, guid: 63a9d282a6d01f948b2689683eaa1f9e,
     type: 3}
   <Material>k__BackingField: {fileID: 2100000, guid: 3624314766222f240bea7a9e042744ad,

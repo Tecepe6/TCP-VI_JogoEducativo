@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: HelloWorldBrand
   m_EditorClassIdentifier: 
   <Name>k__BackingField: HelloWorld (Brand)
-  <Description>k__BackingField: This is the body part of the HelloWorld brand.
+  <Description>k__BackingField: Uma marca mediana. Normalmente usada para mechas
+    de treino.
   <Mesh>k__BackingField: {fileID: -2848884097826431284, guid: 4d8acd3798c2fc34fbef7aca05f16c63,
     type: 3}
   <Material>k__BackingField: {fileID: -876546973899608171, guid: 4d8acd3798c2fc34fbef7aca05f16c63,
