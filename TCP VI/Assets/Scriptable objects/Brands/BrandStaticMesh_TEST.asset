@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: BrandStaticMesh_TEST
   m_EditorClassIdentifier: 
   <Name>k__BackingField: STATIC MESH TEST
-  <Description>k__BackingField: Just a default brand.
+  <Description>k__BackingField: Marca super balanciada. Com certeza (provavelmente)
+    funciona
   <Mesh>k__BackingField: {fileID: -6162000312115537295, guid: f62bf3b4852d8ed4b98f34da9e0b740e,
     type: 3}
   <Material>k__BackingField: {fileID: -876546973899608171, guid: f62bf3b4852d8ed4b98f34da9e0b740e,
@@ -21,9 +22,9 @@ MonoBehaviour:
   <SkMesh>k__BackingField: {fileID: 0}
   maxLife: 20
   maxStamina: 20
-  staminaRecoveryRate: 20
-  quickPunchRequiredStamina: 3
-  strongPunchRequiredStamina: 5
+  staminaRecoveryRate: 50
+  quickPunchRequiredStamina: 20
+  strongPunchRequiredStamina: 20
   dodgeRequiredStamina: 20
   defense: 20
   dodgeSpeed: 20

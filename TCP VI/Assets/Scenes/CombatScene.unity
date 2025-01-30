@@ -902,7 +902,7 @@ MonoBehaviour:
   healthBar: {fileID: 1211006979}
   staminaBar: {fileID: 1228674457}
   _rightArmSO: {fileID: 11400000, guid: 8982915b37e10e445b362daeb00fccb1, type: 2}
-  _leftArmSO: {fileID: 11400000, guid: 8982915b37e10e445b362daeb00fccb1, type: 2}
+  _leftArmSO: {fileID: 11400000, guid: 781bc44727dd671408059821cb8241b4, type: 2}
   _brandSO: {fileID: 11400000, guid: c63a15b2dd54d7c4d961179bcc252b1f, type: 2}
   rightFist: {fileID: 1801712239}
   leftFist: {fileID: 940934250}

@@ -93,7 +93,7 @@ public class MechaDisplay : MonoBehaviour
             }
         }
         
-        if(meshType == MeshType.Skinned)
+        if(meshType == MeshType.Skinned && rightArmMeshRend != null)
         {
             switch(bodyPart) 
             {
@@ -119,7 +119,7 @@ public class MechaDisplay : MonoBehaviour
             leftArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 0);
         }
 
-        if(meshType == MeshType.Skinned)
+        if(meshType == MeshType.Skinned && rightArmMeshRend!=null)
         {
             rightArmMeshRend.materials[1].SetInt("_Visible", 0);
             brandMeshRend.materials[1].SetInt("_Visible", 0);
