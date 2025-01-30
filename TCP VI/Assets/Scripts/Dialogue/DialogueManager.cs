@@ -9,6 +9,9 @@ using System.Runtime.CompilerServices;
 [ExecuteAlways] //Executar o código no editor;
 public class DialogueManager : MonoBehaviour
 {
+    // Leo
+    public bool isInDialogue = false;
+
     [Header("Objetos")]
     [SerializeField] GameObject dialogueParent;
     [SerializeField] TMP_Text dialogueText;
@@ -41,6 +44,8 @@ public class DialogueManager : MonoBehaviour
         character1Image.enabled = true;
 
         // TODO: STOP inputs and/ or movement DURING dialogue
+        // Leo
+        isInDialogue = true;
         // here
         
         dialogue = textToPrint; //passing data in Holder Class
@@ -196,6 +201,8 @@ public class DialogueManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null); //deseleciona
         
         // TODO: RESTART inputs when Dialogue STOPS;
+        // Leo
+        isInDialogue = false;
         // here
     }
 

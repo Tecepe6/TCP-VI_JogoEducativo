@@ -6,7 +6,7 @@ public class PlayerMecha : Combatant
 {
     Animator animator;
 
-    private bool isOnAnimation;
+    private bool isOnAnimation = false;
 
     void Awake()
     {
