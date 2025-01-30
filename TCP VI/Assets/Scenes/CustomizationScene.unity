@@ -1101,7 +1101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ea6c1c1c28ae944a296d8bb4828503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 8200172361977035001}
   partsUI: {fileID: 0}
   detailsUI: {fileID: 0}
 --- !u!1001 &1278398553
@@ -5303,7 +5302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff69cb9b1f4a60f4fab880d4dbfaee3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInDialogue: 0
   dialogueParent: {fileID: 6589010802781403175}
   dialogueText: {fileID: 5180768579470915574}
   characterText: {fileID: 1919161610}

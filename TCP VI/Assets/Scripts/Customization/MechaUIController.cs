@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class MechaUIController : MonoBehaviour
 {
-    // Leo
-    [SerializeField] DialogueManager dialogueManager;
-
     [Header ("UI Components")]
     [SerializeField] GameObject partsUI;
     [SerializeField] GameObject detailsUI;
@@ -24,22 +21,11 @@ public class MechaUIController : MonoBehaviour
     {
         UIVisibility();
 
-        // Leo:
-        if (dialogueManager.isInDialogue == false)
-        {
+        KeyboardControls();
 
-            KeyboardControls();
-
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                SceneManager.LoadScene("CombatScene");
-            }
-        }
-        // Leo
-        else
+        if(Input.GetKeyDown(KeyCode.C))
         {
-            partsUI.SetActive(false);
-            detailsUI.SetActive(false);
+            SceneManager.LoadScene("CombatScene");
         }
     }
 
