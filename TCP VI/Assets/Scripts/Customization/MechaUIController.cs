@@ -85,12 +85,12 @@ public class MechaUIController : MonoBehaviour
         }
 
         //Go back and forth the ChangingParts Menu
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             MechaManager.instance.ToggleChangingPart(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
         {
             MechaManager.instance.ToggleChangingPart(false);
             MechaManager.instance.ResetSelectedPartID();

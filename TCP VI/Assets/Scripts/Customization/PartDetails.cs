@@ -34,6 +34,7 @@ public class Details : MonoBehaviour
                 detailsTMP.text = $"{brands[ID].Description}\n\n"+
                 $"> Vida Máx.: {brands[ID].MaxLife}\n" +
                 $"> Estamina Máx.: {brands[ID].MaxStamina}\n" +
+                $"> Deley de Recuperação de Estamina: {brands[ID].StaminaRegenDelay}\n"+
                 $"> Custo Jab: {brands[ID].QuickPunchRequiredStamina}\n" +
                 $"> Custo Direto: {brands[ID].StrongPunchRequiredStamina}\n" +
                 $"> Custo Esquiva: { brands[ID].DodgeRequiredStamina}";

@@ -18,6 +18,7 @@ public class BrandSO : ScriptableObject
     [SerializeField][Range(1, 100)] public int maxLife;
     [SerializeField][Range(1, 100)] public int maxStamina;
     [SerializeField][Range(1, 100)] private int staminaRecoveryRate;
+    [SerializeField][Range(1, 100)] private int staminaRegenDelay;
     [SerializeField][Range(1, 100)] private int quickPunchRequiredStamina;
     [SerializeField][Range(1, 100)] private int strongPunchRequiredStamina;
     [SerializeField][Range(1, 100)] private int dodgeRequiredStamina;
@@ -28,6 +29,7 @@ public class BrandSO : ScriptableObject
     public int MaxLife { get { return maxLife; } private set { maxLife = value; } }
     public int MaxStamina { get { return maxStamina; } private set { maxStamina = value; } }
     public int StaminaRecoveryRate { get { return staminaRecoveryRate; } private set { staminaRecoveryRate = value; } }
+    public int StaminaRegenDelay { get { return staminaRegenDelay; } private set { staminaRegenDelay = value; } }
     public int QuickPunchRequiredStamina { get { return quickPunchRequiredStamina; } private set { quickPunchRequiredStamina = value; } }
     public int StrongPunchRequiredStamina { get { return strongPunchRequiredStamina; } private set { strongPunchRequiredStamina = value; } }
     public int DodgeRequiredStamina { get { return dodgeRequiredStamina; } private set { dodgeRequiredStamina = value; } }

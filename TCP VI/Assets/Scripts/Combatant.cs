@@ -8,7 +8,6 @@ public abstract class Combatant : MonoBehaviour
     [Header("STATUS")]
     public int currentLife;
     public int currentStamina;
-    [SerializeField] private float staminaWaitTime;
 
     [SerializeField] protected bool isRecoveringStamina = false;
 
@@ -85,7 +84,7 @@ public abstract class Combatant : MonoBehaviour
     protected virtual IEnumerator RecoverStamina()
     {
         Debug.Log("Corrotina de recuperação de estamina iniciada");
-        yield return new WaitForSeconds(staminaWaitTime);
+        yield return new WaitForSeconds(_brandSO.StaminaRegenDelay);
 
         while (currentStamina < _brandSO.MaxStamina)
         {
