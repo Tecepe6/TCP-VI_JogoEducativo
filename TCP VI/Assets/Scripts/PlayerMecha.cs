@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMecha : Combatant
@@ -7,6 +8,12 @@ public class PlayerMecha : Combatant
     Animator animator;
 
     private bool isOnAnimation = false;
+
+    private float dPadX;
+    private float dPadPrevious;
+
+    [Header("Texto de Aviso")]
+    public TextMeshProUGUI warningText;
 
     void Awake()
     {
@@ -17,7 +24,6 @@ public class PlayerMecha : Combatant
         }
     }
 
-
     void Start()
     {
         // Define o valor de ambas as barras de vida e estamina para seu valor máximo (baseado nos atributos de cada mecha)
@@ -25,11 +31,15 @@ public class PlayerMecha : Combatant
 
         // Pega o animator deste objeto
         animator = GetComponent<Animator>();
+
+        warningText.gameObject.SetActive(false);
     }
 
 
     void Update()
     {
+        dPadX = Input.GetAxis("DPadHorizontal");
+
         QuickPunch();
         StrongPunch();
 
@@ -37,6 +47,8 @@ public class PlayerMecha : Combatant
         DodgeRight();
 
         StartStaminaRecovery();
+
+        dPadPrevious = dPadX;
     }
 
     // Implementa a função que interrompe a corrotina de recuperação de estamina que é herdada da classe Combatant
@@ -60,8 +72,8 @@ public class PlayerMecha : Combatant
     // Lógica do soco rápido. As outras funções, StrongPunch, DodgeRight e DodgeLeft seguem a mesma lógica
     public override void QuickPunch()
     {
-        // Verifica input do mouse e se a variável isOnAnimation está falsa antes de executar a lógica do golpe
-        if (Input.GetMouseButtonDown(0) && !isOnAnimation)
+        // Verifica input do mouse OU teclade e DEPOIS se a variável isOnAnimation está falsa antes de executar a lógica do golpe
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.JoystickButton4)) && !isOnAnimation)
         {
             // Verifica se a estamina atual é maior ou igual a estamina necessária, de acordo com o ScriptableObject da marca
             if(currentStamina >= _brandSO.QuickPunchRequiredStamina)
@@ -90,6 +102,11 @@ public class PlayerMecha : Combatant
             {
                 // Caso não tenha estamina o suficiente, toca a animação de estamina insuficiente
                 animator.SetTrigger("insuficientStamina");
+
+                //WarningText
+                warningText.gameObject.SetActive(true);
+                warningText.text = "ESTAMINA INSUFICIENTE!";
+                StartCoroutine(HideWarningText());
             }
         }
     }
@@ -97,7 +114,7 @@ public class PlayerMecha : Combatant
     // Mesma lógica do QuickPunch, só que com as informações de ataque forte
     public override void StrongPunch()
     {
-        if (Input.GetMouseButtonDown(1) && !isOnAnimation)
+        if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.JoystickButton5)) && !isOnAnimation)
         {
             if(currentStamina >= _brandSO.StrongPunchRequiredStamina)
             {
@@ -114,6 +131,11 @@ public class PlayerMecha : Combatant
             else
             {
                 animator.SetTrigger("insuficientStamina");
+
+                //WarningText
+                warningText.gameObject.SetActive(true);
+                warningText.text = "ESTAMINA INSUFICIENTE";
+                StartCoroutine(HideWarningText());
             }
         }
     }
@@ -121,7 +143,7 @@ public class PlayerMecha : Combatant
     // Mesma lógica de QuickPunch
     public override void DodgeLeft()
     {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) && !isOnAnimation)
+        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || dPadX < 0 && dPadPrevious >= 0) && !isOnAnimation)
         {
             if(currentStamina >= _brandSO.DodgeRequiredStamina)
             {
@@ -136,6 +158,11 @@ public class PlayerMecha : Combatant
             else
             {
                 animator.SetTrigger("insuficientStamina");
+
+                //WarningText
+                warningText.gameObject.SetActive(true);
+                warningText.text = "ESTAMINA INSUFICIENTE";
+                StartCoroutine(HideWarningText());
             }
         }
     }
@@ -143,7 +170,7 @@ public class PlayerMecha : Combatant
     // Mesma lógica de QuickPunch
     public override void DodgeRight()
     {
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) && !isOnAnimation)
+        if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || dPadX > 0 && dPadPrevious <= 0)&& !isOnAnimation)
         {
             if(currentStamina >= _brandSO.DodgeRequiredStamina)
             {
@@ -153,15 +180,16 @@ public class PlayerMecha : Combatant
                 currentStamina -= _brandSO.DodgeRequiredStamina;
                 staminaBar.SetStamina(currentStamina);
                 OnActionUsed();
-            
-                
             }
+
             else
             {
                 animator.SetTrigger("insuficientStamina");
+                //WarningText
+                warningText.gameObject.SetActive(true);
+                warningText.text = "ESTAMINA INSUFICIENTE";
+                StartCoroutine(HideWarningText());
             }
-
-        
         }
     }
 
@@ -177,6 +205,13 @@ public class PlayerMecha : Combatant
         animator.ResetTrigger("isStrongPunching");
         animator.ResetTrigger("isRightDodging");
         animator.ResetTrigger("isLeftDodging");
+    }
+
+    IEnumerator HideWarningText()
+    {
+        yield return new WaitForSeconds(1f);
+
+        warningText.gameObject.SetActive(false);
     }
 
     public override void TakeDamage(int damageTaken, int tipoDeDano)
