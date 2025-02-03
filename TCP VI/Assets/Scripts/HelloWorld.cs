@@ -75,7 +75,7 @@ public class HelloWorld : Combatant
         }
         
         // 30% de chance de usar strong punch
-        if (randomNumber  >= 8)
+        if (randomNumber  >= 7)
         {
             nextState = HelloWorldState.StrongPunching;
         }

@@ -22,6 +22,7 @@ MonoBehaviour:
   maxLife: 30
   maxStamina: 30
   staminaRecoveryRate: 15
+  staminaRegenDelay: 1
   quickPunchRequiredStamina: 5
   strongPunchRequiredStamina: 10
   dodgeRequiredStamina: 5
