@@ -148,9 +148,9 @@ public class MechaWorkshop : Combatant
 
     public void SpecialAttack()
     {
-        if(currentStamina >= _leftArmSO.RequiredSpecialStamina)
+        if(currentStamina >= _leftArmSO.SpecialRequiredStamina)
         {
-            currentStamina -= _leftArmSO.RequiredSpecialStamina;
+            currentStamina -= _leftArmSO.SpecialRequiredStamina;
             staminaBar.SetStamina(currentStamina);
 
             OnActionUsed();
@@ -166,16 +166,62 @@ public class MechaWorkshop : Combatant
 
     public override void DodgeLeft()
     {
-        throw new System.NotImplementedException();
+        if (currentStamina >= _brandSO.DodgeRequiredStamina)
+        {
+            currentStamina -= _brandSO.DodgeRequiredStamina;
+            staminaBar.SetStamina(currentStamina);
+
+            OnActionUsed();
+            animator.SetTrigger("usouEsquivaEsquerda");
+        }
+        else
+        {
+            animator.SetTrigger("usouSemEstamina");
+        }
     }
 
     public override void DodgeRight()
     {
-        throw new System.NotImplementedException();
+        if (currentStamina >= _brandSO.DodgeRequiredStamina)
+        {
+            currentStamina -= _brandSO.DodgeRequiredStamina;
+            staminaBar.SetStamina(currentStamina);
+
+            OnActionUsed();
+            animator.SetTrigger("usouEsquivaDireita");
+        }
+        else
+        {
+            animator.SetTrigger("usouSemEstamina");
+        }
     }
 
     public override void TakeDamage(int damageTaken, int tipoDeDano)
     {
-        throw new System.NotImplementedException();
+        // Reduz a vida baseado no dano recebido
+        currentLife -= damageTaken;
+
+        // Difere as animações baseado no tipoDeDano recebido
+        if (tipoDeDano == 1)
+        {
+            animator.SetTrigger("usouTomarDanoFraco");
+        }
+
+        else if (tipoDeDano == 2)
+        {
+            animator.SetTrigger("usouTomarDanoForte");
+        }
+
+        // Atualiza o valor da barra de vida para o valor da vida atual
+        healthBar.SetHealth(currentLife);
+
+        Debug.Log("Vida restante: " + currentLife);
+
+        // Se o valor da vida atual for menor ou igual a 0, chama a função de derrotado da classe mãe Combatant
+        if (currentLife <= 0)
+        {
+            Defeated();
+        }
+
     }
 }

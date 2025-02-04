@@ -2827,8 +2827,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1564671324}
-  - {fileID: 1323389205}
   - {fileID: 64010676}
+  - {fileID: 1323389205}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &795339658
@@ -2846,15 +2846,15 @@ MonoBehaviour:
   currentLife: 0
   currentStamina: 0
   isRecoveringStamina: 0
-  healthBar: {fileID: 0}
-  staminaBar: {fileID: 0}
-  _rightArmSO: {fileID: 0}
-  _leftArmSO: {fileID: 0}
-  _brandSO: {fileID: 0}
-  rightFist: {fileID: 0}
-  leftFist: {fileID: 0}
+  healthBar: {fileID: 1225522433}
+  staminaBar: {fileID: 1766020041}
+  _rightArmSO: {fileID: 11400000, guid: 781bc44727dd671408059821cb8241b4, type: 2}
+  _leftArmSO: {fileID: 11400000, guid: 781bc44727dd671408059821cb8241b4, type: 2}
+  _brandSO: {fileID: 11400000, guid: 4a868442576f78d4486b8e5266248be6, type: 2}
+  rightFist: {fileID: 64010677}
+  leftFist: {fileID: 1323389206}
   currentDamage: 0
-  tempoEspera: 0
+  tempoEspera: 1
   estadoAtual: 0
 --- !u!95 &795339659
 Animator:
