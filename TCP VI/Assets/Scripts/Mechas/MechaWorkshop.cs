@@ -69,35 +69,35 @@ public class MechaWorkshop : Combatant
     // FUNÇÕES QUE LIDAM COM CADA ESTADO
     private void HandleIdle()
     {
-
-    }
+        animator.SetTrigger("usouIdle");
+;    }
 
     private void HandleSocoRapido()
     {
-
+        QuickPunch();
     }
 
     public void HandleSocoForte()
     {
-
+        StrongPunch();
     }
 
     public void HandleAtaqueEspecial()
     {
-
+        SpecialAttack();
     }
 
     public void HandleEsquivaEsquerda()
     {
-
+        DodgeLeft();
     }
 
     public void HandleEsquivaDireita()
     {
-
+        DodgeRight();
     }
 
-    // É mesmo necessário no Python?
+    // É mesmo necessário?
     public void ReturnToIdle()
     {
 
@@ -222,6 +222,5 @@ public class MechaWorkshop : Combatant
         {
             Defeated();
         }
-
     }
 }

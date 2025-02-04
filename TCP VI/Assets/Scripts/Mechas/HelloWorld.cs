@@ -228,6 +228,5 @@ public class HelloWorld : Combatant
         {
             Defeated();
         }
-        
     }
 }
