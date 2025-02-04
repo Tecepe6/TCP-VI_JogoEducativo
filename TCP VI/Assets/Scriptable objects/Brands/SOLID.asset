@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b6fd554abf7fd4aaab062518cacc6a, type: 3}
+  m_Name: SOLID
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: 
+  <Description>k__BackingField: 
+  <Mesh>k__BackingField: {fileID: 0}
+  <Material>k__BackingField: {fileID: 0}
+  <SkMesh>k__BackingField: {fileID: 0}
+  maxLife: 60
+  maxStamina: 40
+  staminaRecoveryRate: 20
+  staminaRegenDelay: 0
+  quickPunchRequiredStamina: 10
+  strongPunchRequiredStamina: 5
+  dodgeRequiredStamina: 0
+  defense: 0
+  dodgeSpeed: 0

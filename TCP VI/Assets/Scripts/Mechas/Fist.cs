@@ -40,7 +40,7 @@ public class Fist : MonoBehaviour
         currentDamage = combatant._rightArmSO.QuickDamage;
         tipoDano = 1;
 
-        Debug.Log("braçoFraco" + gameObject.name);
+        Debug.Log("braçoRápido" + gameObject.name);
     }
 
     // Caso tenha sido do tipo forte, aplica o StrongDamage, que pega o atributo strongDamage do ScriptableObject do braço da instância que possui esse punho
@@ -50,5 +50,13 @@ public class Fist : MonoBehaviour
         tipoDano = 2;
 
         Debug.Log("braçoForte" + gameObject.name);
+    }
+
+    public void SpecialDamage()
+    {
+        currentDamage = combatant._leftArmSO.SpecialDamage;
+        tipoDano = 2;
+
+        Debug.Log("braçoRápido" + gameObject.name);
     }
 }
