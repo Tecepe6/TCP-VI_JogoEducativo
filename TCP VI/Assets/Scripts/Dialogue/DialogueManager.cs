@@ -13,7 +13,8 @@ public class DialogueManager : MonoBehaviour
     public bool isInDialogue = false;
 
     [Header("Objetos")]
-    [SerializeField] GameObject dialogueParent;
+    // LEO ALTEROU O TIPO DE PROTEÇÃO PARA ATIVAR PELO UIMANAGER
+    /*[SerializeField]*/ public GameObject dialogueParent;
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] TMP_Text characterText;
     [SerializeField] Image character1Image;

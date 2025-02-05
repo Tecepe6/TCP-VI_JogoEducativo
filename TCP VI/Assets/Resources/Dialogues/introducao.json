@@ -1,0 +1,18 @@
+{
+    "dialogueLines": [
+      {
+        "id": "TestDialogue_1",
+        "character": "Trainee",
+        "expression": "Normal",
+        "text": "Hmm...? Um torneio para treinar novos <b>operadores de mecha</b> na <u>Working Orcs</u>? Parece ser a minha chance!",
+        "isEnd": false
+      },
+
+      {
+        "id": "END_NODE",
+        "character": "None",
+        "text": "End of Dialogue",
+        "isEnd": true
+      }
+    ]
+}
