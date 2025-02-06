@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -183,6 +183,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c63a15b2dd54d7c4d961179bcc252b1f, type: 2}
   - {fileID: 11400000, guid: 71fe5ec721412e644841837e7007dffb, type: 2}
   - {fileID: 11400000, guid: 4e6339c107c87f643adeeeaed8b1b155, type: 2}
+  - {fileID: 11400000, guid: 4a868442576f78d4486b8e5266248be6, type: 2}
   leftArms:
   - {fileID: 11400000, guid: 8982915b37e10e445b362daeb00fccb1, type: 2}
   - {fileID: 11400000, guid: addbe2679109fe446bac5490e0a65434, type: 2}
@@ -2150,7 +2151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &817745888273803903
 Transform:
   m_ObjectHideFlags: 0
@@ -2487,7 +2488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1443190740554872541
 Transform:
   m_ObjectHideFlags: 0
@@ -2989,7 +2990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2223573561887570499
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3617,7 +3618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &3900229001804492540
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3657,7 +3658,7 @@ MonoBehaviour:
   rightArmObj: {fileID: 3271353480622649153}
   brandObj: {fileID: 3990671179133318452}
   leftArmObj: {fileID: 7668192801039090809}
-  meshType: 1
+  meshType: 0
   rightArmMeshFilter: {fileID: 0}
   brandMeshFilter: {fileID: 0}
   leftArmMeshFilter: {fileID: 0}
@@ -4200,7 +4201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &5589978941225905928
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4374,7 +4375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &6237151110379215942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5129,7 +5130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &7789777463912075437
 GameObject:
   m_ObjectHideFlags: 0

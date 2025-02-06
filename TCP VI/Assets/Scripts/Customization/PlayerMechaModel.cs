@@ -35,15 +35,11 @@ public class PlayerMechaModel : MonoBehaviour
         brandMeshFilter = brandObj.GetComponentInChildren<MeshFilter>();
         leftArmMeshFilter = leftArmObj.GetComponentInChildren<MeshFilter>();
 
-        // TODO: Add a SkinnedMeshRenderer Implementation path here. 
-        //Copy from MechaDisplay
-
         ReverseMesh(leftArmMeshFilter);  //reverse leftie
     }
 
     private void Start() 
     {
-        // TODO: Uncomment this when the Combat Scene is fixed
         ChangeMeshes();
     }
 

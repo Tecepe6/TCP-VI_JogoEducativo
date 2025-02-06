@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestScenes/FigmaBridge_Test.unity
     guid: eaed54bbdc0bad14ca174c6c9d82b023
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: f27f541807e218f48ad7a4a0e0052642
   - enabled: 1

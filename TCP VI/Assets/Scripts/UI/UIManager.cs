@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
+//using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
             dialogueManager = FindObjectOfType<DialogueManager>();
             if (dialogueManager == null)
             {
-                Debug.LogError("DialogueManager não foi encontrado!");
+                Debug.LogError("DialogueManager nï¿½o foi encontrado!");
             }
         }
     }
@@ -36,8 +36,8 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // FUNÇÕES DOS BOTÕES
-    // Só no MainMenu
+    // FUNï¿½ï¿½ES DOS BOTï¿½ES
+    // Sï¿½ no MainMenu
     public void IntroAnim()
     {
         isOnAnimation = true;

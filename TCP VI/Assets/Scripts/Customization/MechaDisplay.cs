@@ -79,6 +79,11 @@ public class MechaDisplay : MonoBehaviour
 
         if(meshType == MeshType.Static)
         {
+            if (rightArmMeshFilter == null || brandMeshFilter == null || leftArmMeshFilter == null)
+            {
+                readressObjects();
+            }
+            
             switch(bodyPart) 
             {
                 case MechaManager.Selected.RightArm:
@@ -114,6 +119,12 @@ public class MechaDisplay : MonoBehaviour
     {
         if(meshType == MeshType.Static)
         {
+            //null check for readressing
+            if (rightArmMeshFilter == null || brandMeshFilter == null || leftArmMeshFilter == null)
+            {
+                readressObjects();
+            }
+            
             rightArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 0);
             brandMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 0);
             leftArmMeshFilter.GetComponent<MeshRenderer>().materials[1].SetInt("_Visible", 0);
@@ -197,7 +208,7 @@ public class MechaDisplay : MonoBehaviour
         if (newMesh != null)
         {
             meshRend.sharedMesh = newMesh;
-            Material[] materials = meshRend.materials;
+            Material[] materials = meshRend.sharedMaterials;
             
             materials[0] = newMaterial;
             meshRend.sharedMaterials = materials;
@@ -247,5 +258,21 @@ public class MechaDisplay : MonoBehaviour
         }
     }
 
+    private void readressObjects()
+    {
+        loadGameObject(ref rightArmObj, "/MechaDisplay/RightArm");
+        loadGameObject(ref brandObj, "/MechaDisplay/Brand");
+        loadGameObject(ref leftArmObj, "/MechaDisplay/LeftArm");
+
+        //Getting MeshFilters
+        rightArmMeshFilter = rightArmObj.GetComponentInChildren<MeshFilter>();
+        brandMeshFilter = brandObj.GetComponentInChildren<MeshFilter>();
+        leftArmMeshFilter = leftArmObj.GetComponentInChildren<MeshFilter>();
+
+        //Getting SKMesh Renderers
+        rightArmMeshRend = rightArmObj.GetComponentInChildren<SkinnedMeshRenderer>();
+        brandMeshRend = brandObj.GetComponentInChildren<SkinnedMeshRenderer>();
+        leftArmMeshRend = leftArmObj.GetComponentInChildren<SkinnedMeshRenderer>();
+    }
 
 }

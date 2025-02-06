@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b6fd554abf7fd4aaab062518cacc6a, type: 3}
   m_Name: SOLID
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: 
-  <Description>k__BackingField: 
-  <Mesh>k__BackingField: {fileID: 0}
-  <Material>k__BackingField: {fileID: 0}
+  <Name>k__BackingField: SOLID BRAND
+  <Description>k__BackingField: SNAKE EATEEER!
+  <Mesh>k__BackingField: {fileID: 2346716986137308042, guid: 15ba2b59be5e9994f88c28ef58f34d19,
+    type: 3}
+  <Material>k__BackingField: {fileID: -3908103174281388195, guid: 9a9345a8d2d417849a0d02abea6083a6,
+    type: 3}
   <SkMesh>k__BackingField: {fileID: 0}
   maxLife: 60
   maxStamina: 40
