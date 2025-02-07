@@ -4329,6 +4329,7 @@ MonoBehaviour:
   canvaObject:
   - {fileID: 1923173643}
   - {fileID: 2092604386}
+  dialogueManager: {fileID: 0}
 --- !u!4 &1079247798
 Transform:
   m_ObjectHideFlags: 0
