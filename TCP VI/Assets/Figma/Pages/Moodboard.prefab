@@ -44,6 +44,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 930119670806840500}
     m_Modifications:
+    - target: {fileID: 837275822793693759, guid: 6a04c51a82279f548870243adb9ce797,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1592609586570393590, guid: 6a04c51a82279f548870243adb9ce797,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 1592609586570393590, guid: 6a04c51a82279f548870243adb9ce797,
+        type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
     - target: {fileID: 6089046823503431731, guid: 6a04c51a82279f548870243adb9ce797,
         type: 3}
       propertyPath: m_Pivot.x

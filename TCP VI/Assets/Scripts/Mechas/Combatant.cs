@@ -118,6 +118,14 @@ public abstract class Combatant : MonoBehaviour
         Destroy(gameObject);
 
         // Transiciona da tela atual para a cena de customização
-        SceneManager.LoadScene("CustomizationScene");
+        //SceneManager.LoadScene("CustomizationScene");
+        if (gameObject.name == "Player")
+        {
+            SceneManager.LoadScene("Derrota");
+        }
+        else
+        {
+            SceneManager.LoadScene("Vitoria");
+        }
     }
 }
