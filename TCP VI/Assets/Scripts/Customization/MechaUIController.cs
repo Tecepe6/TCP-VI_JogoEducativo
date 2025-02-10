@@ -32,7 +32,7 @@ public class MechaUIController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.C))
             {
-                SceneManager.LoadScene("Carregamento");
+                SceneManager.LoadScene("Apresentacao");
             }
         }
         // Leo

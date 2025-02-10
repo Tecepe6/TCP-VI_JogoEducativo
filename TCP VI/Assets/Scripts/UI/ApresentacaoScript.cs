@@ -6,13 +6,17 @@ using UnityEngine.SceneManagement;
 public class ApresentacaoScript : MonoBehaviour
 {
     [SerializeField] float tempo;
-    float contador;
-    void Update()
+
+    void Start()
     {
-        contador += Time.deltaTime;
-        if (contador >= tempo)
-        {
-            SceneManager.LoadScene("CombatScene");
-        }
+        StartCoroutine(Carregamento());
+    }
+
+    IEnumerator Carregamento()
+    {
+        //pode tirar dps se quiser
+        yield return new WaitForSecondsRealtime(tempo);
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync("CombatScene");
     }
 }
