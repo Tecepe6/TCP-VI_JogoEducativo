@@ -7,6 +7,8 @@ public class TraineeBillboard : MonoBehaviour
     [Header("PONTOS DO CAMINHO")]
     [SerializeField] private Transform[] _pontos;
     [SerializeField] private int _pontoAtual;
+
+    // VARIÁVEL TEMPORÁRIA, APENAS PARA TESTES RÁPIDOS
     public int goTo;
     private bool _isWalking = false;
 
@@ -34,6 +36,7 @@ public class TraineeBillboard : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    // Update is called once per frame
     void Update()
     {
         switch (estadoAtual)
@@ -50,8 +53,20 @@ public class TraineeBillboard : MonoBehaviour
         }
     }
 
+    // FUNÇÃO TEMPORÁRIA, APENAS PARA TESTES RÁPIDOS
     private void GoTo()
     {
+        /*
+        for (int i = 0; i <= _pontos.Length; i++)
+        {
+            if (Input.GetKeyDown((KeyCode)((int)KeyCode.Alpha0 + i)))
+            {
+                goTo = i;
+                Debug.Log("Apertou!");
+            }
+        }
+        */
+
         if (MechaManager.instance.selectedRightArm == true)
         {
             goTo = 0;
@@ -98,6 +113,8 @@ public class TraineeBillboard : MonoBehaviour
                 caminho.Enqueue(4);
                 caminho.Enqueue(5);
                 caminho.Enqueue(1);
+
+                // estadoAtual = TraineeEstado.Andando;
             }
         }
 
@@ -112,6 +129,7 @@ public class TraineeBillboard : MonoBehaviour
 
             if (_pontoAtual == 0 && goTo == 2)
             {
+                Debug.Log("DEBUGUEI!");
                 caminho.Enqueue(3);
                 caminho.Enqueue(4);
                 caminho.Enqueue(2);
@@ -135,6 +153,8 @@ public class TraineeBillboard : MonoBehaviour
         }
     }
 
+    // Funções que lidam com cada estado
+
     private void HandleIdle()
     {
         animator.SetTrigger("isIdle");
@@ -154,12 +174,13 @@ public class TraineeBillboard : MonoBehaviour
 
     private void HandleAndando()
     {
-        if (caminho.Count > 0 && !_isWalking)
+        if (caminho.Count > 0 && !_isWalking) // Só ativa a animação de andar se o personagem ainda não estiver andando
         {
-            animator.SetBool("isWalking", true);
-            _isWalking = true;
+            animator.SetTrigger("isWalking");
+            _isWalking = true; // Marca que o personagem está andando
         }
 
+        // Lógica de movimento
         if (caminho.Count > 0)
         {
             int proximoPonto = caminho.Peek();
@@ -175,18 +196,10 @@ public class TraineeBillboard : MonoBehaviour
         }
         else
         {
-            StartCoroutine(WaitForAnimationToFinish());
+            // Quando o caminho acaba, retorna para o estado Idle
+            estadoAtual = TraineeEstado.Idle;
+            _isWalking = false; // Marca que o personagem parou de andar
         }
-    }
-
-    private IEnumerator WaitForAnimationToFinish()
-    {
-        float animationDuration = animator.GetCurrentAnimatorStateInfo(0).length;
-        yield return new WaitForSeconds(animationDuration);
-
-        estadoAtual = TraineeEstado.Idle;
-        _isWalking = false;
-        animator.SetBool("isWalking", false);
     }
 
     private void HandleConsertando()

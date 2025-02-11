@@ -334,7 +334,7 @@ MonoBehaviour:
   _pontoAtual: 0
   goTo: 0
   isFixing: 0
-  speed: 5
+  speed: 12
   animator: {fileID: 0}
   estadoAtual: 0
 --- !u!1 &300972208
