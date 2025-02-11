@@ -15,6 +15,11 @@ public class MechaManager : MonoBehaviour
     public event Action<Selected> BodyPartChanged;
     public event Action<Selected> PartChanged;
 
+    // Adicionado para passar ao billboard da Trainee e à câmera qual parte foi selecionada
+    public bool selectedLeftArm = false;
+    public bool selectedRightArm = false;
+    public bool selectedChassi = false;
+
     public enum Selected
     {
         RightArm, Brand, LeftArm
@@ -175,6 +180,26 @@ public class MechaManager : MonoBehaviour
         {
             selectedPartID = partId;
             PartSelected?.Invoke(selectedBodyPart, leftArms, brands, rightArms);
+
+            selectedRightArm = false;
+            selectedChassi = false;
+            selectedLeftArm = false;
+            // Muda as booleanas que serão utilizdas pelo Billboard da Trainee e da câmera
+            switch (selectedBodyPart)
+            {
+                case Selected.RightArm:
+                    selectedRightArm = !selectedRightArm;
+                    break;
+                case Selected.Brand:
+                    selectedChassi = !selectedChassi;
+                    break;
+                case Selected.LeftArm:
+                    selectedLeftArm = !selectedLeftArm;
+                    break;
+                default:
+                    Debug.LogError("Selected BodyPart is not recognized");
+                    break;
+            }
         }
     }
 

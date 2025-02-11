@@ -94,6 +94,9 @@ public class MechaUIController : MonoBehaviour
         {
             MechaManager.instance.ToggleChangingPart(false);
             MechaManager.instance.ResetSelectedPartID();
+            MechaManager.instance.selectedChassi = false;
+            MechaManager.instance.selectedLeftArm = false;
+            MechaManager.instance.selectedRightArm = false;
         }
 
         //Go up and down our list of parts
