@@ -5,12 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/TestScenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Scenes/TestScenes/FigmaBridge_Test.unity
-    guid: eaed54bbdc0bad14ca174c6c9d82b023
+  - enabled: 1
+    path: "Assets/Scenes/Instru\xE7\xF5esDeControles.unity"
+    guid: 0afefebdfcdf20f44ba57db92ceccf62
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: f27f541807e218f48ad7a4a0e0052642
