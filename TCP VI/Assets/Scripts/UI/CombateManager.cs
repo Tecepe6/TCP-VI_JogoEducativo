@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-using static UnityEditor.Experimental.GraphView.GraphView;
 public class CombateManager : MonoBehaviour
 {
     private bool inicioCombat;
