@@ -11,6 +11,7 @@ public class TraineeBillboard : MonoBehaviour
     // VARIÁVEL TEMPORÁRIA, APENAS PARA TESTES RÁPIDOS
     public int goTo;
     private bool _isWalking = false;
+    private bool _isFixing = false;
 
     [Header("STATUS DO BILLBOARD")]
     public bool isFixing = false;
@@ -34,6 +35,16 @@ public class TraineeBillboard : MonoBehaviour
     {
         estadoAtual = TraineeEstado.Idle;
         animator = GetComponent<Animator>();
+    }
+
+    public void OnEnable()
+    {
+        MechaManager.instance.ChangingMenuUntoggled += ExitFixing;
+    }
+
+    public void OnDisable()
+    {
+        MechaManager.instance.ChangingMenuUntoggled -= ExitFixing;
     }
 
     // Update is called once per frame
@@ -157,8 +168,9 @@ public class TraineeBillboard : MonoBehaviour
 
     private void HandleIdle()
     {
-        animator.SetTrigger("isIdle");
-
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isFixing", false);
+        
         GoTo();
 
         if (goTo != _pontoAtual && caminho.Count > 0)
@@ -176,8 +188,8 @@ public class TraineeBillboard : MonoBehaviour
     {
         if (caminho.Count > 0 && !_isWalking) // Só ativa a animação de andar se o personagem ainda não estiver andando
         {
-            animator.SetTrigger("isWalking");
             _isWalking = true; // Marca que o personagem está andando
+            animator.SetBool("isWalking", _isWalking);
         }
 
         // Lógica de movimento
@@ -197,15 +209,23 @@ public class TraineeBillboard : MonoBehaviour
         else
         {
             // Quando o caminho acaba, retorna para o estado Idle
-            estadoAtual = TraineeEstado.Idle;
+            estadoAtual = TraineeEstado.Consertando;
+            _isFixing = true;
             _isWalking = false; // Marca que o personagem parou de andar
+            animator.SetBool("isWalking", _isWalking);
         }
     }
 
     private void HandleConsertando()
     {
-        animator.SetTrigger("isFixing");
+        animator.SetBool("isFixing", true);
 
-        GoTo();
+        if(!_isFixing)
+            estadoAtual = TraineeEstado.Idle;
+    }
+
+    public void ExitFixing()
+    {
+        _isFixing = false;
     }
 }

@@ -6,6 +6,14 @@ public class NotebookManager : MonoBehaviour
 {
     public GameObject[] highlightedButtons;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            DeactivateNotebook();
+        }
+    }
+
     public void HighlightButton(int id)
     {
         for (int i = 0; i < highlightedButtons.Length; i++)
@@ -14,8 +22,8 @@ public class NotebookManager : MonoBehaviour
         }
     }
 
-    public void Deactivate()
+    public void DeactivateNotebook()
     {
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
