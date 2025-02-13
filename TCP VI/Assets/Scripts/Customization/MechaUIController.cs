@@ -13,11 +13,16 @@ public class MechaUIController : MonoBehaviour
     [SerializeField] GameObject partsUI;
     [SerializeField] GameObject detailsUI;
 
+    //Juaun
+    [SerializeField] GameObject notebookUI;
+
     private void Awake() 
     {
         //getting UI components
         partsUI = getUIComponent("/CustomizationCanvas/PartsUI");
         detailsUI = getUIComponent("/CustomizationCanvas/DetailsUI");
+
+        notebookUI.SetActive(false);
     }
 
     private void Update()
@@ -25,7 +30,7 @@ public class MechaUIController : MonoBehaviour
         UIVisibility();
 
         // Leo:
-        if (dialogueManager.isInDialogue == false)
+        if (!dialogueManager.isInDialogue)
         {
 
             KeyboardControls();
@@ -41,6 +46,11 @@ public class MechaUIController : MonoBehaviour
             partsUI.SetActive(false);
             detailsUI.SetActive(false);
         }
+    }
+
+    public void OpenNotebook()
+    {
+        notebookUI.SetActive(true);
     }
 
     private GameObject getUIComponent(string componentName)
