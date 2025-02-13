@@ -40,6 +40,11 @@ public class SoundManager : MonoBehaviour
     {
         //Debug.Log("Nova cena carregada: " + scene.name); //Verifica nome cena
 
+        if (scene.name == "MainMenu")
+        {
+            instancia.litenfeito(soundCustomizacao);
+            return;
+        }
         if (scene.name == "CustomizationScene")
         {
             instancia.litenfeito(soundCustomizacao);

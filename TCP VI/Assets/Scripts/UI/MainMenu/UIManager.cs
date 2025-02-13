@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-//using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    [SerializeField] private Animator animator;
     private bool isOnAnimation = false;
 
-    [SerializeField] GameObject[] canvaObject;
+    [SerializeField] private GameObject[] canvaObject;
+    [SerializeField] private DialogueManager dialogueManager;
+    [SerializeField] private GameObject telaSair;
 
-    [SerializeField] DialogueManager dialogueManager;
-
-    [SerializeField] GameObject telaSair;
+    // Adiciona uma referência ao DialogueCanvas (se for um GameObject)
+    [SerializeField] private GameObject dialogueCanvas;
 
     void Start()
     {
@@ -24,57 +22,86 @@ public class UIManager : MonoBehaviour
             dialogueManager = FindObjectOfType<DialogueManager>();
             if (dialogueManager == null)
             {
-                Debug.LogError("DialogueManager n�o foi encontrado!");
+                Debug.LogError("DialogueManager não foi encontrado!");
             }
         }
-    }
 
-    public void Update()
-    {
-        if (isOnAnimation)
+        if (animator == null)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            Debug.LogError("Animator não atribuído!");
+        }
+
+        if (dialogueCanvas == null)
+        {
+            Debug.LogError("DialogueCanvas não foi atribuído!");
+        }
+    }
+
+    void Update()
+    {
+        if (isOnAnimation && Input.GetKeyDown(KeyCode.Space))
+        {
+            OutroAnim();
+        }
+
+        if(isOnAnimation == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
-                OutroAnim();                
+                OutroAnim();
             }
         }
     }
 
-    // FUN��ES DOS BOT�ES
-    // S� no MainMenu
+    // FUNÇÕES DOS BOTÕES
+    // Só no MainMenu
     public void IntroAnim()
     {
         isOnAnimation = true;
         dialogueManager.dialogueParent.SetActive(true);
 
-        for(int i = 0; i < canvaObject.Length; i++)
+        for (int i = 0; i < canvaObject.Length; i++)
         {
-            canvaObject[i].gameObject.SetActive(false);
+            canvaObject[i].SetActive(false);
         }
-        animator.SetTrigger("intro");
+
+        // Verifique se o DialogueCanvas foi atribuído corretamente
+        if (dialogueCanvas != null)
+        {
+            Animator dialogueCanvasAnimator = dialogueCanvas.GetComponent<Animator>();
+            if (dialogueCanvasAnimator != null)
+            {
+                dialogueCanvasAnimator.SetTrigger("intro");
+            }
+            else
+            {
+                Debug.LogError("Animator não encontrado no DialogueCanvas!");
+            }
+        }
+        else
+        {
+            Debug.LogError("DialogueCanvas não foi atribuído no Inspector!");
+        }
     }
 
     public void OutroAnim()
     {
-        animator.SetTrigger("outro");
+        Animator dialogueCanvasAnimator = dialogueCanvas.GetComponent<Animator>();
+        dialogueCanvasAnimator.SetTrigger("outro");
     }
 
-    // Gerais
-    public void GoToCustomizationScene(string sceneName)
+    // Funções gerais para navegação entre cenas
+    public void GoToScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void GoToCustomization()
     {
         SceneManager.LoadScene("CustomizationScene");
     }
 
-    public void GoToCombatScene(string sceneName)
-    {
-        SceneManager.LoadScene("CombatScene");
-    }
-
-    public void GoToMainMenu(string sceneName)
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
+    // Funções de sair
     public void Sair()
     {
         telaSair.SetActive(true);
