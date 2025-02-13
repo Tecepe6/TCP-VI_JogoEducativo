@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119c1bd3601648f28a252a6030e067b6, type: 3}
   m_Name: UnityFigmaBridgeSettings
   m_EditorClassIdentifier: 
-  DocumentUrl: https://www.figma.com/design/fqd1uV2Ps2e0uWi6kPkYv2/TCC----P.O.M.-(Programa%C3%A7%C3%A3o-Orientada-a-Mechas)?node-id=0-1&p=f&t=klugkMdz6JpBdeXS-0
+  DocumentUrl: https://www.figma.com/design/8vfNFfAU9kKGIoCNDBVFFe/Untitled?node-id=1-82&t=5VVVJnEjPOe97DOA-0
   BuildPrototypeFlow: 1
-  RunTimeAssetsScenePath: Assets/Scenes/UIScene.unity
+  RunTimeAssetsScenePath: Assets/Scenes/TestScenes/2FigmaBridge.unity
   EnableAutoLayout: 0
   ScreenBindingNamespace: 
   ServerRenderImageScale: 3

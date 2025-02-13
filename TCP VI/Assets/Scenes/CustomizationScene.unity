@@ -499,8 +499,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicLoop: {fileID: 374833921}
-  soundCustomizacao: {fileID: 8300000, guid: f93ce713ed3ffa04596d207a986139c9, type: 3}
-  soundCombat: {fileID: 8300000, guid: 54412815843db954fb5704c4bab49d0d, type: 3}
+  soundCustomizacao: {fileID: 8300000, guid: 0de8d3b017985d64d9944aa1b6fea841, type: 3}
+  soundCombat: {fileID: 8300000, guid: 91aaf150d04f02f439577a1db3ccd14d, type: 3}
 --- !u!4 &374833923
 Transform:
   m_ObjectHideFlags: 0
