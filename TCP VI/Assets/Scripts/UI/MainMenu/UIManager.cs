@@ -13,8 +13,12 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] DialogueManager dialogueManager;
 
+    [SerializeField] GameObject telaSair;
+
     void Start()
     {
+        telaSair.SetActive(false);
+
         if (dialogueManager == null)
         {
             dialogueManager = FindObjectOfType<DialogueManager>();
@@ -69,5 +73,21 @@ public class UIManager : MonoBehaviour
     public void GoToMainMenu(string sceneName)
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Sair()
+    {
+        telaSair.SetActive(true);
+    }
+
+    public void SairNao()
+    {
+        telaSair.SetActive(false);
+    }
+
+    public void SairSim()
+    {
+        Application.Quit();
+        Debug.Log("Fechou o jogo!");
     }
 }
