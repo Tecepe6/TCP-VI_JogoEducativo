@@ -7435,7 +7435,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 80335559}
         m_TargetAssemblyTypeName: NotebookManager, Assembly-CSharp
-        m_MethodName: Deactivate
+        m_MethodName: DeactivateNotebook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
