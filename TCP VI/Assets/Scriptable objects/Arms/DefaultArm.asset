@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Default (Arm)
   <Description>k__BackingField: "Um bra\xE7o padr\xE3o. Deve dar pro gasto, provavelmente..."
-  <Mesh>k__BackingField: {fileID: -1668112904775075524, guid: 51ecdb1bcc5ec7b4980e0cfeaba1214c,
+  <Mesh>k__BackingField: {fileID: 816343263715038232, guid: eb0942c709bc7c34f82a9ef489342484,
     type: 3}
   <Material>k__BackingField: {fileID: 2100000, guid: 5b73e48699d0f6042a0f79621875bb6f,
     type: 2}
