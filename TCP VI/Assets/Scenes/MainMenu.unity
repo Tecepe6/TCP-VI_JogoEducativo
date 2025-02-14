@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5443,7 +5443,7 @@ MonoBehaviour:
   dialogueHolder: {fileID: 2074429268}
   dialogueManager: {fileID: 1834365291}
   dialogueStartId: TestDialogue_1
-  dialogueEndId: TestDialogue_1
+  dialogueEndId: END_NODE
 --- !u!1 &1962882176
 GameObject:
   m_ObjectHideFlags: 0
