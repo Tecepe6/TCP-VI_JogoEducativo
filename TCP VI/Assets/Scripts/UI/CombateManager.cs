@@ -34,7 +34,7 @@ public class CombateManager : MonoBehaviour
             StartCoroutine(Contagem());
         }
     }
-    
+
 
     IEnumerator Contagem()
     {

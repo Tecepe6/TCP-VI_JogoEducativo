@@ -57,7 +57,4 @@ public class SoundManager : MonoBehaviour
         }
         //Adicione novas musicas aqui com nome da cena
     }
-
-
-
 }
