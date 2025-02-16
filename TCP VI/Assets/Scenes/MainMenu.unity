@@ -5442,8 +5442,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueHolder: {fileID: 2074429268}
   dialogueManager: {fileID: 1834365291}
-  dialogueStartId: TestDialogue_1
-  dialogueEndId: END_NODE
+  dialogueStartId: Intro_1
+  dialogueEndId: Intro_2
 --- !u!1 &1962882176
 GameObject:
   m_ObjectHideFlags: 0
@@ -5806,7 +5806,7 @@ MonoBehaviour:
   refresh: 0
   thisDialogue:
     dialogueLines:
-    - id: TestDialogue_1
+    - id: Intro_1
       character: Trainee
       expression: Normal
       options: []
@@ -5814,12 +5814,19 @@ MonoBehaviour:
       text: Hmm...? Um torneio para treinar novos <b>operadores de mecha</b> na <u>Working
         Orcs</u>? Parece ser a minha chance!
       isEnd: 0
+    - id: Intro_2
+      character: Trainee
+      expression: Normal
+      options: []
+      goTo: []
+      text: ...
+      isEnd: 0
     - id: END_NODE
       character: None
       expression: 
       options: []
       goTo: []
-      text: End of Dialogue
+      text: END OF DIALOGUE
       isEnd: 1
 --- !u!4 &2074429269
 Transform:

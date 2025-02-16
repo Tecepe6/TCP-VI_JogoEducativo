@@ -10111,7 +10111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c75b3ef764a88c4fa11c1868db85674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueName: testeBuild1
+  dialogueName: d1_Dlg1
   filePath: Assets/Resources/Dialogues/
   refresh: 0
   thisDialogue:
