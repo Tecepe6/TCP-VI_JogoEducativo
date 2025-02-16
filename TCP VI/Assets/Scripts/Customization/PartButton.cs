@@ -27,6 +27,8 @@ public class PartButton : MonoBehaviour, IPointerEnterHandler
     {
         partID = _partId;
         partName = _partName;
+        //uncomment if names arent showing correctly:
+        //UpdateText(partName);
     }
     
     private void UpdateText(string newText)

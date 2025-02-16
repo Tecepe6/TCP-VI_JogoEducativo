@@ -38,7 +38,10 @@ public class MechaUIController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.C))
             {
                 // Old method: SceneManager.LoadScene("Apresentacao");
-                DaysManager.instance.LoadCurrentDay();
+                // Load the current scene immediatly: DaysManager.instance.LoadCurrentDay();
+                
+                // Load the Day Selection Screen:
+                AsyncOperation operation = SceneManager.LoadSceneAsync("DaysScreen"); 
             }
         }
         // Leo

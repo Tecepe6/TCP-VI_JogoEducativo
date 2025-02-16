@@ -27,6 +27,16 @@ public class DaysManager : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(this.gameDays[currentDay].name); 
     }
 
+    public void LoadDay(int dayID)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(this.gameDays[dayID].name); 
+    }
+
+    public int getCurrentDay()
+    {
+        return currentDay;
+    }
+
     private void Singleton()
     {
         
@@ -53,7 +63,5 @@ public class DaysManager : MonoBehaviour
         {
             gameDays.Add(1, firstScene);
         }
-
-        Debug.Log("testeee: " + this.gameDays[currentDay]);
     }
 }

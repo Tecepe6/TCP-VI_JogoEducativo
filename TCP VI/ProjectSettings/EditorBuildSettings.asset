@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2_CombatScene.unity
     guid: 4a7c7717d2ec0a44ba1587e7e472638b
+  - enabled: 1
+    path: Assets/Scenes/DaysScreen.unity
+    guid: 17192942d7ff9e94e90cdff81f01add2
   m_configObjects: {}
