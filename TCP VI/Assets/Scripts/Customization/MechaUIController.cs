@@ -37,7 +37,8 @@ public class MechaUIController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.C))
             {
-                SceneManager.LoadScene("Apresentacao");
+                // Old method: SceneManager.LoadScene("Apresentacao");
+                DaysManager.instance.LoadCurrentDay();
             }
         }
         // Leo
@@ -129,6 +130,6 @@ public class MechaUIController : MonoBehaviour
 
     private void MouseControls()
     {
-        // Implementar lógica de inputs do mouse por colisão
+        // Implementar lï¿½gica de inputs do mouse por colisï¿½o
     }
 }

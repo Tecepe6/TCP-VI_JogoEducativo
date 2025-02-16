@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Rendering;
 
 public abstract class Combatant : MonoBehaviour
 {
+    public event Action enemyDefeated; //added event for player death
+
     [Header("STATUS")]
     public int currentLife;
     public int currentStamina;
@@ -116,6 +119,13 @@ public abstract class Combatant : MonoBehaviour
     {
         Debug.Log(gameObject.name + " foi derrotado!");
         Destroy(gameObject);
+        
+        
+        //if the combatent is not player, then enemy defeated
+        if( !(this is PlayerMecha) )
+        {
+            enemyDefeated?.Invoke();
+        }
 
         // Transiciona da tela atual para a cena de customização
         //SceneManager.LoadScene("CustomizationScene");

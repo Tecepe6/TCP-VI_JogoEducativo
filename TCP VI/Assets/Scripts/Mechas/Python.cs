@@ -37,9 +37,29 @@ public class Python : Combatant
 
     public override void TakeDamage(int damageTaken, int tipoDeDano)
     {
-        if(tipoDeDano == 1)
-        {
+        // Reduz a vida baseado no dano recebido
+        currentLife -= damageTaken;
 
+        // Difere as anima��es baseado no tipoDeDano recebido
+        if (tipoDeDano == 1)
+        {
+            animator.SetTrigger("isTakingLightDamage");
+        }
+
+        else if (tipoDeDano == 2)
+        {
+            animator.SetTrigger("isTakingHeavyDamage");
+        }
+
+        // Atualiza o valor da barra de vida para o valor da vida atual
+        healthBar.SetHealth(currentLife);
+
+        Debug.Log("Vida restante: " + currentLife);
+
+        // Se o valor da vida atual for menor ou igual a 0, chama a fun��o de derrotado da classe m�e Combatant
+        if (currentLife <= 0)
+        {
+            Defeated();
         }
     }
 }

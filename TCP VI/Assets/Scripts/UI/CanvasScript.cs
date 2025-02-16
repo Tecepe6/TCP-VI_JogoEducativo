@@ -37,7 +37,7 @@ public class CanvasScript : MonoBehaviour
     }
     public void Revanche()
     {
-        SceneManager.LoadScene("CombatScene");
+        DaysManager.instance.LoadCurrentDay(); //edited, new system
     }
     public void customizacao()
     {

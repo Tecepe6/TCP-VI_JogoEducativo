@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ApresentacaoScript : MonoBehaviour
 {
     [SerializeField] float tempo;
+    [SerializeField] string sceneName;
 
     void Start()
     {
@@ -17,6 +18,6 @@ public class ApresentacaoScript : MonoBehaviour
         //pode tirar dps se quiser
         yield return new WaitForSecondsRealtime(tempo);
 
-        AsyncOperation operation = SceneManager.LoadSceneAsync("CombatScene");
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
     }
 }
