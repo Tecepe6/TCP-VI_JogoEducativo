@@ -17,7 +17,5 @@ MonoBehaviour:
     _serializedList:
     - Key: Normal
       Value: {fileID: 21300000, guid: e9eb9aad6b5bfa340aea25ad8c6c7751, type: 3}
-    - Key: Inativa
-      Value: {fileID: 21300000, guid: 664d27b2489bda94e8e5ac2c7a0211a0, type: 3}
     - Key: Nervosa
-      Value: {fileID: 21300000, guid: 0675525de311391418ec8919c21eb052, type: 3}
+      Value: {fileID: 21300000, guid: e9eb9aad6b5bfa340aea25ad8c6c7751, type: 3}

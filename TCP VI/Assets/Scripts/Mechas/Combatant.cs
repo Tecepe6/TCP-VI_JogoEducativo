@@ -119,9 +119,6 @@ public abstract class Combatant : MonoBehaviour
     {
         Debug.Log(gameObject.name + " foi derrotado!");
         Destroy(gameObject);
-
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
         
         
         //if the combatent is not player, then enemy defeated
