@@ -16,6 +16,10 @@ public class MechaUIController : MonoBehaviour
     //Juaun
     [SerializeField] GameObject notebookUI;
 
+    //Pedro
+    Camera cam;
+    [SerializeField] LayerMask layerMask;
+
     private void Awake() 
     {
         //getting UI components
@@ -23,6 +27,8 @@ public class MechaUIController : MonoBehaviour
         detailsUI = getUIComponent("/CustomizationCanvas/DetailsUI");
 
         notebookUI.SetActive(false);
+
+        cam = Camera.main;
     }
 
     private void Update()
@@ -34,6 +40,7 @@ public class MechaUIController : MonoBehaviour
         {
 
             KeyboardControls();
+            MouseControls();
 
             if (Input.GetKeyDown(KeyCode.C))
             {
@@ -133,6 +140,48 @@ public class MechaUIController : MonoBehaviour
 
     private void MouseControls()
     {
-        // Implementar l�gica de inputs do mouse por colis�o
+        // Raycasting:
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        // Draw the ray from the camera's position
+        Debug.DrawRay(ray.origin, ray.direction * 15, Color.blue);
+
+        bool changing = MechaManager.instance.GetChangingPart;
+        if (Physics.Raycast(ray, out hit, 15, layerMask) && !changing)
+        {
+            string partName = hit.transform.name;
+            Debug.Log(partName);
+
+            switch (partName)
+            {
+                case "RightArm":
+                    MechaManager.instance.SelectBodyPart(MechaManager.Selected.RightArm);
+                    break;
+                case "Brand":
+                    MechaManager.instance.SelectBodyPart(MechaManager.Selected.Brand);
+                    break;
+                case "LeftArm":
+                    MechaManager.instance.SelectBodyPart(MechaManager.Selected.LeftArm);
+                    break;
+                default:
+                    Debug.LogError("Selected BodyPart is not recognized");
+                    break;
+            }
+
+        }
+
+        //Left to confirm
+        if(Input.GetMouseButtonDown(0))
+        {
+            MechaManager.instance.ToggleChangingPart(true);
+        }
+
+        //Right to return
+        if(Input.GetMouseButtonDown(1))
+        {
+            MechaManager.instance.ToggleChangingPart(false);
+        }
     }
+    
 }

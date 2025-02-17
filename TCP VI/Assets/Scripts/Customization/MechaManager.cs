@@ -15,7 +15,7 @@ public class MechaManager : MonoBehaviour
     public event Action<Selected> BodyPartChanged;
     public event Action<Selected> PartChanged;
 
-    // Adicionado para passar ao billboard da Trainee e à câmera qual parte foi selecionada
+    // Adicionado para passar ao billboard da Trainee e ï¿½ cï¿½mera qual parte foi selecionada
     public bool selectedLeftArm = false;
     public bool selectedRightArm = false;
     public bool selectedChassi = false;
@@ -126,6 +126,11 @@ public class MechaManager : MonoBehaviour
         }
     }
 
+    public void SelectBodyPart(Selected _selectedBodyPart)
+    {
+        this.selectedBodyPart = _selectedBodyPart;
+        BodyPartChanged?.Invoke(selectedBodyPart);
+    }
     public void ToggleChangingPart(bool toggle)
     {
         bool wasToggled = changingPart;
@@ -184,7 +189,7 @@ public class MechaManager : MonoBehaviour
             selectedRightArm = false;
             selectedChassi = false;
             selectedLeftArm = false;
-            // Muda as booleanas que serão utilizdas pelo Billboard da Trainee e da câmera
+            // Muda as booleanas que serï¿½o utilizdas pelo Billboard da Trainee e da cï¿½mera
             switch (selectedBodyPart)
             {
                 case Selected.RightArm:
