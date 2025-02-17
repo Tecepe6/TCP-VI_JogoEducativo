@@ -40,7 +40,7 @@
         {
             "id": "TestDialogue_6",
             "character": "Trainee",
-            "expression": "Normal",
+            "expression": "Inativa",
             "text": "A Trainee Promissora inseriu um core no cubo. Ao fazer isso, o cubo se transformou em um mecha, sem os braços.",
             "isEnd": false
         },
