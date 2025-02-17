@@ -872,19 +872,13 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &199012838
 =======
-=======
->>>>>>> Stashed changes
 <<<<<<< HEAD
 --- !u!1 &216458509
 =======
 --- !u!1 &199012838
 >>>>>>> be06b64c8e506a4eb50b571c2e25a640f37e2081
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 --- !u!1 &199012838
@@ -898,19 +892,13 @@ GameObject:
   m_Component:
 <<<<<<< HEAD
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 <<<<<<< HEAD
   - component: {fileID: 216458510}
   - component: {fileID: 216458513}
   - component: {fileID: 216458512}
   m_Layer: 0
   m_Name: Sair
-=======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -922,10 +910,6 @@ GameObject:
   m_Name: Background
 <<<<<<< HEAD
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> be06b64c8e506a4eb50b571c2e25a640f37e2081
->>>>>>> Stashed changes
 =======
 >>>>>>> be06b64c8e506a4eb50b571c2e25a640f37e2081
 >>>>>>> Stashed changes
@@ -937,12 +921,9 @@ GameObject:
   m_StaticEditorFlags: 0
 <<<<<<< HEAD
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_IsActive: 0
 --- !u!224 &199012839
 =======
-=======
->>>>>>> Stashed changes
 <<<<<<< HEAD
   m_IsActive: 1
 --- !u!224 &216458510
@@ -950,9 +931,6 @@ GameObject:
   m_IsActive: 0
 --- !u!224 &199012839
 >>>>>>> be06b64c8e506a4eb50b571c2e25a640f37e2081
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
   m_IsActive: 0
@@ -965,10 +943,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 <<<<<<< HEAD
   m_GameObject: {fileID: 216458509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -987,9 +962,6 @@ RectTransform:
   m_SizeDelta: {x: -4.962139, y: 4.469555}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &216458512
-=======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -1010,10 +982,6 @@ RectTransform:
 --- !u!114 &199012840
 <<<<<<< HEAD
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> be06b64c8e506a4eb50b571c2e25a640f37e2081
->>>>>>> Stashed changes
 =======
 >>>>>>> be06b64c8e506a4eb50b571c2e25a640f37e2081
 >>>>>>> Stashed changes
@@ -1026,10 +994,7 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 <<<<<<< HEAD
   m_GameObject: {fileID: 216458509}
   m_Enabled: 1
@@ -1084,9 +1049,6 @@ MonoBehaviour:
 --- !u!114 &216458513
 MonoBehaviour:
 =======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> parent of 408a672 (v0.13.6 - Tela de Pause implementada + ajustes)
@@ -1118,10 +1080,6 @@ MonoBehaviour:
 CanvasRenderer:
 <<<<<<< HEAD
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> be06b64c8e506a4eb50b571c2e25a640f37e2081
->>>>>>> Stashed changes
 =======
 >>>>>>> be06b64c8e506a4eb50b571c2e25a640f37e2081
 >>>>>>> Stashed changes
@@ -1133,12 +1091,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_GameObject: {fileID: 199012838}
   m_CullTransparentMesh: 1
 =======
-=======
->>>>>>> Stashed changes
 <<<<<<< HEAD
   m_GameObject: {fileID: 216458509}
   m_Enabled: 1
@@ -1158,9 +1113,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 199012838}
   m_CullTransparentMesh: 1
 >>>>>>> be06b64c8e506a4eb50b571c2e25a640f37e2081
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
   m_GameObject: {fileID: 199012838}
@@ -12704,20 +12656,14 @@ MonoBehaviour:
       expression: Normal
 <<<<<<< HEAD
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
       character2: 
       expression2: 
 =======
-=======
->>>>>>> Stashed changes
 <<<<<<< HEAD
 =======
       character2: 
       expression2: 
 >>>>>>> be06b64c8e506a4eb50b571c2e25a640f37e2081
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
       character2: 
@@ -12755,10 +12701,6 @@ MonoBehaviour:
       expression2: 
 <<<<<<< HEAD
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> be06b64c8e506a4eb50b571c2e25a640f37e2081
->>>>>>> Stashed changes
 =======
 >>>>>>> be06b64c8e506a4eb50b571c2e25a640f37e2081
 >>>>>>> Stashed changes
