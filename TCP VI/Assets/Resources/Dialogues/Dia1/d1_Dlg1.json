@@ -25,6 +25,8 @@
             "id": "TestDialogue_4",
             "character": "Mecanica",
             "expression": "Normal",
+            "character2": "DEMO",
+            "expression2": "DiskPOO",
             "text": "Hahaha! É assim mesmo. Por enquanto, esse cubo é apenas um objeto vazio. Para transformálo em um mecha, precisamos adicionar uma CLASSE à ele.",
             "isEnd": false
         },

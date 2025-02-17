@@ -15,9 +15,11 @@ public class DialogueManager : MonoBehaviour
     [Header("Objetos")]
     // LEO ALTEROU O TIPO DE PROTEÇÃO PARA ATIVAR PELO UIMANAGER
     /*[SerializeField]*/ public GameObject dialogueParent;
+    [SerializeField] GameObject dialogueBG;
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] TMP_Text characterText;
     [SerializeField] Image character1Image;
+    [SerializeField] Image character2Image;
     [SerializeField] Button option1Button;
     [SerializeField] Button option2Button;
     [SerializeField] Button nextButton;
@@ -36,13 +38,17 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialogueParent.SetActive(false);
+        dialogueBG.SetActive(false);
         character1Image.enabled = false;
+        character2Image.enabled = false;
     }
 
     public void DialogueStart(DialogueHolder.Dialogue textToPrint, int dialogueStartIndex, int dialogueEndIndex)
     {
         dialogueParent.SetActive(true);
+        dialogueBG.SetActive(true);
         character1Image.enabled = true;
+        character2Image.enabled = true;
 
         // TODO: STOP inputs and/ or movement DURING dialogue
         // Leo
@@ -103,9 +109,21 @@ public class DialogueManager : MonoBehaviour
             DialogueHolder.DialogueLine line = dialogue.dialogueLines[currentDialogueIndex];
             if(line.character != null && line.expression != null)
             {
-                ChangeCharacterImage(line.character, line.expression);
+                ChangeCharacterImage(character1Image, line.character, line.expression);
                 ChangeCharacterName(line.character);
             }
+
+            if(line.character2 == null)
+            {
+                character2Image.enabled = false;
+            }
+
+            if(line.character2 != null && line.expression2 != null)
+            {
+                character2Image.enabled = true;
+                ChangeCharacterImage(character2Image, line.character2, line.expression2);
+            }
+            
             
 
             if(line.options != null && line.goTo != null && line.goTo.Length >= 2) //check if it has options of answer
@@ -150,7 +168,7 @@ public class DialogueManager : MonoBehaviour
 
         currentDialogueIndex = goToIndex;
     }
-
+    
     private IEnumerator TypeText(string text)
     {
         DialogueHolder.DialogueLine line = dialogue.dialogueLines[currentDialogueIndex];
@@ -159,6 +177,7 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
+            
         }
 
         if(line.options == null) //check if it hasn't any options
@@ -184,12 +203,16 @@ public class DialogueManager : MonoBehaviour
         characterText.text = characterSet.CharacterName;
     }
 
-    private void ChangeCharacterImage(string characterName, string expression)
+    private void ChangeCharacterImage(Image characterImage, string characterName, string expression)
     {
         string SOPAth = "CharacterSets/" + characterName;
         this.characterSet = Resources.Load<CharacterSetSO>(SOPAth);
 
-        character1Image.sprite = characterSet.Expressions[expression];
+        if(characterImage == character2Image && characterName != "DEMO")
+        {
+            characterImage.transform.Rotate(0, 180, 0);
+        }
+        characterImage.sprite = characterSet.Expressions[expression];
     }
 
     private void DialogueStop()
@@ -197,7 +220,9 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines(); //stop all text typing
         dialogueText.text = "";
         dialogueParent.SetActive(false);
+        dialogueBG.SetActive(false);
         character1Image.enabled = false;
+        character2Image.enabled = false;
         
         EventSystem.current.SetSelectedGameObject(null); //deseleciona
         

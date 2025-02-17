@@ -151,7 +151,6 @@ public class MechaUIController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 15, layerMask) && !changing)
         {
             string partName = hit.transform.name;
-            Debug.Log(partName);
 
             switch (partName)
             {

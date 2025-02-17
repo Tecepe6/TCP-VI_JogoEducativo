@@ -37,7 +37,7 @@ public class DialogueTrigger : MonoBehaviour
     private void Update()
     {
         //Test for Trigger Dialogue:
-        if(Input.GetKeyDown(KeyCode.RightShift))
+        if(Input.GetKeyDown(KeyCode.RightShift) && !dialogueManager.isInDialogue)
         {
             TriggerDialogue();
         }

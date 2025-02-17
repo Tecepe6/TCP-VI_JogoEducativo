@@ -21,6 +21,8 @@ public class DialogueHolder : MonoBehaviour
         public string id;
         public string character;
         public string expression;
+        public string character2;
+        public string expression2;
         public string[] options;
         public string[] goTo;
         public string text;
