@@ -17,6 +17,8 @@ MonoBehaviour:
     _serializedList:
     - Key: MyFirstClass
       Value: {fileID: 21300000, guid: c57fb62ec66cffe48b841e1b711d550a, type: 3}
+    - Key: DoisMechas
+      Value: {fileID: 21300000, guid: be39accdf0cddc04d9fc627226fb5f38, type: 3}
     - Key: MechaInicial
       Value: {fileID: 21300000, guid: 6b09d79497637ce46bebea5355437230, type: 3}
     - Key: Atributos
@@ -26,6 +28,6 @@ MonoBehaviour:
     - Key: VariosMechas
       Value: {fileID: 21300000, guid: 8959d326c8929274eab92b0659223464, type: 3}
     - Key: OrcMilionario
-      Value: {fileID: 21300000, guid: 008d84f4a536afa42aac4e8f51260fb0, type: 3}
+      Value: {fileID: 21300000, guid: 18c1f231400115d45a4b014b86b6d17d, type: 3}
     - Key: HelloWorld
       Value: {fileID: 21300000, guid: 1eab05a55aaa2364d8bda6508898ee95, type: 3}

@@ -149,6 +149,8 @@
       "id": "TestDialogue_17",
       "character": "Mecanica",
       "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "DoisMechas",
       "text": "Por exemplo, olhe esses dois <b>[MECHAS]</b>, que herdam da mesma <b>[CLASSE]</b>, mas possuem chassis diferentes. Isso ocorre pois é, no objeto, que definimos a peça do chassi.",
       "isEnd": false
     },
