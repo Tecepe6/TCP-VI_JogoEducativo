@@ -79,6 +79,6 @@ public class PauseManager : MonoBehaviour
 
     public void GoToDayScreen()
     {
-        SceneManager.LoadScene("GoToDayScreen");
+        SceneManager.LoadScene("DaysScreen");
     }
 }
