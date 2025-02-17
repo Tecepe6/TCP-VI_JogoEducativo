@@ -9,6 +9,7 @@ public class PauseManager : MonoBehaviour
     private bool isPaused = false;
 
     [SerializeField] GameObject telaCustomizacao;
+    [SerializeField] MechaManager mechaManager;
 
     void Start()
     {
@@ -26,13 +27,13 @@ public class PauseManager : MonoBehaviour
 
     void TogglePause()
     {
-        if (isPaused)
+        if (!isPaused && !mechaManager.GetChangingPart)
         {
-            ResumeGame();
+            PauseGame();
         }
         else
         {
-            PauseGame();
+            ResumeGame();
         }
     }
 
@@ -73,5 +74,10 @@ public class PauseManager : MonoBehaviour
     public void CloseGame()
     {
         Application.Quit();
+    }
+
+    public void GoToDayScreen()
+    {
+        SceneManager.LoadScene("GoToDayScreen");
     }
 }
