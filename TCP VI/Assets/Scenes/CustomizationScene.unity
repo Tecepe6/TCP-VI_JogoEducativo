@@ -12909,6 +12909,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755140465}
   m_CullTransparentMesh: 1
+--- !u!1 &1772974019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1772974020}
+  - component: {fileID: 1772974021}
+  m_Layer: 0
+  m_Name: TriggerTemporario-D1_dlg1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1772974020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772974019}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1057.0227, y: 544.48584, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1772974021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772974019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a8fa6895cdc9347988d711cbe7ab3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 6487604996137210946}
 --- !u!1 &1787667958
 GameObject:
   m_ObjectHideFlags: 0
@@ -16082,7 +16127,7 @@ MonoBehaviour:
       isEnd: 0
     - id: TestDialogue_14
       character: Trainee
-      expression: Normal
+      expression: Inativa
       character2: DEMO
       expression2: "Fun\xE7\xF5es"
       options: []
@@ -16117,12 +16162,12 @@ MonoBehaviour:
       character: Mecanica
       expression: Normal
       character2: DEMO
-      expression2: MyFirstClass
+      expression2: DoisMechas
       options: []
       goTo: []
-      text: "Por exemplo, olhe esses dois objetos. Ambos s\xE3o <b>[MECHAS]</b>,
-        que herdam da mesma <b>[CLASSE]</b>, mas possuem chassis diferentes. Isso
-        ocorre pois \xE9, no objeto, que definimos a pe\xE7a do chassi."
+      text: "Por exemplo, olhe esses dois <b>[MECHAS]</b>, que herdam da mesma <b>[CLASSE]</b>,
+        mas possuem chassis diferentes. Isso ocorre pois \xE9, no objeto, que definimos
+        a pe\xE7a do chassi."
       isEnd: 0
     - id: TestDialogue_18
       character: Trainee
@@ -19848,3 +19893,4 @@ SceneRoots:
   - {fileID: 1366738001}
   - {fileID: 534695463}
   - {fileID: 736926205}
+  - {fileID: 1772974020}
