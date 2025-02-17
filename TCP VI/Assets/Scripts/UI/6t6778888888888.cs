@@ -11,9 +11,6 @@ public class CombateManager : MonoBehaviour
     [SerializeField] GameObject[] uis;
     [SerializeField] TextMeshProUGUI textoTempo;
     [SerializeField] float tempo;
-
-    // private Combatant combatant;
-
     void Start()
     {
         Time.timeScale = 0.0f;

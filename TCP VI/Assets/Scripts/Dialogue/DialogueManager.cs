@@ -210,13 +210,12 @@ public class DialogueManager : MonoBehaviour
     public int GetDialogueIndex(string id)
     {
         for (int i = 0; i < dialogue.dialogueLines.Length; i++)
+        {
+            if (dialogue.dialogueLines[i].id == id)
             {
-                if (dialogue.dialogueLines[i].id == id)
-                {
-                     return i; //index of the dialogueLine
-                }
+                return i; //index of the dialogueLine
             }
-            return -1; //Out of Bounds
+        }
+        return -1; //Out of Bounds
     }
-
 }
