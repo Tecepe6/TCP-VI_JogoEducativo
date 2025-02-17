@@ -34,7 +34,7 @@ EditorBuildSettings:
     guid: d594bb61265be2b4ea7477a2584e77e9
   - enabled: 1
     path: Assets/Scenes/2_CombatScene.unity
-    guid: 4a7c7717d2ec0a44ba1587e7e472638b
+    guid: b4d5eecaeaa380c49859b55d88b58342
   - enabled: 1
     path: Assets/Scenes/DaysScreen.unity
     guid: 17192942d7ff9e94e90cdff81f01add2

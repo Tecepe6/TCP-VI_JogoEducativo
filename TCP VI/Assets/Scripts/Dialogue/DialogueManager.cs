@@ -15,11 +15,11 @@ public class DialogueManager : MonoBehaviour
     [Header("Objetos")]
     // LEO ALTEROU O TIPO DE PROTEÇÃO PARA ATIVAR PELO UIMANAGER
     /*[SerializeField]*/ public GameObject dialogueParent;
-    [SerializeField] GameObject dialogueBG;
+    //[SerializeField] GameObject dialogueBG;
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] TMP_Text characterText;
     [SerializeField] Image character1Image;
-    [SerializeField] Image character2Image;
+    //[SerializeField] Image character2Image;
     [SerializeField] Button option1Button;
     [SerializeField] Button option2Button;
     [SerializeField] Button nextButton;
@@ -38,17 +38,17 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialogueParent.SetActive(false);
-        dialogueBG.SetActive(false);
+        //dialogueBG.SetActive(false);
         character1Image.enabled = false;
-        character2Image.enabled = false;
+        //character2Image.enabled = false;
     }
 
     public void DialogueStart(DialogueHolder.Dialogue textToPrint, int dialogueStartIndex, int dialogueEndIndex)
     {
         dialogueParent.SetActive(true);
-        dialogueBG.SetActive(true);
+        //dialogueBG.SetActive(true);
         character1Image.enabled = true;
-        character2Image.enabled = true;
+        ///character2Image.enabled = true;
 
         // TODO: STOP inputs and/ or movement DURING dialogue
         // Leo
@@ -113,16 +113,16 @@ public class DialogueManager : MonoBehaviour
                 ChangeCharacterName(line.character);
             }
 
-            if(line.character2 == null)
+           /*  if(line.character2 == null)
             {
                 character2Image.enabled = false;
-            }
+            } */
 
-            if(line.character2 != null && line.expression2 != null)
+            /* if(line.character2 != null && line.expression2 != null)
             {
                 character2Image.enabled = true;
                 ChangeCharacterImage(character2Image, line.character2, line.expression2);
-            }
+            } */
             
             
 
@@ -208,10 +208,10 @@ public class DialogueManager : MonoBehaviour
         string SOPAth = "CharacterSets/" + characterName;
         this.characterSet = Resources.Load<CharacterSetSO>(SOPAth);
 
-        if(characterImage == character2Image && characterName != "DEMO")
+        /* if(characterImage == character2Image && characterName != "DEMO")
         {
             characterImage.transform.Rotate(0, 180, 0);
-        }
+        } */
         characterImage.sprite = characterSet.Expressions[expression];
     }
 
@@ -220,9 +220,9 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines(); //stop all text typing
         dialogueText.text = "";
         dialogueParent.SetActive(false);
-        dialogueBG.SetActive(false);
+        /* dialogueBG.SetActive(false); */
         character1Image.enabled = false;
-        character2Image.enabled = false;
+        /* character2Image.enabled = false; */
         
         EventSystem.current.SetSelectedGameObject(null); //deseleciona
         

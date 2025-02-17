@@ -5519,11 +5519,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInDialogue: 0
   dialogueParent: {fileID: 476955494}
-  dialogueBG: {fileID: 60733089}
   dialogueText: {fileID: 1268294232}
   characterText: {fileID: 1243052973}
   character1Image: {fileID: 308887925}
-  character2Image: {fileID: 1596588163}
   option1Button: {fileID: 658380276}
   option2Button: {fileID: 2092863732}
   nextButton: {fileID: 1032562108}
@@ -5937,7 +5935,7 @@ GameObject:
   - component: {fileID: 2074429269}
   - component: {fileID: 2074429268}
   m_Layer: 0
-  m_Name: Customization_DialogueHolder
+  m_Name: MainMenu_DialogueHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6344,7 +6342,7 @@ SceneRoots:
   - {fileID: 936563577}
   - {fileID: 36140093}
   - {fileID: 1668416527}
-  - {fileID: 1079247798}
   - {fileID: 1360742997}
+  - {fileID: 1079247798}
   - {fileID: 1071612728}
   - {fileID: 1328585666}
