@@ -178,7 +178,6 @@ public class MechaUIController : MonoBehaviour
         //Right to return
         if(MechaManager.instance.GetChangingPart && Input.GetMouseButtonDown(1))
         {
-            print("getchya!");
             MechaManager.instance.ToggleChangingPart(false);
         }
 
