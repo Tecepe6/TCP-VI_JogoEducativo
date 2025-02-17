@@ -1,127 +1,210 @@
 {
-    "dialogueLines": [
-        {
-            "id": "TestDialogue_1",
-            "character": "Mecanica",
-            "expression": "Normal",
-            "text": "O primeiro passo para ser uma operadora de mechas, é ter um mecha. E é isso que vamos fazer hoje.",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_2",
-            "character": "Trainee",
-            "expression": "Normal",
-            "text": "Irado! As peças estão naquela caixa ali? Vou abrir.",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_3",
-            "character": "Trainee",
-            "expression": "Normal",
-            "text": "Ué... cadê as peças? Aqui só tem um CINZA e CHATO CUBO.",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_4",
-            "character": "Mecanica",
-            "expression": "Normal",
-            "character2": "DEMO",
-            "expression2": "DiskPOO",
-            "text": "Hahaha! É assim mesmo. Por enquanto, esse cubo é apenas um objeto vazio. Para transformálo em um mecha, precisamos adicionar uma CLASSE à ele.",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_5",
-            "character": "Mecanica",
-            "expression": "Normal",
-            "text": "Aqui, insira um daqueles cores da marca Hello World no cubo e veja o que acontece.",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_6",
-            "character": "Trainee",
-            "expression": "Inativa",
-            "text": "(A Trainee Promissora inseriu um core no cubo. Ao fazer isso, o cubo se transformou em um mecha, sem os braços.)",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_7",
-            "character": "Trainee",
-            "expression": "Normal",
-            "text": "Taporra! O que aconteceu? E o que eles colocam nesses cores de marca?",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_8",
-            "character": "Mecanica",
-            "expression": "Normal",
-            "text": "Esses cores de marca possuem classes atribuídas à eles. Basicamente, ela é um molde de criação de elementos que possuem as mesmas características.",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_9",
-            "character": "Mecanica",
-            "expression": "Normal",
-            "text": "No caso, a marca Hello World define um tipo de mecha, com atributos e funções específicas.",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_10",
-            "character": "Trainee",
-            "expression": "Normal",
-            "text": "Saquei. Mas se a classe, no caso a marca, define o que é um mecha, por que precisamos do cubo?",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_11",
-            "character": "Mecanica",
-            "expression": "Normal",
-            "text": "O cubo é apenas uma instância da classe. Em outras palavras, é um OBJETO. Utilizamos eles para instanciar a classe.",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_12",
-            "character": "Mecanica",
-            "expression": "Normal",
-            "text": "Pense na classe como o DNA e o objeto como o corpo. Um precisa do outro e, com essa separação, podemos aplicar o mesmo 'DNA' em diferentes 'corpos' para criar múltiplas instâncias.",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_13",
-            "character": "Mecanica",
-            "expression": "Normal",
-            "text": "No caso, interprete isso como uma forma fácil de produzir mechas da marca Hello World.",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_14",
-            "character": "Mecanica",
-            "expression": "Normal",
-            "text": "Enfim, chega de papo por hora. Acredito que a prática seja a melhor professora!",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_15",
-            "character": "Mecanica",
-            "expression": "Normal",
-            "text": "Aqui, vamos por a mão na massa e configurar esse objeto e terminar de montar o Hello World. E aperte [C] quando estiver pronta para um test drive",
-            "isEnd": false
-        },
-        {
-            "id": "TestDialogue_16",
-            "character": "Trainee",
-            "expression": "Normal",
-            "text": "Agora assim falou a minha língua!",
-            "isEnd": true
-        },
-
-
-
-        {
-            "id": "END_NODE",
-            "character": "None",
-            "text": "End of Dialogue",
-            "isEnd": true
-        }
-    ]
+  "dialogueLines": [
+    {
+      "id": "TestDialogue_1",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "Então, você deve ser a Trainee Promissora que se inscreveu pro torneio, certo?",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_2",
+      "character": "Trainee",
+      "expression": "Normal",
+      "text": "Isso mesmo! Vi o cartaz na rua e fiquei interessada, sempre quis ser operadora de mecha. Enfim, por onde começamos?",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_3",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "Seja bem-vinda à oficina da Working Orcs! Bom, o primeiro passo para ser uma <u>operadora de mechas</u>, é ter um mecha. E é isso que vamos fazer hoje.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_4",
+      "character": "Trainee",
+      "expression": "Normal",
+      "text": "Irado! As peças estão naquela caixa ali? Vou abrir...",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_5",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "Muita hora nessa calma! Antes, eu preciso te passar alguns conceitos básicos, pra garantir que você entenda os fundamentos da profissão. Ok?",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_6",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "options": [
+        "Sim! Mas só pra ter certeza...",
+        "Não. Fala mais..."
+      ],
+      "goTo": [
+        "OPTION_1",
+        "OPTION_1"
+      ],
+      "text": "Me diga, você é familiarizada com o conceito de <b>Programação Orientada a Mechas</b>?",
+      "isEnd": false
+    },
+    {
+      "id": "OPTION_1",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "A Programação Orientada a Mechas, ou P.O.M., é um paradigma criado pelos operadores, baseada na Programação Orientada a Objetos (P.O.O.).",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_7",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "MyFirstClass",
+      "text": "Reumidamente, ela gira em torno de <b>[CLASSES]</b> e, claro, <b>[MECHAS]</b>. Basicamente, <b>[CLASSES]</b> são um <u>molde</u> para a criação de <b>[OBJETOS]</b> que <u>possuem as mesmas características</u>. Tá me acompanhando?",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_8",
+      "character": "Trainee",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "MyFirstClass",
+      "text": "Hmm? Claro...",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_9",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "MyFirstClass",
+      "text": "Hahahaha! Essa definição é complicada mesmo, mas sou obrigada a te passar isso, pelo meu contrato com a Working Orcs.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_10",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "MechaInicial",
+      "text": "Enfim, pense em um mecha. Para ele funcionar corretamente, precisamos construir uma <b>[CLASSE]</b>, que definirá seus <b>[ATRIBUTOS]</b> e <b>[FUNÇÕES]</b>.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_11",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "Os <b>[ATRIBUTOS]</b> são as características do Mecha, como sua vida, estamina e dano. Sem esses valores definidos, seu mecha será, literalmente, nada.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_12",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "Atributos",
+      "text": "Essas características podem ir desde o tipo de peça que seu mecha usa e quantidade de peças até a status, como vida, estamina e dano. Por serem tão importantes, elas devem ser <i>encapsuladas</i>, mas isso discutiremos mais pra frente.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_13",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "Funções",
+      "text": "Sobre as <b>[FUNÇÕES]</b>, elas são <u>blocos de código reutilizáveis</u>, que executam uma tarefa. Como você pode ver, aqui temos 3 funções, com efeitos diferentes.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_14",
+      "character": "Trainee",
+      "expression": "Inativa",
+      "character2": "DEMO",
+      "expression2": "Funções",
+      "text": "<i>(Ah, cara. Mal posso esperar pra usar essas funções pra socar uns robôs...)</i>",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_15",
+      "character": "Trainee",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "MyFirstClass",
+      "text": "...Irado! Então, a <b>[CLASSE]</b> armazena tudo o que o <b>[MECHA]</b>, no caso, o <b>[OBJETO]</b>, deve ser e o que consegue fazer. Mas, pra que preciso do objeto se já tenho a <b>[CLASSE]<b>?",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_16",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "MyFirstClass",
+      "text": "Precisamos dessa separação pois a classe é só um molde. Usamos os <b>[MECHAS]</b> para criar instâncias diferentes dessa <b>[CLASSE]</b>. Dessa forma, mesmo que tenham o mesmo molde, serão objetos diferentes, com características diferentes.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_17",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "Por exemplo, olhe esses dois <b>[MECHAS]</b>, que herdam da mesma <b>[CLASSE]</b>, mas possuem chassis diferentes. Isso ocorre pois é, no objeto, que definimos a peça do chassi.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_18",
+      "character": "Trainee",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "VariosMechas",
+      "text": "Então você tá me dizendo que, criando uma <b>[CLASSE]</b> bem estruturada eu consigo reutilizá-la pra fazer quantos mechas eu quiser? E ainda posso customizá-los individualmente, como quem não quer nada??",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_19",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "Isso mesmo. E digo mais. a <b>Programação Orientada a Mechas</b>, não satisfeita com isso, também possui <b>[4 PILARES]</b>, que expandem ainda mais os horizontes. Mas isso fica pra outro dia.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_20",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "Por hoje, você pode tirar um tempo para conhecer a oficina. Além disso, pode usar essa classe aqui que eu já configurei pra montar um mecha. Hoje também faremos um treino de combate.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_21",
+      "character": "Trainee",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "OrcMilionario",
+      "text": "Sério!? Contra quem eu vou lutar? Por acaso seria contra o campeão lendário, modelo número 1 de mechas para combate, o <b>Orc Milionário</b>?",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_22",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "HelloWorld",
+      "text": "Hahahahaha! Por enquanto não, minha jovem. Seu adversário será o Hello World. Mas quem sabe, se você ir bem no torneio, pode enfrentar o campeão.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_23",
+      "character": "Trainee",
+      "expression": "Normal",
+      "text": "Ah, cara. Vamo nessa! Mal posso esperar.",
+      "isEnd": true
+    },
+    {
+      "id": "END_NODE",
+      "character": "None",
+      "text": "End of Dialogue",
+      "isEnd": true
+    }
+  ]
 }

@@ -9,6 +9,7 @@ public class PauseManager : MonoBehaviour
     private bool isPaused = false;
 
     [SerializeField] GameObject telaCustomizacao;
+    [SerializeField] GameObject dialogue;
     [SerializeField] MechaManager mechaManager;
 
     void Start()
@@ -47,6 +48,7 @@ public class PauseManager : MonoBehaviour
         Cursor.visible = true;
 
         telaCustomizacao.SetActive(false);
+        dialogue.SetActive(false);
     }
 
     public void ResumeGame()
@@ -55,10 +57,9 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
 
         telaDePause.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
 
         telaCustomizacao.SetActive(true);
+        dialogue.SetActive(true);
     }
 
     public void GoToMainMenu()
