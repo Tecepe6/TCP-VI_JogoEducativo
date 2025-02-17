@@ -839,13 +839,13 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &2594727904346714127
+--- !u!114 &319825374386840371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6826839423583988258}
+  m_GameObject: {fileID: 9137700817187502366}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c42b4da64b108434eb823fc417bda5ba, type: 3}
@@ -855,39 +855,22 @@ MonoBehaviour:
   gameDays:
     _serializedList:
     - Key: 0
-      Value: {fileID: 102900000, guid: da68cc50e00c925478ca692a16f1ca49, type: 3}
+      Value: CustomizationScene
     - Key: 1
-      Value: {fileID: 102900000, guid: 9374723a296ec7144b9d1d4fd9e2a3e9, type: 3}
+      Value: Apresentacao
     - Key: 2
-      Value: {fileID: 102900000, guid: d594bb61265be2b4ea7477a2584e77e9, type: 3}
+      Value: 2_Apresentacao
     - Key: 3
-      Value: {fileID: 102900000, guid: d594bb61265be2b4ea7477a2584e77e9, type: 3}
+      Value: 2_Apresentacao
     - Key: 4
-      Value: {fileID: 102900000, guid: d594bb61265be2b4ea7477a2584e77e9, type: 3}
---- !u!1 &6826839423583988258
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7200340485228160830}
-  - component: {fileID: 2594727904346714127}
-  m_Layer: 0
-  m_Name: DaysManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7200340485228160830
+      Value: 2_Apresentacao
+--- !u!4 &4872564627226604546
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6826839423583988258}
+  m_GameObject: {fileID: 9137700817187502366}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -896,6 +879,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9137700817187502366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4872564627226604546}
+  - component: {fileID: 319825374386840371}
+  m_Layer: 0
+  m_Name: DaysManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -904,4 +904,4 @@ SceneRoots:
   - {fileID: 1806901580}
   - {fileID: 1685356082}
   - {fileID: 1717602550}
-  - {fileID: 7200340485228160830}
+  - {fileID: 4872564627226604546}

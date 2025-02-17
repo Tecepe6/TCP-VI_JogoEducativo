@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using AYellowpaper.SerializedCollections;
-using UnityEditor;
 using UnityEngine;
 
 public class DaysUIList : MonoBehaviour
@@ -23,7 +20,7 @@ public class DaysUIList : MonoBehaviour
     {
         int currentDay = DaysManager.instance.getCurrentDay();
 
-        foreach(KeyValuePair<int, UnityEditor.SceneAsset> gameDay in DaysManager.instance.gameDays)
+        foreach(KeyValuePair<int, string> gameDay in DaysManager.instance.gameDays)
         {
             if(gameDay.Key <= currentDay)
             {

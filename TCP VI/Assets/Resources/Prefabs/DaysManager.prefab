@@ -48,12 +48,12 @@ MonoBehaviour:
   gameDays:
     _serializedList:
     - Key: 0
-      Value: {fileID: 102900000, guid: da68cc50e00c925478ca692a16f1ca49, type: 3}
+      Value: CustomizationScene
     - Key: 1
-      Value: {fileID: 102900000, guid: 9374723a296ec7144b9d1d4fd9e2a3e9, type: 3}
+      Value: Apresentacao
     - Key: 2
-      Value: {fileID: 102900000, guid: d594bb61265be2b4ea7477a2584e77e9, type: 3}
+      Value: 2_Apresentacao
     - Key: 3
-      Value: {fileID: 102900000, guid: d594bb61265be2b4ea7477a2584e77e9, type: 3}
+      Value: 2_Apresentacao
     - Key: 4
-      Value: {fileID: 102900000, guid: d594bb61265be2b4ea7477a2584e77e9, type: 3}
+      Value: 2_Apresentacao

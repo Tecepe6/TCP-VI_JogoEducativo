@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-
 using AYellowpaper.SerializedCollections;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +8,7 @@ public class DaysManager : MonoBehaviour
     public static DaysManager instance;
     [SerializeField] int currentDay = 1;
     [Header("Dicionário de Dias e Cenas")]
-    [SerializedDictionary("Day","Scene")] public SerializedDictionary<int, SceneAsset> gameDays;
+    [SerializedDictionary("Day","Scene")] public SerializedDictionary<int, string> gameDays;
 
     public void UnlockDay(int nextDay)
     {
@@ -24,12 +20,12 @@ public class DaysManager : MonoBehaviour
 
     public void LoadCurrentDay()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(this.gameDays[currentDay].name); 
+        AsyncOperation operation = SceneManager.LoadSceneAsync(this.gameDays[currentDay]); 
     }
 
     public void LoadDay(int dayID)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(this.gameDays[dayID].name); 
+        AsyncOperation operation = SceneManager.LoadSceneAsync(this.gameDays[dayID]); 
     }
 
     public int getCurrentDay()
@@ -57,11 +53,9 @@ public class DaysManager : MonoBehaviour
         Singleton();
 
         //in case we dont add the first day
-        SceneAsset firstScene = AssetDatabase.LoadAssetAtPath<SceneAsset>("Assets/Scenes/Apresentacao.unity");
-
         if (gameDays.Count == 0)
         {
-            gameDays.Add(1, firstScene);
+            gameDays.Add(1, "CustomizationScene");
         }
     }
 }
