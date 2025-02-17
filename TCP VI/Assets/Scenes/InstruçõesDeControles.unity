@@ -768,7 +768,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Navegue pela interface, use [W, A, S, D], confirmando com [ESPA\xC7O]"
+  m_text: "<u>Navegue</u> pela interface, use <b>[W, A, S, D]</b>, <u>confirmando</u>
+    com <b>[ESPA\xC7O]</b>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 550a690df8b87294087543090a8e65c6, type: 2}
   m_sharedMaterial: {fileID: 5996270344698749700, guid: 550a690df8b87294087543090a8e65c6,
@@ -1023,7 +1024,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Navegue pela interface movendo o mouse e confirme com [Clique Esquerdo]
+  m_text: <u>Navegue</u> pela interface <b>movendo o mouse</b> e <u>confirme</u>
+    com <b>[Clique Esquerdo]</b>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 550a690df8b87294087543090a8e65c6, type: 2}
   m_sharedMaterial: {fileID: 5996270344698749700, guid: 550a690df8b87294087543090a8e65c6,
