@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
-using System.Runtime.CompilerServices;
+using System;
 
 [ExecuteAlways] //Executar o código no editor;
 public class DialogueManager : MonoBehaviour
@@ -15,11 +15,12 @@ public class DialogueManager : MonoBehaviour
     [Header("Objetos")]
     // LEO ALTEROU O TIPO DE PROTEÇÃO PARA ATIVAR PELO UIMANAGER
     /*[SerializeField]*/ public GameObject dialogueParent;
-    //[SerializeField] GameObject dialogueBG;
+    [SerializeField] GameObject dialogueBG;
+    [SerializeField] GameObject promptWindow;
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] TMP_Text characterText;
     [SerializeField] Image character1Image;
-    //[SerializeField] Image character2Image;
+    [SerializeField] Image character2Image;
     [SerializeField] Button option1Button;
     [SerializeField] Button option2Button;
     [SerializeField] Button nextButton;
@@ -38,17 +39,19 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialogueParent.SetActive(false);
-        //dialogueBG.SetActive(false);
+        dialogueBG.SetActive(false);
         character1Image.enabled = false;
-        //character2Image.enabled = false;
+        character2Image.enabled = false;
+        promptWindow.SetActive(false);
     }
 
     public void DialogueStart(DialogueHolder.Dialogue textToPrint, int dialogueStartIndex, int dialogueEndIndex)
     {
         dialogueParent.SetActive(true);
-        //dialogueBG.SetActive(true);
+        dialogueBG.SetActive(true);
         character1Image.enabled = true;
-        ///character2Image.enabled = true;
+        character2Image.enabled = true;
+        promptWindow.SetActive(true);
 
         // TODO: STOP inputs and/ or movement DURING dialogue
         // Leo
@@ -107,22 +110,25 @@ public class DialogueManager : MonoBehaviour
         while(currentDialogueIndex < dialogueEndIndex + 1)
         {
             DialogueHolder.DialogueLine line = dialogue.dialogueLines[currentDialogueIndex];
-            if(line.character != null && line.expression != null)
+            if(!String.IsNullOrEmpty(line.character) && !String.IsNullOrEmpty(line.expression))
             {
                 ChangeCharacterImage(character1Image, line.character, line.expression);
                 ChangeCharacterName(line.character);
             }
-
-           /*  if(line.character2 == null)
+            
+            if(String.IsNullOrEmpty(line.character2))
             {
                 character2Image.enabled = false;
-            } */
+                promptWindow.SetActive(false);
+            }
 
-            /* if(line.character2 != null && line.expression2 != null)
+            if(!String.IsNullOrEmpty(line.character2) && !String.IsNullOrEmpty(line.expression2))
             {
                 character2Image.enabled = true;
+                promptWindow.SetActive(true);
                 ChangeCharacterImage(character2Image, line.character2, line.expression2);
-            } */
+                
+            }
             
             
 
@@ -208,10 +214,10 @@ public class DialogueManager : MonoBehaviour
         string SOPAth = "CharacterSets/" + characterName;
         this.characterSet = Resources.Load<CharacterSetSO>(SOPAth);
 
-        /* if(characterImage == character2Image && characterName != "DEMO")
+        if(characterImage == character2Image && characterName != "DEMO")
         {
             characterImage.transform.Rotate(0, 180, 0);
-        } */
+        }
         characterImage.sprite = characterSet.Expressions[expression];
     }
 
@@ -220,9 +226,10 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines(); //stop all text typing
         dialogueText.text = "";
         dialogueParent.SetActive(false);
-        /* dialogueBG.SetActive(false); */
+        dialogueBG.SetActive(false);
         character1Image.enabled = false;
-        /* character2Image.enabled = false; */
+        character2Image.enabled = false;
+        promptWindow.SetActive(false);
         
         EventSystem.current.SetSelectedGameObject(null); //deseleciona
         
@@ -238,7 +245,7 @@ public class DialogueManager : MonoBehaviour
         {
             if (dialogue.dialogueLines[i].id == id)
             {
-                return i; //index of the dialogueLine
+                return i; //index of the CURRENT dialogueLine
             }
         }
         return -1; //Out of Bounds

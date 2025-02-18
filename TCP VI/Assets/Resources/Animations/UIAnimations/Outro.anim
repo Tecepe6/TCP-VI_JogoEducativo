@@ -123,7 +123,8 @@ AnimationClip:
   - time: 0.15
     functionName: UseGoToCustomization
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: 1bf89b8d04cd3da46a6eef0e975e0e47,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
