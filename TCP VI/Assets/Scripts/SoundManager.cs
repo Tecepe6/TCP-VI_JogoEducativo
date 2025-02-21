@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,51 +9,58 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instancia = null;
     public AudioClip soundCustomizacao;
     public AudioClip soundCombat;
+
     private void Awake()
     {
-        if (instancia == null) instancia = this;
-        else if (instancia != this) Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (instancia == null)
+        {
+            instancia = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instancia != this)
+        {
+            Destroy(gameObject);
+        }
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
     void Start()
     {
+        // Certifique-se de que a música esteja tocando ao iniciar no MainMenu
         SceneAudio(SceneManager.GetActiveScene());
     }
-    public void litenfeito(AudioClip clipsom)
-    {
-        musicLoop.clip = clipsom;
-        musicLoop.Play();
-    }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneAudio(scene);
+    }
 
-    }
-    void OnScene(Scene scene)
+    // Função para reproduzir música, verificando se o clipe já está tocando
+    public void PlaySound(AudioClip clip)
     {
-        SceneAudio(scene);
+        if (musicLoop != null && clip != null)
+        {
+            // Verifica se o clipe atual é diferente
+            if (musicLoop.clip != clip)
+            {
+                musicLoop.clip = clip;
+                musicLoop.Play();
+            }
+        }
     }
+
     void SceneAudio(Scene scene)
     {
-        //Debug.Log("Nova cena carregada: " + scene.name); //Verifica nome cena
-
-        if (scene.name == "MainMenu")
+        if (scene.name == "MainMenu" || scene.name == "CustomizationScene")
         {
-            instancia.litenfeito(soundCustomizacao);
-            return;
-        }
-        if (scene.name == "CustomizationScene")
-        {
-            instancia.litenfeito(soundCustomizacao);
+            instancia.PlaySound(soundCustomizacao);
             return;
         }
         if (scene.name == "CombatScene")
         {
-            instancia.litenfeito(soundCombat);
+            instancia.PlaySound(soundCombat);
             return;
         }
-        //Adicione novas musicas aqui com nome da cena
     }
 }
