@@ -10,7 +10,7 @@
     {
       "id": "TestDialogue_2",
       "character": "Trainee",
-      "expression": "Normal",
+      "expression": "Feliz",
       "text": "Isso mesmo! Vi o cartaz na rua e fiquei interessada, sempre quis ser operadora de mecha. Enfim, por onde começamos?",
       "isEnd": false
     },
@@ -24,7 +24,7 @@
     {
       "id": "TestDialogue_4",
       "character": "Trainee",
-      "expression": "Normal",
+      "expression": "Empolgada",
       "text": "Irado! As peças estão naquela caixa ali? Vou abrir...",
       "isEnd": false
     },
@@ -63,13 +63,13 @@
       "expression": "Normal",
       "character2": "DEMO",
       "expression2": "MyFirstClass",
-      "text": "Reumidamente, ela gira em torno de <b>[CLASSES]</b> e, claro, <b>[MECHAS]</b>. Basicamente, <b>[CLASSES]</b> são um <u>molde</u> para a criação de <b>[OBJETOS]</b> que <u>possuem as mesmas características</u>. Tá me acompanhando?",
+      "text": "Resumidamente, ela gira em torno de <b>[CLASSES]</b> e, claro, <b>[MECHAS]</b>. Basicamente, <b>[CLASSES]</b> são um <u>molde</u> para a criação de <b>[OBJETOS]</b> que <u>possuem as mesmas características</u>. Tá me acompanhando?",
       "isEnd": false
     },
     {
       "id": "TestDialogue_8",
       "character": "Trainee",
-      "expression": "Normal",
+      "expression": "Nervosa",
       "character2": "DEMO",
       "expression2": "MyFirstClass",
       "text": "Hmm? Claro...",
@@ -157,7 +157,7 @@
     {
       "id": "TestDialogue_18",
       "character": "Trainee",
-      "expression": "Normal",
+      "expression": "Empolgada",
       "character2": "DEMO",
       "expression2": "VariosMechas",
       "text": "Então você tá me dizendo que, criando uma <b>[CLASSE]</b> bem estruturada eu consigo reutilizá-la pra fazer quantos mechas eu quiser? E ainda posso customizá-los individualmente, como quem não quer nada??",
@@ -180,7 +180,7 @@
     {
       "id": "TestDialogue_21",
       "character": "Trainee",
-      "expression": "Normal",
+      "expression": "Empolgada",
       "character2": "DEMO",
       "expression2": "OrcMilionario",
       "text": "Sério!? Contra quem eu vou lutar? Por acaso seria contra o campeão lendário, modelo número 1 de mechas para combate, o <b>Orc Milionário</b>?",
@@ -198,7 +198,7 @@
     {
       "id": "TestDialogue_23",
       "character": "Trainee",
-      "expression": "Normal",
+      "expression": "Feliz",
       "text": "Ah, cara. Vamo nessa! Mal posso esperar.",
       "isEnd": true
     },

@@ -14,8 +14,8 @@ public class CanvaDialogueTrigger : MonoBehaviour
         animator.SetTrigger("introPlaying");
     }
 
-    public void UseGoToCustomization()
+    public void UseGoToLoadingScene()
     {
-        uiManager.GoToCustomization();
+        uiManager.GoToLoadingScene();
     }
 }

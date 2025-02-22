@@ -96,9 +96,9 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void GoToCustomization()
+    public void GoToLoadingScene()
     {
-        SceneManager.LoadScene("CustomizationScene");
+        SceneManager.LoadScene("LoadingScene");
     }
 
     // Funções de sair

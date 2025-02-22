@@ -16,6 +16,6 @@ public class CarregamentoScript : MonoBehaviour
         //pode tirar dps se quiser
         yield return new WaitForSecondsRealtime(3f);
 
-        AsyncOperation operation = SceneManager.LoadSceneAsync("Apresentacao");
+        AsyncOperation operation = SceneManager.LoadSceneAsync("CustomizationScene");
     }
 }
