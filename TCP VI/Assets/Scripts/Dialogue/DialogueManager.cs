@@ -152,14 +152,14 @@ public class DialogueManager : MonoBehaviour
                 yield return StartCoroutine(TypeText(line.text));
                 
                 //Pressionar para passar:
-                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) );
+                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0));
             }
 
             optionSelected = false;
 
             if (currentDialogueIndex > dialogueEndIndex)
             {
-                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) );
+                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0));
             }
         }
 
@@ -188,12 +188,12 @@ public class DialogueManager : MonoBehaviour
 
         if(line.options == null) //check if it hasn't any options
         {
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) );
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0));
         }
         
         if(dialogue.dialogueLines[currentDialogueIndex].isEnd)
         {
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) );
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0));
             DialogueStop();
         }
 
