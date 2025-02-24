@@ -3573,6 +3573,7 @@ MonoBehaviour:
   telaCustomizacao: {fileID: 7789777463912075437}
   dialogue: {fileID: 8184879860349987381}
   mechaManager: {fileID: 24840280}
+  cadernoDeNotas: {fileID: 80335554}
 --- !u!4 &534695463
 Transform:
   m_ObjectHideFlags: 0
@@ -16081,7 +16082,7 @@ MonoBehaviour:
       isEnd: 0
     - id: TestDialogue_2
       character: Trainee
-      expression: Normal
+      expression: Feliz
       character2: 
       expression2: 
       options: []
@@ -16102,7 +16103,7 @@ MonoBehaviour:
       isEnd: 0
     - id: TestDialogue_4
       character: Trainee
-      expression: Normal
+      expression: Empolgada
       character2: 
       expression2: 
       options: []
@@ -16152,21 +16153,37 @@ MonoBehaviour:
       expression2: MyFirstClass
       options: []
       goTo: []
-      text: "Reumidamente, ela gira em torno de <b>[CLASSES]</b> e, claro, <b>[MECHAS]</b>.
-        Basicamente, <b>[CLASSES]</b> s\xE3o um <u>molde</u> para a cria\xE7\xE3o
-        de <b>[OBJETOS]</b> que <u>possuem as mesmas caracter\xEDsticas</u>. T\xE1
-        me acompanhando?"
+      text: Resumidamente, ela gira em torno de <b>[CLASSES]</b> e, claro, <b>[MECHAS]</b>.
       isEnd: 0
     - id: TestDialogue_8
-      character: Trainee
+      character: Mecanica
       expression: Normal
+      character2: DEMO
+      expression2: MyFirstClass
+      options: []
+      goTo: []
+      text: " Basicamente, <b>[CLASSES]</b> s\xE3o um <u>molde</u> para a cria\xE7\xE3o
+        de <b>[OBJETOS]</b> que <u>possuem as mesmas caracter\xEDsticas</u>."
+      isEnd: 0
+    - id: TestDialogue_9
+      character: Mecanica
+      expression: Normal
+      character2: DEMO
+      expression2: MyFirstClass
+      options: []
+      goTo: []
+      text: "T\xE1 me acompanhando?"
+      isEnd: 0
+    - id: TestDialogue_10
+      character: Trainee
+      expression: Nervosa
       character2: DEMO
       expression2: MyFirstClass
       options: []
       goTo: []
       text: Hmm? Claro...
       isEnd: 0
-    - id: TestDialogue_9
+    - id: TestDialogue_11
       character: Mecanica
       expression: Normal
       character2: DEMO
@@ -16176,7 +16193,7 @@ MonoBehaviour:
       text: "Hahahaha! Essa defini\xE7\xE3o \xE9 complicada mesmo, mas sou obrigada
         a te passar isso, pelo meu contrato com a Working Orcs."
       isEnd: 0
-    - id: TestDialogue_10
+    - id: TestDialogue_12
       character: Mecanica
       expression: Normal
       character2: DEMO
@@ -16187,7 +16204,7 @@ MonoBehaviour:
         construir uma <b>[CLASSE]</b>, que definir\xE1 seus <b>[ATRIBUTOS]</b> e
         <b>[FUN\xC7\xD5ES]</b>."
       isEnd: 0
-    - id: TestDialogue_11
+    - id: TestDialogue_13
       character: Mecanica
       expression: Normal
       character2: 
@@ -16198,7 +16215,7 @@ MonoBehaviour:
         vida, estamina e dano. Sem esses valores definidos, seu mecha ser\xE1, literalmente,
         nada."
       isEnd: 0
-    - id: TestDialogue_12
+    - id: TestDialogue_14
       character: Mecanica
       expression: Normal
       character2: DEMO
@@ -16210,7 +16227,17 @@ MonoBehaviour:
         Por serem t\xE3o importantes, elas devem ser <i>encapsuladas</i>, mas isso
         discutiremos mais pra frente."
       isEnd: 0
-    - id: TestDialogue_13
+    - id: TestDialogue_15
+      character: Mecanica
+      expression: Normal
+      character2: DEMO
+      expression2: Atributos
+      options: []
+      goTo: []
+      text: "Por serem t\xE3o importantes, elas devem ser <i>encapsuladas</i>, mas
+        isso discutiremos mais pra frente."
+      isEnd: 0
+    - id: TestDialogue_16
       character: Mecanica
       expression: Normal
       character2: DEMO
@@ -16221,7 +16248,7 @@ MonoBehaviour:
         reutiliz\xE1veis</u>, que executam uma tarefa. Como voc\xEA pode ver, aqui
         temos 3 fun\xE7\xF5es, com efeitos diferentes."
       isEnd: 0
-    - id: TestDialogue_14
+    - id: TestDialogue_17
       character: Trainee
       expression: Inativa
       character2: DEMO
@@ -16231,7 +16258,7 @@ MonoBehaviour:
       text: "<i>(Ah, cara. Mal posso esperar pra usar essas fun\xE7\xF5es pra socar
         uns rob\xF4s...)</i>"
       isEnd: 0
-    - id: TestDialogue_15
+    - id: TestDialogue_18
       character: Trainee
       expression: Normal
       character2: DEMO
@@ -16239,22 +16266,47 @@ MonoBehaviour:
       options: []
       goTo: []
       text: "...Irado! Ent\xE3o, a <b>[CLASSE]</b> armazena tudo o que o <b>[MECHA]</b>,
-        no caso, o <b>[OBJETO]</b>, deve ser e o que consegue fazer. Mas, pra que
-        preciso do objeto se j\xE1 tenho a <b>[CLASSE]<b>?"
+        no caso, o <b>[OBJETO]</b>, deve ser e o que consegue fazer."
       isEnd: 0
-    - id: TestDialogue_16
+    - id: TestDialogue_19
+      character: Trainee
+      expression: Nervosa
+      character2: DEMO
+      expression2: MyFirstClass
+      options: []
+      goTo: []
+      text: "Mas, pra que preciso do objeto se j\xE1 tenho a <b>[CLASSE]<b>?"
+      isEnd: 0
+    - id: TestDialogue_20
       character: Mecanica
       expression: Normal
       character2: DEMO
       expression2: MyFirstClass
       options: []
       goTo: []
-      text: "Precisamos dessa separa\xE7\xE3o pois a classe \xE9 s\xF3 um molde.
-        Usamos os <b>[MECHAS]</b> para criar inst\xE2ncias diferentes dessa <b>[CLASSE]</b>.
-        Dessa forma, mesmo que tenham o mesmo molde, ser\xE3o objetos diferentes,
+      text: "Precisamos dessa separa\xE7\xE3o pois a classe \xE9 s\xF3 um molde."
+      isEnd: 0
+    - id: TestDialogue_21
+      character: Mecanica
+      expression: Normal
+      character2: DEMO
+      expression2: MyFirstClass
+      options: []
+      goTo: []
+      text: "Usamos os <b>[MECHAS]</b> para criar inst\xE2ncias diferentes dessa
+        <b>[CLASSE]</b>."
+      isEnd: 0
+    - id: TestDialogue_22
+      character: Mecanica
+      expression: Normal
+      character2: DEMO
+      expression2: MyFirstClass
+      options: []
+      goTo: []
+      text: "Dessa forma, mesmo que tenham o mesmo molde, ser\xE3o objetos diferentes,
         com caracter\xEDsticas diferentes."
       isEnd: 0
-    - id: TestDialogue_17
+    - id: TestDialogue_23
       character: Mecanica
       expression: Normal
       character2: DEMO
@@ -16265,50 +16317,102 @@ MonoBehaviour:
         mas possuem chassis diferentes. Isso ocorre pois \xE9, no objeto, que definimos
         a pe\xE7a do chassi."
       isEnd: 0
-    - id: TestDialogue_18
+    - id: TestDialogue_24
       character: Trainee
-      expression: Normal
+      expression: Empolgada
       character2: DEMO
       expression2: VariosMechas
       options: []
       goTo: []
       text: "Ent\xE3o voc\xEA t\xE1 me dizendo que, criando uma <b>[CLASSE]</b> bem
-        estruturada eu consigo reutiliz\xE1-la pra fazer quantos mechas eu quiser?
-        E ainda posso customiz\xE1-los individualmente, como quem n\xE3o quer nada??"
+        estruturada eu consigo reutiliz\xE1-la pra fazer quantos mechas eu quiser?"
       isEnd: 0
-    - id: TestDialogue_19
-      character: Mecanica
-      expression: Normal
-      character2: 
-      expression2: 
-      options: []
-      goTo: []
-      text: "Isso mesmo. E digo mais. a <b>Programa\xE7\xE3o Orientada a Mechas</b>,
-        n\xE3o satisfeita com isso, tamb\xE9m possui <b>[4 PILARES]</b>, que expandem
-        ainda mais os horizontes. Mas isso fica pra outro dia."
-      isEnd: 0
-    - id: TestDialogue_20
-      character: Mecanica
-      expression: Normal
-      character2: 
-      expression2: 
-      options: []
-      goTo: []
-      text: "Por hoje, voc\xEA pode tirar um tempo para conhecer a oficina. Al\xE9m
-        disso, pode usar essa classe aqui que eu j\xE1 configurei pra montar um mecha.
-        Hoje tamb\xE9m faremos um treino de combate."
-      isEnd: 0
-    - id: TestDialogue_21
+    - id: TestDialogue_25
       character: Trainee
+      expression: Empolgada
+      character2: DEMO
+      expression2: VariosMechas
+      options: []
+      goTo: []
+      text: "E ainda posso customiz\xE1-los individualmente, como quem n\xE3o quer
+        nada??"
+      isEnd: 0
+    - id: TestDialogue_26
+      character: Mecanica
       expression: Normal
+      character2: 
+      expression2: 
+      options: []
+      goTo: []
+      text: Isso mesmo. E digo mais.
+      isEnd: 0
+    - id: TestDialogue_27
+      character: Mecanica
+      expression: Normal
+      character2: 
+      expression2: 
+      options: []
+      goTo: []
+      text: "A <b>Programa\xE7\xE3o Orientada a Mechas</b>, n\xE3o satisfeita com
+        isso, tamb\xE9m possui <b>[4 PILARES]</b>, que expandem ainda mais os horizontes."
+      isEnd: 0
+    - id: TestDialogue_28
+      character: Mecanica
+      expression: Normal
+      character2: 
+      expression2: 
+      options: []
+      goTo: []
+      text: Mas isso fica pra outro dia.
+      isEnd: 0
+    - id: TestDialogue_29
+      character: Mecanica
+      expression: Normal
+      character2: 
+      expression2: 
+      options: []
+      goTo: []
+      text: "Por hoje, voc\xEA pode tirar um tempo para conhecer a oficina."
+      isEnd: 0
+    - id: TestDialogue_30
+      character: Mecanica
+      expression: Normal
+      character2: 
+      expression2: 
+      options: []
+      goTo: []
+      text: "Al\xE9m disso, pode usar essa classe aqui que eu j\xE1 configurei pra
+        montar um mecha."
+      isEnd: 0
+    - id: TestDialogue_31
+      character: Mecanica
+      expression: Normal
+      character2: 
+      expression2: 
+      options: []
+      goTo: []
+      text: "Hoje vamos fazer um treino de combate s\xF3 pra voc\xEA."
+      isEnd: 0
+    - id: TestDialogue_32
+      character: Trainee
+      expression: Feliz
+      character2: 
+      expression2: 
+      options: []
+      goTo: []
+      text: "S\xE9rio!? Contra quem eu vou lutar?"
+      isEnd: 0
+    - id: TestDialogue_33
+      character: Trainee
+      expression: Empolgada
       character2: DEMO
       expression2: OrcMilionario
       options: []
       goTo: []
-      text: "S\xE9rio!? Contra quem eu vou lutar? Por acaso seria contra o campe\xE3o
-        lend\xE1rio, modelo n\xFAmero 1 de mechas para combate, o <b>Orc Milion\xE1rio</b>?"
+      text: "Por acaso seria contra o campe\xE3o lend\xE1rio, modelo n\xFAmero 1
+        de mechas para combate, o <b>Orc Milion\xE1rio</b>?"
       isEnd: 0
-    - id: TestDialogue_22
+    - id: TestDialogue_34
       character: Mecanica
       expression: Normal
       character2: DEMO
@@ -16319,9 +16423,9 @@ MonoBehaviour:
         o Hello World. Mas quem sabe, se voc\xEA ir bem no torneio, pode enfrentar
         o campe\xE3o."
       isEnd: 0
-    - id: TestDialogue_23
+    - id: TestDialogue_35
       character: Trainee
-      expression: Normal
+      expression: Feliz
       character2: 
       expression2: 
       options: []

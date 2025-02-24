@@ -15,6 +15,11 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        // Resetando os triggers de animação
+        ResetAnimatorTriggers();
+        Debug.Log("RESETOU");
+
+
         telaSair.SetActive(false);
 
         if (dialogueManager == null)
@@ -51,6 +56,13 @@ public class UIManager : MonoBehaviour
                 OutroAnim();
             }
         }
+    }
+
+    void ResetAnimatorTriggers()
+    {
+        animator.ResetTrigger("isMousePointing");
+        animator.ResetTrigger("introPlaying");
+        animator.ResetTrigger("isIdle");
     }
 
     // FUNÇÕES DOS BOTÕES

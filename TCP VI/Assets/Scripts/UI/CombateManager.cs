@@ -11,6 +11,8 @@ public class CombateManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI textoTempo;
     [SerializeField] float tempo;
 
+    [SerializeField] Combatant combatantScript;
+
     [SerializeField] GameObject telaDePause;
     private bool isPaused = false;
 
@@ -21,6 +23,8 @@ public class CombateManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        combatantScript.enabled = false;
 
         telaDePause.SetActive(false);
     }
@@ -57,6 +61,8 @@ public class CombateManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(tempo);
         textoTempo.gameObject.SetActive(false);
         Time.timeScale = 1.0f;
+
+        combatantScript.enabled = true;
     }
 
     // MENU DE PAUSA
@@ -90,6 +96,8 @@ public class CombateManager : MonoBehaviour
         telaDePause.SetActive(true);  // Exibe o menu de pausa
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        combatantScript.enabled = false;
     }
 
     public void ResumeGame()
@@ -97,6 +105,8 @@ public class CombateManager : MonoBehaviour
         // Retoma o jogo
         isPaused = false;
         Time.timeScale = 1f;  // Volta o tempo ao normal
+
+        combatantScript.enabled = true;
 
         ClosePauseMenu();
     }

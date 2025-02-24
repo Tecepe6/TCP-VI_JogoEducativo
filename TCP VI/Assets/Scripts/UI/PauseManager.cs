@@ -11,6 +11,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] GameObject telaCustomizacao;
     [SerializeField] GameObject dialogue;
     [SerializeField] MechaManager mechaManager;
+    [SerializeField] GameObject cadernoDeNotas;
 
     void Start()
     {
@@ -28,7 +29,7 @@ public class PauseManager : MonoBehaviour
 
     void TogglePause()
     {
-        if (!isPaused && !mechaManager.GetChangingPart)
+        if (!isPaused && !mechaManager.GetChangingPart && !cadernoDeNotas.activeInHierarchy)
         {
             PauseGame();
         }

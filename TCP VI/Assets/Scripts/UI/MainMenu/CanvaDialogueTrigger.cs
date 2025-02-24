@@ -8,6 +8,13 @@ public class CanvaDialogueTrigger : MonoBehaviour
     [SerializeField] private Animator animator;
 
     [SerializeField] private UIManager uiManager;
+
+    void Start()
+    {
+        // Resetando o estado do animator
+        ResetAnimatorTriggers();
+        Debug.Log("RESETOU");
+    }
     public void TriggerIntroDialogue()
     {
         dialogueTrigger.TriggerDialogue();
@@ -17,5 +24,12 @@ public class CanvaDialogueTrigger : MonoBehaviour
     public void UseGoToLoadingScene()
     {
         uiManager.GoToLoadingScene();
+    }
+
+    public void ResetAnimatorTriggers()
+    {
+        animator.ResetTrigger("intro");
+        animator.ResetTrigger("outro");
+        animator.ResetTrigger("introPlaying");
     }
 }
