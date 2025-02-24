@@ -63,16 +63,16 @@
       "expression": "Normal",
       "character2": "DEMO",
       "expression2": "MyFirstClass",
-      "text": "Resumidamente, ela gira em torno de <b>[CLASSES]</b> e, claro, <b>[MECHAS]</b>. Basicamente, <b>[CLASSES]</b> são um <u>molde</u> para a criação de <b>[OBJETOS]</b> que <u>possuem as mesmas características</u>. Tá me acompanhando?",
+      "text": "Resumidamente, ela gira em torno de <b>[CLASSES]</b> e, claro, <b>[MECHAS]</b>.",
       "isEnd": false
     },
     {
       "id": "TestDialogue_8",
-      "character": "Trainee",
-      "expression": "Nervosa",
+      "character": "Mecanica",
+      "expression": "Normal",
       "character2": "DEMO",
       "expression2": "MyFirstClass",
-      "text": "Hmm? Claro...",
+      "text": " Basicamente, <b>[CLASSES]</b> são um <u>molde</u> para a criação de <b>[OBJETOS]</b> que <u>possuem as mesmas características</u>.",
       "isEnd": false
     },
     {
@@ -81,11 +81,29 @@
       "expression": "Normal",
       "character2": "DEMO",
       "expression2": "MyFirstClass",
-      "text": "Hahahaha! Essa definição é complicada mesmo, mas sou obrigada a te passar isso, pelo meu contrato com a Working Orcs.",
+      "text": "Tá me acompanhando?",
       "isEnd": false
     },
     {
       "id": "TestDialogue_10",
+      "character": "Trainee",
+      "expression": "Nervosa",
+      "character2": "DEMO",
+      "expression2": "MyFirstClass",
+      "text": "Hmm? Claro...",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_11",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "MyFirstClass",
+      "text": "Hahahaha! Essa definição é complicada mesmo, mas sou obrigada a te passar isso, pelo meu contrato com a Working Orcs.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_12",
       "character": "Mecanica",
       "expression": "Normal",
       "character2": "DEMO",
@@ -94,14 +112,14 @@
       "isEnd": false
     },
     {
-      "id": "TestDialogue_11",
+      "id": "TestDialogue_13",
       "character": "Mecanica",
       "expression": "Normal",
       "text": "Os <b>[ATRIBUTOS]</b> são as características do Mecha, como sua vida, estamina e dano. Sem esses valores definidos, seu mecha será, literalmente, nada.",
       "isEnd": false
     },
     {
-      "id": "TestDialogue_12",
+      "id": "TestDialogue_14",
       "character": "Mecanica",
       "expression": "Normal",
       "character2": "DEMO",
@@ -110,7 +128,16 @@
       "isEnd": false
     },
     {
-      "id": "TestDialogue_13",
+      "id": "TestDialogue_15",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "Atributos",
+      "text": "Por serem tão importantes, elas devem ser <i>encapsuladas</i>, mas isso discutiremos mais pra frente.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_16",
       "character": "Mecanica",
       "expression": "Normal",
       "character2": "DEMO",
@@ -119,7 +146,7 @@
       "isEnd": false
     },
     {
-      "id": "TestDialogue_14",
+      "id": "TestDialogue_17",
       "character": "Trainee",
       "expression": "Inativa",
       "character2": "DEMO",
@@ -128,25 +155,52 @@
       "isEnd": false
     },
     {
-      "id": "TestDialogue_15",
+      "id": "TestDialogue_18",
       "character": "Trainee",
       "expression": "Normal",
       "character2": "DEMO",
       "expression2": "MyFirstClass",
-      "text": "...Irado! Então, a <b>[CLASSE]</b> armazena tudo o que o <b>[MECHA]</b>, no caso, o <b>[OBJETO]</b>, deve ser e o que consegue fazer. Mas, pra que preciso do objeto se já tenho a <b>[CLASSE]<b>?",
+      "text": "...Irado! Então, a <b>[CLASSE]</b> armazena tudo o que o <b>[MECHA]</b>, no caso, o <b>[OBJETO]</b>, deve ser e o que consegue fazer.",
       "isEnd": false
     },
     {
-      "id": "TestDialogue_16",
+      "id": "TestDialogue_19",
+      "character": "Trainee",
+      "expression": "Nervosa",
+      "character2": "DEMO",
+      "expression2": "MyFirstClass",
+      "text": "Mas, pra que preciso do objeto se já tenho a <b>[CLASSE]<b>?",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_20",
       "character": "Mecanica",
       "expression": "Normal",
       "character2": "DEMO",
       "expression2": "MyFirstClass",
-      "text": "Precisamos dessa separação pois a classe é só um molde. Usamos os <b>[MECHAS]</b> para criar instâncias diferentes dessa <b>[CLASSE]</b>. Dessa forma, mesmo que tenham o mesmo molde, serão objetos diferentes, com características diferentes.",
+      "text": "Precisamos dessa separação pois a classe é só um molde.",
       "isEnd": false
     },
     {
-      "id": "TestDialogue_17",
+      "id": "TestDialogue_21",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "MyFirstClass",
+      "text": "Usamos os <b>[MECHAS]</b> para criar instâncias diferentes dessa <b>[CLASSE]</b>.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_22",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "character2": "DEMO",
+      "expression2": "MyFirstClass",
+      "text": "Dessa forma, mesmo que tenham o mesmo molde, serão objetos diferentes, com características diferentes.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_23",
       "character": "Mecanica",
       "expression": "Normal",
       "character2": "DEMO",
@@ -155,39 +209,83 @@
       "isEnd": false
     },
     {
-      "id": "TestDialogue_18",
+      "id": "TestDialogue_24",
       "character": "Trainee",
       "expression": "Empolgada",
       "character2": "DEMO",
       "expression2": "VariosMechas",
-      "text": "Então você tá me dizendo que, criando uma <b>[CLASSE]</b> bem estruturada eu consigo reutilizá-la pra fazer quantos mechas eu quiser? E ainda posso customizá-los individualmente, como quem não quer nada??",
+      "text": "Então você tá me dizendo que, criando uma <b>[CLASSE]</b> bem estruturada eu consigo reutilizá-la pra fazer quantos mechas eu quiser?",
       "isEnd": false
     },
     {
-      "id": "TestDialogue_19",
+      "id": "TestDialogue_25",
+      "character": "Trainee",
+      "expression": "Empolgada",
+      "character2": "DEMO",
+      "expression2": "VariosMechas",
+      "text": "E ainda posso customizá-los individualmente, como quem não quer nada??",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_26",
       "character": "Mecanica",
       "expression": "Normal",
-      "text": "Isso mesmo. E digo mais. a <b>Programação Orientada a Mechas</b>, não satisfeita com isso, também possui <b>[4 PILARES]</b>, que expandem ainda mais os horizontes. Mas isso fica pra outro dia.",
+      "text": "Isso mesmo. E digo mais.",
       "isEnd": false
     },
     {
-      "id": "TestDialogue_20",
+      "id": "TestDialogue_27",
       "character": "Mecanica",
       "expression": "Normal",
-      "text": "Por hoje, você pode tirar um tempo para conhecer a oficina. Além disso, pode usar essa classe aqui que eu já configurei pra montar um mecha. Hoje também faremos um treino de combate.",
+      "text": "A <b>Programação Orientada a Mechas</b>, não satisfeita com isso, também possui <b>[4 PILARES]</b>, que expandem ainda mais os horizontes.",
       "isEnd": false
     },
     {
-      "id": "TestDialogue_21",
+      "id": "TestDialogue_28",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "Mas isso fica pra outro dia.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_29",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "Por hoje, você pode tirar um tempo para conhecer a oficina.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_30",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "Além disso, pode usar essa classe aqui que eu já configurei pra montar um mecha.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_31",
+      "character": "Mecanica",
+      "expression": "Normal",
+      "text": "Hoje vamos fazer um treino de combate só pra você.",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_32",
+      "character": "Trainee",
+      "expression": "Feliz",
+      "text": "Sério!? Contra quem eu vou lutar?",
+      "isEnd": false
+    },
+    {
+      "id": "TestDialogue_33",
       "character": "Trainee",
       "expression": "Empolgada",
       "character2": "DEMO",
       "expression2": "OrcMilionario",
-      "text": "Sério!? Contra quem eu vou lutar? Por acaso seria contra o campeão lendário, modelo número 1 de mechas para combate, o <b>Orc Milionário</b>?",
+      "text": "Por acaso seria contra o campeão lendário, modelo número 1 de mechas para combate, o <b>Orc Milionário</b>?",
       "isEnd": false
     },
     {
-      "id": "TestDialogue_22",
+      "id": "TestDialogue_34",
       "character": "Mecanica",
       "expression": "Normal",
       "character2": "DEMO",
@@ -196,7 +294,7 @@
       "isEnd": false
     },
     {
-      "id": "TestDialogue_23",
+      "id": "TestDialogue_35",
       "character": "Trainee",
       "expression": "Feliz",
       "text": "Ah, cara. Vamo nessa! Mal posso esperar.",
