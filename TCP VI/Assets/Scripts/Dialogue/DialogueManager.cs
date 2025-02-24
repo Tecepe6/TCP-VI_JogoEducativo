@@ -24,7 +24,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Button option1Button;
     [SerializeField] Button option2Button;
     [SerializeField] Button nextButton;
-    
+    [SerializeField] GameObject skipButton;
+
     [Header("Primeiro a Selecionar(UI)")]
     [SerializeField] private GameObject _dialogueMenuFirst;
     
@@ -43,6 +44,7 @@ public class DialogueManager : MonoBehaviour
         character1Image.enabled = false;
         character2Image.enabled = false;
         promptWindow.SetActive(false);
+        skipButton.SetActive(false);
     }
 
     public void DialogueStart(DialogueHolder.Dialogue textToPrint, int dialogueStartIndex, int dialogueEndIndex)
@@ -52,6 +54,7 @@ public class DialogueManager : MonoBehaviour
         character1Image.enabled = true;
         character2Image.enabled = true;
         promptWindow.SetActive(true);
+        skipButton.SetActive(true);
 
         // TODO: STOP inputs and/ or movement DURING dialogue
         // Leo
@@ -230,6 +233,7 @@ public class DialogueManager : MonoBehaviour
         character1Image.enabled = false;
         character2Image.enabled = false;
         promptWindow.SetActive(false);
+        skipButton.SetActive(false);
         
         EventSystem.current.SetSelectedGameObject(null); //deseleciona
         
@@ -249,5 +253,11 @@ public class DialogueManager : MonoBehaviour
             }
         }
         return -1; //Out of Bounds
+    }
+
+    public void SkipDialogue()
+    {
+        // Define o index do diálogo como o último
+        currentDialogueIndex = dialogue.dialogueLines.Length - 1;
     }
 }
