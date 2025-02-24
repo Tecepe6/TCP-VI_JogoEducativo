@@ -31,7 +31,7 @@
     {
       "id": "TestDialogue_5",
       "character": "Mecanica",
-      "expression": "Normal",
+      "expression": "Nervosa",
       "text": "Muita hora nessa calma! Antes, eu preciso te passar alguns conceitos básicos, pra garantir que você entenda os fundamentos da profissão. Ok?",
       "isEnd": false
     },
@@ -53,7 +53,7 @@
     {
       "id": "OPTION_1",
       "character": "Mecanica",
-      "expression": "Normal",
+      "expression": "Ensinando",
       "text": "A Programação Orientada a Mechas, ou P.O.M., é um paradigma criado pelos operadores, baseada na Programação Orientada a Objetos (P.O.O.).",
       "isEnd": false
     },
@@ -69,7 +69,7 @@
     {
       "id": "TestDialogue_8",
       "character": "Mecanica",
-      "expression": "Normal",
+      "expression": "Ensinando",
       "character2": "DEMO",
       "expression2": "MyFirstClass",
       "text": " Basicamente, <b>[CLASSES]</b> são um <u>molde</u> para a criação de <b>[OBJETOS]</b> que <u>possuem as mesmas características</u>.",
@@ -96,7 +96,7 @@
     {
       "id": "TestDialogue_11",
       "character": "Mecanica",
-      "expression": "Normal",
+      "expression": "Rindo",
       "character2": "DEMO",
       "expression2": "MyFirstClass",
       "text": "Hahahaha! Essa definição é complicada mesmo, mas sou obrigada a te passar isso, pelo meu contrato com a Working Orcs.",
@@ -105,7 +105,7 @@
     {
       "id": "TestDialogue_12",
       "character": "Mecanica",
-      "expression": "Normal",
+      "expression": "Ensinando",
       "character2": "DEMO",
       "expression2": "MechaInicial",
       "text": "Enfim, pense em um mecha. Para ele funcionar corretamente, precisamos construir uma <b>[CLASSE]</b>, que definirá seus <b>[ATRIBUTOS]</b> e <b>[FUNÇÕES]</b>.",
@@ -121,7 +121,7 @@
     {
       "id": "TestDialogue_14",
       "character": "Mecanica",
-      "expression": "Normal",
+      "expression": "Ensinando",
       "character2": "DEMO",
       "expression2": "Atributos",
       "text": "Essas características podem ir desde o tipo de peça que seu mecha usa e quantidade de peças até a status, como vida, estamina e dano. Por serem tão importantes, elas devem ser <i>encapsuladas</i>, mas isso discutiremos mais pra frente.",
@@ -139,7 +139,7 @@
     {
       "id": "TestDialogue_16",
       "character": "Mecanica",
-      "expression": "Normal",
+      "expression": "Ensinando",
       "character2": "DEMO",
       "expression2": "Funções",
       "text": "Sobre as <b>[FUNÇÕES]</b>, elas são <u>blocos de código reutilizáveis</u>, que executam uma tarefa. Como você pode ver, aqui temos 3 funções, com efeitos diferentes.",
@@ -193,7 +193,7 @@
     {
       "id": "TestDialogue_22",
       "character": "Mecanica",
-      "expression": "Normal",
+      "expression": "Ensinando",
       "character2": "DEMO",
       "expression2": "MyFirstClass",
       "text": "Dessa forma, mesmo que tenham o mesmo molde, serão objetos diferentes, com características diferentes.",
@@ -228,7 +228,7 @@
     },
     {
       "id": "TestDialogue_26",
-      "character": "Mecanica",
+      "character": "Rindo",
       "expression": "Normal",
       "text": "Isso mesmo. E digo mais.",
       "isEnd": false
@@ -250,7 +250,7 @@
     {
       "id": "TestDialogue_29",
       "character": "Mecanica",
-      "expression": "Normal",
+      "expression": "Rindo",
       "text": "Por hoje, você pode tirar um tempo para conhecer a oficina.",
       "isEnd": false
     },
@@ -287,7 +287,7 @@
     {
       "id": "TestDialogue_34",
       "character": "Mecanica",
-      "expression": "Normal",
+      "expression": "Rindo",
       "character2": "DEMO",
       "expression2": "HelloWorld",
       "text": "Hahahahaha! Por enquanto não, minha jovem. Seu adversário será o Hello World. Mas quem sabe, se você ir bem no torneio, pode enfrentar o campeão.",

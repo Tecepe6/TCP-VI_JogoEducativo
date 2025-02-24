@@ -17,3 +17,9 @@ MonoBehaviour:
     _serializedList:
     - Key: Normal
       Value: {fileID: 21300000, guid: ac58bb00672b7f74399f3e9c4260f238, type: 3}
+    - Key: Nervosa
+      Value: {fileID: 21300000, guid: 5e083ef515273a240bb8592626bed904, type: 3}
+    - Key: Rindo
+      Value: {fileID: 21300000, guid: f16a960f72a8d5a40a711f66df5328a0, type: 3}
+    - Key: Ensinando
+      Value: {fileID: 21300000, guid: f4a9715f578bfb044aae6e19422a9b9a, type: 3}
