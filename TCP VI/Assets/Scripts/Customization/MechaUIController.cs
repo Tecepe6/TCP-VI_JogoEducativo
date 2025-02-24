@@ -23,8 +23,8 @@ public class MechaUIController : MonoBehaviour
     private void Awake() 
     {
         //getting UI components
-        partsUI = getUIComponent("/CustomizationCanvas/PartsUI");
-        detailsUI = getUIComponent("/CustomizationCanvas/DetailsUI");
+        partsUI = getUIComponent("/CustomizationCanvas/Tela de Customização/PartsUI");
+        detailsUI = getUIComponent("/CustomizationCanvas/Tela de Customização/DetailsUI");
 
         notebookUI.SetActive(false);
 
