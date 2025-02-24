@@ -16,8 +16,12 @@ public class CombateManager : MonoBehaviour
     [SerializeField] GameObject telaDePause;
     private bool isPaused = false;
 
+    [SerializeField] bool instrucaoConcluida = false;
+
     void Start()
     {
+        instrucaoConcluida = false;
+
         Time.timeScale = 0.0f;
         inicioCombat = true;
 
@@ -31,7 +35,7 @@ public class CombateManager : MonoBehaviour
 
     void Update()
     {
-        if (inicioCombat && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)))
+        if (inicioCombat && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && !isPaused)
         {
             inicioCombat = false;
             controleUI.SetActive(false);
@@ -62,6 +66,8 @@ public class CombateManager : MonoBehaviour
         textoTempo.gameObject.SetActive(false);
         Time.timeScale = 1.0f;
 
+        instrucaoConcluida = true;
+
         combatantScript.enabled = true;
     }
 
@@ -89,15 +95,19 @@ public class CombateManager : MonoBehaviour
 
     public void PauseGame()
     {
-        // Pausa o jogo
-        isPaused = true;
-        Time.timeScale = 0f;  // Congela o tempo
+        if (instrucaoConcluida)
+        {
+            // Pausa o jogo
+            isPaused = true;
+            Time.timeScale = 0f;  // Congela o tempo
 
-        telaDePause.SetActive(true);  // Exibe o menu de pausa
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+            telaDePause.SetActive(true);  // Exibe o menu de pausa
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
 
-        combatantScript.enabled = false;
+            // Desliga script do jogador
+            combatantScript.enabled = false;
+        }
     }
 
     public void ResumeGame()
@@ -106,7 +116,10 @@ public class CombateManager : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1f;  // Volta o tempo ao normal
 
+        // Reativa o script do jogador
         combatantScript.enabled = true;
+
+        telaDePause.SetActive(false);
 
         ClosePauseMenu();
     }
