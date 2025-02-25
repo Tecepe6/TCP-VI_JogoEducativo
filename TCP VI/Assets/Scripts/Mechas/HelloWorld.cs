@@ -5,11 +5,15 @@ using UnityEngine;
 public class HelloWorld : Combatant
 {
     Animator animator;
+    [Header("CONFIGURÁVEIS")]
     [SerializeField] private float waitTime;
 
-    [Header("CHANCE DE USAR AÇÃO")]
+    
     [SerializeField] private int chanceAtaqueRapido;
     [SerializeField] private int chanceAtaqueForte;
+
+    [SerializeField] private int specialPunchCounter;
+    [SerializeField] private int requiredSpecialPunchPoints;
     /*
     [SerializeField] private int chanceAtaqueEspecial;
     [SerializeField] private int chanceEsquivaDireita;
@@ -24,6 +28,7 @@ public class HelloWorld : Combatant
         Idle,
         QuickPunching,
         StrongPunching,
+        SpecialPunching,
         LeftDodging,
         RightDodging,
         Null
@@ -59,6 +64,9 @@ public class HelloWorld : Combatant
             case HelloWorldState.StrongPunching:
                 StrongPunch();
                 break;
+            case HelloWorldState.SpecialPunching:
+                SpecialPunch();
+                break;
             case HelloWorldState.LeftDodging:
                 DodgeLeft();
                 break;
@@ -79,14 +87,24 @@ public class HelloWorld : Combatant
         // Resetando nextState antes de calcular a chance
         nextState = HelloWorldState.Idle;
 
-        // 50% de chance de usar um quick punch
-        if (randomNumber <= chanceAtaqueRapido)
+        // Se tiver o número certo de special points, usa o ataque especial
+        if(specialPunchCounter == requiredSpecialPunchPoints)
         {
+            nextState = HelloWorldState.SpecialPunching;
+        }
+
+        // 50% de chance de usar um quick punch
+        else if (randomNumber <= chanceAtaqueRapido)
+        {
+            specialPunchCounter++;
+
             nextState = HelloWorldState.QuickPunching;
         }
         // 40% de chance de usar strong punch
         else if (randomNumber <= chanceAtaqueForte)
         {
+            specialPunchCounter++;
+
             nextState = HelloWorldState.StrongPunching;
         }
 
@@ -139,6 +157,10 @@ public class HelloWorld : Combatant
 
             leftFist.QuickDamage();
             animator.SetTrigger("isQuickPunching");
+
+            // specialPunchCounter++;
+
+            currentState = HelloWorldState.Idle;
         }
         else
         {
@@ -162,6 +184,8 @@ public class HelloWorld : Combatant
             rightFist.StrongDamage();
             animator.SetTrigger("isStrongPunching");
 
+            // specialPunchCounter++;
+
             currentState = HelloWorldState.Idle;
         }
         else
@@ -170,6 +194,25 @@ public class HelloWorld : Combatant
         }
         
         // Implementar anima��o de falha
+    }
+
+    public void SpecialPunch()
+    {
+        if(currentStamina >= _brandSO.SpecialPunchRequiredStamina)
+        {
+            Debug.Log("SPECIAL PUNCH!!!");
+
+            currentStamina -= _brandSO.SpecialPunchRequiredStamina;
+            staminaBar.SetStamina(currentStamina);
+            OnActionUsed();
+
+            rightFist.SpecialDamage();
+            animator.SetTrigger("isSpecialPunching");
+
+            specialPunchCounter = 0;
+
+            currentState = HelloWorldState.Idle;
+        }
     }
 
     // Mesma l�gica de Quick Punch, mas com as informa��es de esquiva

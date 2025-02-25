@@ -21,6 +21,7 @@ public class BrandSO : ScriptableObject
     [SerializeField][Range(1, 100)] private int staminaRegenDelay;
     [SerializeField][Range(1, 100)] private int quickPunchRequiredStamina;
     [SerializeField][Range(1, 100)] private int strongPunchRequiredStamina;
+    [SerializeField][Range(1, 100)] private int specialPunchRequiredStamina;
     [SerializeField][Range(1, 100)] private int dodgeRequiredStamina;
     [SerializeField] [Range(1, 100)] private int defense;
     [SerializeField] [Range(1, 100)] private int dodgeSpeed;
@@ -32,6 +33,7 @@ public class BrandSO : ScriptableObject
     public int StaminaRegenDelay { get { return staminaRegenDelay; } private set { staminaRegenDelay = value; } }
     public int QuickPunchRequiredStamina { get { return quickPunchRequiredStamina; } private set { quickPunchRequiredStamina = value; } }
     public int StrongPunchRequiredStamina { get { return strongPunchRequiredStamina; } private set { strongPunchRequiredStamina = value; } }
+    public int SpecialPunchRequiredStamina { get { return specialPunchRequiredStamina; } private set { specialPunchRequiredStamina = value; } }
     public int DodgeRequiredStamina { get { return dodgeRequiredStamina; } private set { dodgeRequiredStamina = value; } }
     public int Defense { get { return defense; } private set { defense = value; } }
     public int DodgeSpeed { get { return dodgeSpeed; } private set { dodgeSpeed = value; } }

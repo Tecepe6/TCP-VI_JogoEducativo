@@ -5435,6 +5435,8 @@ MonoBehaviour:
   waitTime: 2
   chanceAtaqueRapido: 0
   chanceAtaqueForte: 10
+  specialPunchCounter: 0
+  requiredSpecialPunchPoints: 0
   nextState: 0
   currentState: 0
 --- !u!1 &815604312
@@ -6078,7 +6080,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: JOGADOR
+  m_text: TRAINEE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7116,7 +7118,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132705622}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca34a7f210d5466438e04294cddf0db7, type: 3}
   m_Name: 
@@ -12519,6 +12521,8 @@ MonoBehaviour:
   waitTime: 0
   chanceAtaqueRapido: 0
   chanceAtaqueForte: 0
+  specialPunchCounter: 0
+  requiredSpecialPunchPoints: 0
   nextState: 0
   currentState: 0
 --- !u!54 &1856959338
@@ -12747,9 +12751,11 @@ MonoBehaviour:
   rightFist: {fileID: 368397268}
   leftFist: {fileID: 627030863}
   currentDamage: 0
-  waitTime: 1
+  waitTime: 2
   chanceAtaqueRapido: 5
   chanceAtaqueForte: 8
+  specialPunchCounter: 0
+  requiredSpecialPunchPoints: 3
   nextState: 0
   currentState: 0
 --- !u!114 &1913182331

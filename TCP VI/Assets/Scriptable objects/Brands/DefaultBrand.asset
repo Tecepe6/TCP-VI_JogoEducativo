@@ -19,12 +19,13 @@ MonoBehaviour:
   <Material>k__BackingField: {fileID: 2100000, guid: 3624314766222f240bea7a9e042744ad,
     type: 2}
   <SkMesh>k__BackingField: {fileID: 0}
-  maxLife: 30
+  maxLife: 35
   maxStamina: 30
   staminaRecoveryRate: 15
   staminaRegenDelay: 1
   quickPunchRequiredStamina: 5
   strongPunchRequiredStamina: 10
+  specialPunchRequiredStamina: 0
   dodgeRequiredStamina: 5
   defense: 0
   dodgeSpeed: 5

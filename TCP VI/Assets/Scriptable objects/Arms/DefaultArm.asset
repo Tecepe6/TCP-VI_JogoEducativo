@@ -20,7 +20,7 @@ MonoBehaviour:
     type: 2}
   <SkMesh>k__BackingField: {fileID: 0}
   attackSpeed: 1
-  quickDamage: 5
-  strongDamage: 9
+  quickDamage: 3
+  strongDamage: 6
   specialDamage: 0
   specialRequiredStamina: 0
