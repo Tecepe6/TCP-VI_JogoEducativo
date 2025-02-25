@@ -74,30 +74,26 @@ public class HelloWorld : Combatant
     IEnumerator WaitAndExecute(float seconds, System.Action onComplete = null)
     {
         int randomNumber = Random.Range(1, 10);
-        Debug.Log("N�mero Sorteado: " + randomNumber);
+        Debug.Log("Número Sorteado: " + randomNumber);
 
-        // 50% de chance de usar um quick punch 5
-        // 30% de chance de usar strong punch 7
+        // Resetando nextState antes de calcular a chance
+        nextState = HelloWorldState.Idle;
 
+        // 50% de chance de usar um quick punch
         if (randomNumber <= chanceAtaqueRapido)
         {
             nextState = HelloWorldState.QuickPunching;
         }
-        
-        if (randomNumber  >= chanceAtaqueForte)
+        // 40% de chance de usar strong punch
+        else if (randomNumber <= chanceAtaqueForte)
         {
             nextState = HelloWorldState.StrongPunching;
-        }
-
-        else
-        {
-            nextState = HelloWorldState.Idle;
         }
 
         Debug.Log("Esperando por " + seconds + " segundos...");
         yield return new WaitForSeconds(seconds);
 
-        // Executa a a��o ap�s esperar
+        // Executa a ação após esperar
         onComplete?.Invoke();
     }
 
@@ -145,7 +141,9 @@ public class HelloWorld : Combatant
             animator.SetTrigger("isQuickPunching");
         }
         else
+        {
             ReturnToIdle();
+        }
         
         // Implementar anima��o de falha
     }
@@ -162,10 +160,15 @@ public class HelloWorld : Combatant
             OnActionUsed();
 
             rightFist.StrongDamage();
-            animator.SetTrigger("isStrongPunching");           
+            animator.SetTrigger("isStrongPunching");
+
+            currentState = HelloWorldState.Idle;
         }
         else
+        {
             ReturnToIdle();
+        }
+        
         // Implementar anima��o de falha
     }
 
