@@ -22,6 +22,7 @@ public class MechaUIController : MonoBehaviour
 
     private void Awake() 
     {
+        // GameObject.Find("PartsUI");
         //getting UI components
         partsUI = getUIComponent("/CustomizationCanvas/Tela de Customização/PartsUI");
         detailsUI = getUIComponent("/CustomizationCanvas/Tela de Customização/DetailsUI");

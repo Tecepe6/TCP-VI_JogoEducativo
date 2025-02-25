@@ -65,11 +65,13 @@ public class PauseManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
     public void GoToCustomizationScene()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("CustomizationScene");
     }
 

@@ -7,6 +7,15 @@ public class HelloWorld : Combatant
     Animator animator;
     [SerializeField] private float waitTime;
 
+    [Header("CHANCE DE USAR AÇÃO")]
+    [SerializeField] private int chanceAtaqueRapido;
+    [SerializeField] private int chanceAtaqueForte;
+    /*
+    [SerializeField] private int chanceAtaqueEspecial;
+    [SerializeField] private int chanceEsquivaDireita;
+    [SerializeField] private int chanceEsquivaEsquerda;
+    */
+
     public HelloWorldState nextState;
 
     // Estados do HelloWorld
@@ -67,19 +76,19 @@ public class HelloWorld : Combatant
         int randomNumber = Random.Range(1, 10);
         Debug.Log("N�mero Sorteado: " + randomNumber);
 
-        // 50% de chance de usar um quick punch
-        
-        if (randomNumber <= 5)
+        // 50% de chance de usar um quick punch 5
+        // 30% de chance de usar strong punch 7
+
+        if (randomNumber <= chanceAtaqueRapido)
         {
             nextState = HelloWorldState.QuickPunching;
         }
         
-        // 30% de chance de usar strong punch
-        if (randomNumber  >= 7)
+        if (randomNumber  >= chanceAtaqueForte)
         {
             nextState = HelloWorldState.StrongPunching;
         }
-        // 30% de chance de n�o fazer nada e voltar para o estado Idle
+
         else
         {
             nextState = HelloWorldState.Idle;
