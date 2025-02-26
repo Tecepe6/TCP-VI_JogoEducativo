@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: DefaultArm
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Default (Arm)
-  <Description>k__BackingField: "Um bra\xE7o padr\xE3o. Deve dar pro gasto, provavelmente..."
+  <Description>k__BackingField: "Um bra\xE7o padr\xE3o. Dizem que seus movimentos
+    lembram o lutador \"Pequeno Mac\"."
   <Mesh>k__BackingField: {fileID: -1668112904775075524, guid: 51ecdb1bcc5ec7b4980e0cfeaba1214c,
     type: 3}
   <Material>k__BackingField: {fileID: 2100000, guid: 5b73e48699d0f6042a0f79621875bb6f,

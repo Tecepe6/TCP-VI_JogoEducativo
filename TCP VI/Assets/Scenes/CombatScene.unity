@@ -2476,9 +2476,9 @@ MonoBehaviour:
   isRecoveringStamina: 0
   healthBar: {fileID: 1211006979}
   staminaBar: {fileID: 1228674457}
-  _rightArmSO: {fileID: 11400000, guid: 8982915b37e10e445b362daeb00fccb1, type: 2}
-  _leftArmSO: {fileID: 11400000, guid: 8982915b37e10e445b362daeb00fccb1, type: 2}
-  _brandSO: {fileID: 11400000, guid: c63a15b2dd54d7c4d961179bcc252b1f, type: 2}
+  _rightArmSO: {fileID: 11400000, guid: 781bc44727dd671408059821cb8241b4, type: 2}
+  _leftArmSO: {fileID: 11400000, guid: 781bc44727dd671408059821cb8241b4, type: 2}
+  _brandSO: {fileID: 11400000, guid: 4a868442576f78d4486b8e5266248be6, type: 2}
   rightFist: {fileID: 1801712239}
   leftFist: {fileID: 940934250}
   currentDamage: 0
@@ -5971,7 +5971,6 @@ GameObject:
   m_Component:
   - component: {fileID: 884005366}
   - component: {fileID: 884005368}
-  - component: {fileID: 884005369}
   - component: {fileID: 884005367}
   m_Layer: 0
   m_Name: Right Arm
@@ -6011,27 +6010,6 @@ MonoBehaviour:
   tipoDano: 0
   currentDamage: 0
 --- !u!65 &884005368
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884005365}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1.3305827, y: 2.7937715, z: 0.88234204}
-  m_Center: {x: -1.3838589, y: 5.0453854, z: 5.0503306}
---- !u!65 &884005369
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7540,9 +7518,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1913182328}
-  - {fileID: 795339657}
   - {fileID: 1514053459}
   - {fileID: 1526910237}
+  - {fileID: 795339657}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1178524727
@@ -10316,7 +10294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1526910237
 Transform:
   m_ObjectHideFlags: 0
@@ -10326,7 +10304,7 @@ Transform:
   m_GameObject: {fileID: 1526910236}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -953.50726, y: -530.7827, z: 0.541}
+  m_LocalPosition: {x: -953.5073, y: -530.7827, z: 0.541}
   m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -10386,18 +10364,18 @@ MonoBehaviour:
   isRecoveringStamina: 0
   healthBar: {fileID: 1225522433}
   staminaBar: {fileID: 1766020041}
-  _rightArmSO: {fileID: 11400000, guid: addbe2679109fe446bac5490e0a65434, type: 2}
-  _leftArmSO: {fileID: 11400000, guid: addbe2679109fe446bac5490e0a65434, type: 2}
-  _brandSO: {fileID: 11400000, guid: 71fe5ec721412e644841837e7007dffb, type: 2}
+  _rightArmSO: {fileID: 11400000, guid: b877cd2383fca4347890dc3fe429a02e, type: 2}
+  _leftArmSO: {fileID: 11400000, guid: b877cd2383fca4347890dc3fe429a02e, type: 2}
+  _brandSO: {fileID: 11400000, guid: 83621f0db0b6b41458cc983336a712fa, type: 2}
   rightFist: {fileID: 884005367}
   leftFist: {fileID: 1921745427}
   currentDamage: 0
   animator: {fileID: 0}
   waitTime: 2
-  chanceAtaqueRapido: 5
+  chanceAtaqueRapido: 6
   chanceAtaqueForte: 8
   specialPunchCounter: 0
-  requiredSpecialPunchPoints: 3
+  requiredSpecialPunchPoints: 5
   nextState: 0
   currentState: 0
 --- !u!95 &1526910241
@@ -10410,7 +10388,7 @@ Animator:
   m_GameObject: {fileID: 1526910236}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 91494be20f7d2204f868d268d4cfa036, type: 2}
+  m_Controller: {fileID: 9100000, guid: f23503401204e314b974a3d08f6f09ed, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -11433,7 +11411,7 @@ Transform:
   m_GameObject: {fileID: 1679438567}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -0.07, y: 4.37, z: 0.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13248,7 +13226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1913182327
 Animator:
   serializedVersion: 5
@@ -13363,7 +13341,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1921745426}
   - component: {fileID: 1921745428}
-  - component: {fileID: 1921745429}
   - component: {fileID: 1921745427}
   m_Layer: 0
   m_Name: Left Arm
@@ -13403,27 +13380,6 @@ MonoBehaviour:
   tipoDano: 0
   currentDamage: 0
 --- !u!65 &1921745428
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1921745425}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1.2007331, y: 2.6504083, z: 0.9296937}
-  m_Center: {x: 1.3598676, y: 5.088016, z: 5.1098876}
---- !u!65 &1921745429
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

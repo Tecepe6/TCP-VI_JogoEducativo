@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b6fd554abf7fd4aaab062518cacc6a, type: 3}
+  m_Name: Working Orcs
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: "Orc Milion\xE1rio"
+  <Description>k__BackingField: "O chassi de um orc que dedicou sua vida a acumular
+    dinheiro, e m\xFAsculos..."
+  <Mesh>k__BackingField: {fileID: 0}
+  <Material>k__BackingField: {fileID: 0}
+  <SkMesh>k__BackingField: {fileID: 0}
+  maxLife: 100
+  maxStamina: 100
+  staminaRecoveryRate: 40
+  staminaRegenDelay: 2
+  quickPunchRequiredStamina: 20
+  strongPunchRequiredStamina: 35
+  specialPunchRequiredStamina: 35
+  dodgeRequiredStamina: 0
+  defense: 0
+  dodgeSpeed: 0
