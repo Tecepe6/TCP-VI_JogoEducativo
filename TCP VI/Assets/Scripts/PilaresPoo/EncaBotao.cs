@@ -2,38 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EncaBotao : MonoBehaviour
+public class EncaBotao : POOButton
 {
-    Vector3 _direction;
+    [SerializeField] PilarEncapsulamento _abstracao;
 
-    [SerializeField] float _speed;
+    [SerializeField] bool correta;
+    [SerializeField] int maxLife;
+    int life;
 
-    [SerializeField] int _life;
-    int _currentLife;
-
-    private void Start()
+    public void Initialize()
     {
-        _currentLife = _life;
-        SetDirection(transform.right);
+        SetDirection();
+        gameObject.SetActive(true);
+
     }
 
-    public void SetDirection(Vector3 direction)
+    public void Click()
     {
-        _direction = direction.normalized;
+        if (correta)
+            _abstracao.AddPoints(1);
+        else
+            _abstracao.AddPoints(-1);
+
+        gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
     {
-        if(_currentLife > 0)
-            transform.position += _direction * _speed * Time.deltaTime;
-    }
-
-    public void TakeDamage(out bool isProtected)
-    {
-        isProtected = false;
-        _currentLife--;
-
-        if (_currentLife <= 0)
-            isProtected = true;
+        Move();
     }
 }

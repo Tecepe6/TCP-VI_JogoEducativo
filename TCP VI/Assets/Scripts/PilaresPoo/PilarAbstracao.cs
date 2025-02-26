@@ -2,44 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PilarAbstracao : MonoBehaviour
+public class PilarAbstracao : POOPillar
 {
-    [SerializeField] LayerMask layerMask;
-    [SerializeField] float timeFrame;
-    float currentTime;
+    [SerializeField] AbstButtonManager abstButtonManager;
+    [SerializeField] MyFirstClassManager myFirstClassManager;
 
-    public bool StillActive => currentTime > 0;
+    
 
-    [SerializeField] int pontuacao;
-
-    private void Start()
+    public void Initialize()
     {
+
+        if (HasWon)
+            return;
         currentTime = timeFrame;
+        currentPoints = 0;
+        abstButtonManager.StartButtons();
     }
 
-    private void Update()
+    public override void UpdatePillar()
     {
         currentTime -= Time.deltaTime;
-        
-        if(StillActive)
+
+        if(HasEnded)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                GenerateRaycast();
-            }
+            myFirstClassManager.CloseAll();
         }
     }
 
-    private void GenerateRaycast()
+    public void AddPoints(int points)
     {
-        Transform cameraTransform = Camera.main.transform;
-        if (Physics.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), cameraTransform.forward, out RaycastHit hit, 15f, layerMask))
-        {
-            if (hit.collider.TryGetComponent(out AbstBotao abstracao))
-            {
-                pontuacao++;
-                Debug.Log(abstracao.ReturnAbstracrionValue());
-            }
-        }
+        currentPoints += points;
     }
 }

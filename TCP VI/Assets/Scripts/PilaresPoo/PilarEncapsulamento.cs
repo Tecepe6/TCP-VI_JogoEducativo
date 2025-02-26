@@ -2,45 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PilarEncapsulamento : MonoBehaviour
+public class PilarEncapsulamento : POOPillar
 {
-    [SerializeField] LayerMask layerMask;
-    [SerializeField] float timeFrame;
-    float currentTime;
+    [SerializeField] MyFirstClassManager myFirstClassManager;
 
-    public bool StillActive => currentTime > 0;
-
-    [SerializeField] int pontuacao;
-
-    private void Start()
+    public void Initialize()
     {
+        if (HasWon)
+            return;
+
         currentTime = timeFrame;
+        currentPoints = 0;
     }
 
-    private void Update()
+    public override void UpdatePillar()
     {
         currentTime -= Time.deltaTime;
 
-        if (StillActive)
+        if (HasEnded)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                GenerateRaycast();
-            }
+            myFirstClassManager.CloseAll();
         }
     }
 
-    private void GenerateRaycast()
+    public void AddPoints(int points)
     {
-        Transform cameraTransform = Camera.main.transform;
-        if (Physics.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), cameraTransform.forward, out RaycastHit hit, 15f, layerMask))
-        {
-            if (hit.collider.TryGetComponent(out EncaBotao encapsulamento))
-            {
-                encapsulamento.TakeDamage(out bool isProtected);
-
-                Debug.Log(isProtected);
-            }
-        }
+        currentPoints += points;
     }
 }
