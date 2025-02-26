@@ -22,5 +22,5 @@ MonoBehaviour:
   attackSpeed: 0
   quickDamage: 5
   strongDamage: 15
-  specialDamage: 5
+  specialDamage: 10
   specialRequiredStamina: 0

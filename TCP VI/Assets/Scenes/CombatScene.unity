@@ -2476,9 +2476,9 @@ MonoBehaviour:
   isRecoveringStamina: 0
   healthBar: {fileID: 1211006979}
   staminaBar: {fileID: 1228674457}
-  _rightArmSO: {fileID: 11400000, guid: addbe2679109fe446bac5490e0a65434, type: 2}
-  _leftArmSO: {fileID: 11400000, guid: addbe2679109fe446bac5490e0a65434, type: 2}
-  _brandSO: {fileID: 11400000, guid: 71fe5ec721412e644841837e7007dffb, type: 2}
+  _rightArmSO: {fileID: 11400000, guid: 8982915b37e10e445b362daeb00fccb1, type: 2}
+  _leftArmSO: {fileID: 11400000, guid: 8982915b37e10e445b362daeb00fccb1, type: 2}
+  _brandSO: {fileID: 11400000, guid: c63a15b2dd54d7c4d961179bcc252b1f, type: 2}
   rightFist: {fileID: 1801712239}
   leftFist: {fileID: 940934250}
   currentDamage: 0
@@ -10191,7 +10191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1514053455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13248,7 +13248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1913182327
 Animator:
   serializedVersion: 5
@@ -13259,7 +13259,7 @@ Animator:
   m_GameObject: {fileID: 1913182321}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 91494be20f7d2204f868d268d4cfa036, type: 2}
+  m_Controller: {fileID: 9100000, guid: d503164d02d085f4b8dfc6dcd7421f96, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -13279,7 +13279,7 @@ Transform:
   m_GameObject: {fileID: 1913182321}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -953.50726, y: -530.7827, z: 0.541}
+  m_LocalPosition: {x: -953.5073, y: -530.7827, z: 0.541}
   m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 1
   m_Children:
