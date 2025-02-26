@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SOLID
   m_EditorClassIdentifier: 
   <Name>k__BackingField: SOLID BRAND
-  <Description>k__BackingField: SNAKE EATEEER!
+  <Description>k__BackingField: SNAKE EATER!
   <Mesh>k__BackingField: {fileID: 2346716986137308042, guid: 15ba2b59be5e9994f88c28ef58f34d19,
     type: 3}
   <Material>k__BackingField: {fileID: -3908103174281388195, guid: 9a9345a8d2d417849a0d02abea6083a6,

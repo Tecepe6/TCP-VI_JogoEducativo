@@ -1,14 +1,18 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HelloWorld : Combatant
+public class OrcMilionario : Combatant
 {
-    [SerializeField] Animator animator;
+    [Header("BRAÇOS EXTRAS")]
+    public ArmSO _armSO2;
+    public ArmSO _armSO3;
+
+    Animator animator;
     [Header("CONFIGURÁVEIS")]
     [SerializeField] private float waitTime;
 
-    
+
     [SerializeField] private int chanceAtaqueRapido;
     [SerializeField] private int chanceAtaqueForte;
 
@@ -20,10 +24,10 @@ public class HelloWorld : Combatant
     [SerializeField] private int chanceEsquivaEsquerda;
     */
 
-    public HelloWorldState nextState;
+    public OrcMilionarioState nextState;
 
-    // Estados do HelloWorld
-    public enum HelloWorldState
+    // Estados do OrcMilionario
+    public enum OrcMilionarioState
     {
         Idle,
         QuickPunching,
@@ -35,7 +39,7 @@ public class HelloWorld : Combatant
     }
 
     [Header("ESTADO ATUAL")]
-    public HelloWorldState currentState;
+    public OrcMilionarioState currentState;
 
     void Start()
     {
@@ -46,8 +50,8 @@ public class HelloWorld : Combatant
         animator = GetComponent<Animator>();
 
         // Define o estado atual do Hello World
-        currentState = HelloWorldState.Idle;
-        nextState = HelloWorldState.Null;
+        currentState = OrcMilionarioState.Idle;
+        nextState = OrcMilionarioState.Null;
     }
 
     void Update()
@@ -55,26 +59,26 @@ public class HelloWorld : Combatant
         // Troca de estados
         switch (currentState)
         {
-            case HelloWorldState.Idle:
+            case OrcMilionarioState.Idle:
                 HandleIdle();
                 break;
-            case HelloWorldState.QuickPunching:
+            case OrcMilionarioState.QuickPunching:
                 QuickPunch();
                 break;
-            case HelloWorldState.StrongPunching:
+            case OrcMilionarioState.StrongPunching:
                 StrongPunch();
                 break;
-            case HelloWorldState.SpecialPunching:
+            case OrcMilionarioState.SpecialPunching:
                 SpecialPunch();
                 break;
-            case HelloWorldState.LeftDodging:
+            case OrcMilionarioState.LeftDodging:
                 DodgeLeft();
                 break;
-            case HelloWorldState.RightDodging:
+            case OrcMilionarioState.RightDodging:
                 DodgeRight();
                 break;
         }
-        
+
         StartStaminaRecovery();
     }
 
@@ -85,12 +89,12 @@ public class HelloWorld : Combatant
         Debug.Log("Número Sorteado: " + randomNumber);
 
         // Resetando nextState antes de calcular a chance
-        nextState = HelloWorldState.Idle;
+        nextState = OrcMilionarioState.Idle;
 
         // Se tiver o número certo de special points, usa o ataque especial
-        if(specialPunchCounter == requiredSpecialPunchPoints)
+        if (specialPunchCounter == requiredSpecialPunchPoints)
         {
-            nextState = HelloWorldState.SpecialPunching;
+            nextState = OrcMilionarioState.SpecialPunching;
         }
 
         // 50% de chance de usar um quick punch
@@ -98,14 +102,14 @@ public class HelloWorld : Combatant
         {
             specialPunchCounter++;
 
-            nextState = HelloWorldState.QuickPunching;
+            nextState = OrcMilionarioState.QuickPunching;
         }
         // 40% de chance de usar strong punch
         else if (randomNumber <= chanceAtaqueForte)
         {
             specialPunchCounter++;
 
-            nextState = HelloWorldState.StrongPunching;
+            nextState = OrcMilionarioState.StrongPunching;
         }
 
         Debug.Log("Esperando por " + seconds + " segundos...");
@@ -118,7 +122,7 @@ public class HelloWorld : Combatant
     public void HandleIdle()
     {
         // Inicia a corrotina para esperar antes de decidir o pr�ximo movimento
-        if(nextState != HelloWorldState.Null)
+        if (nextState != OrcMilionarioState.Null)
         {
             return;
         }
@@ -127,14 +131,14 @@ public class HelloWorld : Combatant
         StartCoroutine(WaitAndExecute(waitTime, () =>
         {
             currentState = nextState;
-            nextState = HelloWorldState.Null;
+            nextState = OrcMilionarioState.Null;
         }));
     }
 
     // Fun��o chamada por eventos de anima��o que reseta os triggers de anima��o do Hello World. Servem para impedir que ele toque as anima��es de tomar dano imediatamente ap�s sair do StrongPucnh
     public void ReturnToIdle()
     {
-        currentState = HelloWorldState.Idle;
+        currentState = OrcMilionarioState.Idle;
         animator.ResetTrigger("isTakingLightDamage");
         animator.ResetTrigger("isTakingHeavyDamage");
     }
@@ -160,20 +164,20 @@ public class HelloWorld : Combatant
 
             // specialPunchCounter++;
 
-            currentState = HelloWorldState.Idle;  
+            currentState = OrcMilionarioState.Idle;
         }
         else
         {
             ReturnToIdle();
         }
-        
+
         // Implementar anima��o de falha
     }
 
     // Mesma l�gica do QuickPunch, contudo, segue as informa��es de soco forte
     public override void StrongPunch()
     {
-        if(currentStamina >= _brandSO.StrongPunchRequiredStamina)
+        if (currentStamina >= _brandSO.StrongPunchRequiredStamina)
         {
             Debug.Log("STRONG PUNCH!!!");
 
@@ -186,19 +190,19 @@ public class HelloWorld : Combatant
 
             // specialPunchCounter++;
 
-            currentState = HelloWorldState.Idle;
+            currentState = OrcMilionarioState.Idle;
         }
         else
         {
             ReturnToIdle();
         }
-        
+
         // Implementar anima��o de falha
     }
 
     public void SpecialPunch()
     {
-        if(currentStamina >= _brandSO.SpecialPunchRequiredStamina)
+        if (currentStamina >= _brandSO.SpecialPunchRequiredStamina)
         {
             Debug.Log("SPECIAL PUNCH!!!");
 
@@ -211,14 +215,14 @@ public class HelloWorld : Combatant
 
             specialPunchCounter = 0;
 
-            currentState = HelloWorldState.Idle;
+            currentState = OrcMilionarioState.Idle;
         }
     }
 
     // Mesma l�gica de Quick Punch, mas com as informa��es de esquiva
     public override void DodgeLeft()
     {
-        if(currentStamina >= _brandSO.DodgeRequiredStamina)
+        if (currentStamina >= _brandSO.DodgeRequiredStamina)
         {
             animator.SetTrigger("isLeftDodging");
 
@@ -230,7 +234,7 @@ public class HelloWorld : Combatant
             StartCoroutine(WaitAndExecute(1f, () =>
             {
                 // Transi��o para Idle ap�s a anima��o
-                currentState = HelloWorldState.Idle;
+                currentState = OrcMilionarioState.Idle;
             }));
         }
 
@@ -240,7 +244,7 @@ public class HelloWorld : Combatant
     // Mesma l�gica de Quick Punch, mas com as informa��es de esquiva
     public override void DodgeRight()
     {
-        if(currentStamina >= _brandSO.DodgeRequiredStamina)
+        if (currentStamina >= _brandSO.DodgeRequiredStamina)
         {
             animator.SetTrigger("isRightDodging");
 
@@ -252,7 +256,7 @@ public class HelloWorld : Combatant
             StartCoroutine(WaitAndExecute(1f, () =>
             {
                 // Transi��o para Idle ap�s a anima��o
-                currentState = HelloWorldState.Idle;
+                currentState = OrcMilionarioState.Idle;
             }));
         }
     }
