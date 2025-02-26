@@ -160,7 +160,7 @@ public class HelloWorld : Combatant
 
             // specialPunchCounter++;
 
-            currentState = HelloWorldState.Idle;
+            currentState = HelloWorldState.Idle;  
         }
         else
         {
