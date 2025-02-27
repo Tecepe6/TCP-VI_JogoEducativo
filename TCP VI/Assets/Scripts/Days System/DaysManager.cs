@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class DaysManager : MonoBehaviour
 {
     public static DaysManager instance;
-    [SerializeField] int currentDay = 1;
+    public int currentDay = 1;
     [Header("Dicionário de Dias e Cenas")]
     [SerializedDictionary("Day","Scene")] public SerializedDictionary<int, string> gameDays;
 
