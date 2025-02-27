@@ -4,9 +4,24 @@ using UnityEngine;
 
 public class TriggerDoT : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] DialogueTrigger[] dialogueTriggers;
+    [SerializeField] int contadorDias = 0;
     void Start()
     {
+        if(contadorDias == 0)
+        {
+            contadorDias++;
+            dialogueTriggers[0].TriggerDialogue();
+        }
+        else if(contadorDias == 1)
+        {
+            contadorDias++;
+            dialogueTriggers[1].TriggerDialogue();
+        }
+        else
+        {
+            dialogueTriggers[2].TriggerDialogue();
+        }
         
     }
 
