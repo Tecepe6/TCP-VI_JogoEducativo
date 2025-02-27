@@ -57,7 +57,7 @@ public class SoundManager : MonoBehaviour
             instancia.PlaySound(soundCustomizacao);
             return;
         }
-        if (scene.name == "CombatScene")
+        if (scene.name == "CombatScene" || scene.name =="2_CombatScene" || scene.name == "3_CombatScene")
         {
             instancia.PlaySound(soundCombat);
             return;
