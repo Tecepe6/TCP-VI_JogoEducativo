@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4b6fd554abf7fd4aaab062518cacc6a, type: 3}
-  m_Name: SOLID
+  m_Name: ORCMILLION
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: SOLID BRAND
-  <Description>k__BackingField: SNAKE EATER!
-  <Mesh>k__BackingField: {fileID: 2346716986137308042, guid: a76550758ed6aea40ad3f2cd1724ce40,
+  <Name>k__BackingField: "ORC MILION\xC1RIO"
+  <Description>k__BackingField: Eu tenho dinheiro.
+  <Mesh>k__BackingField: {fileID: -7543730990481729308, guid: 081fc5942ffad164faadd4b81e17192c,
     type: 3}
   <Material>k__BackingField: {fileID: -3908103174281388195, guid: 9a9345a8d2d417849a0d02abea6083a6,
     type: 3}
   <SkMesh>k__BackingField: {fileID: 0}
-  maxLife: 70
+  maxLife: 91
   maxStamina: 55
-  staminaRecoveryRate: 35
+  staminaRecoveryRate: 55
   staminaRegenDelay: 1
   quickPunchRequiredStamina: 10
   strongPunchRequiredStamina: 15
