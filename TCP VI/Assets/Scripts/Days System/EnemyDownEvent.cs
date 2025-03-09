@@ -1,7 +1,7 @@
 public class EnemyDownEvent : UnlockDayEvent
 {
     Combatant combatant;
-
+    /*
     void Awake()
     {
         combatant = this.GetComponent<Combatant>();
@@ -18,4 +18,5 @@ public class EnemyDownEvent : UnlockDayEvent
         Unlock();
         combatant.enemyDefeated += UnlockNewEnemy; //need to unsubscribe here;
     }
+    */
 }
