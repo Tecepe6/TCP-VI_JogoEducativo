@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ORCMILLION
   m_EditorClassIdentifier: 
   <Name>k__BackingField: "ORC MILION\xC1RIO"
-  <Description>k__BackingField: Eu tenho dinheiro.
+  <Description>k__BackingField: "O chassi de um orc que dedicou sua vida a acumular
+    dinheiro, e m\xFAsculos..."
   <Mesh>k__BackingField: {fileID: -7543730990481729308, guid: 081fc5942ffad164faadd4b81e17192c,
     type: 3}
   <Material>k__BackingField: {fileID: -3908103174281388195, guid: 9a9345a8d2d417849a0d02abea6083a6,

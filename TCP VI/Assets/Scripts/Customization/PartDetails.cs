@@ -25,13 +25,13 @@ public class Details : MonoBehaviour
         {
             case MechaManager.Selected.RightArm:
                 ID = MechaManager.instance.GetSelectedPartID;
-                detailsTMP.text = $"{rightArms[ID].Description}\n\n"+
+                detailsTMP.text = /*$"{rightArms[ID].Description}\n\n"+*/
                 $"> Dano do Jab: {rightArms[ID].QuickDamage}\n" +
                 $"> Dano do Direto: {rightArms[ID].StrongDamage}";
                 break;
             case MechaManager.Selected.Brand:
                 ID = MechaManager.instance.GetSelectedPartID;
-                detailsTMP.text = $"{brands[ID].Description}\n\n"+
+                detailsTMP.text = /*$"{brands[ID].Description}\n\n"+*/
                 $"> Vida Máx.: {brands[ID].MaxLife}\n" +
                 $"> Estamina Máx.: {brands[ID].MaxStamina}\n" +
                 $"> Delay de Recuperação de Estamina: {brands[ID].StaminaRegenDelay}\n"+
@@ -41,7 +41,7 @@ public class Details : MonoBehaviour
                 break;
             case MechaManager.Selected.LeftArm:
                 ID = MechaManager.instance.GetSelectedPartID;
-                detailsTMP.text = $"{leftArms[ID].Description}\n\n"+
+                detailsTMP.text = /*$"{leftArms[ID].Description}\n\n"+*/
                 $"> Dano do Jab: {leftArms[ID].QuickDamage}\n" +
                 $"> Dano do Direto: {leftArms[ID].StrongDamage}";
                 break;

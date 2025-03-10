@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: DefaultBrand
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Default (Brand)
-  <Description>k__BackingField: "Apenas uma marca padr\xE3o. N\xE3o fede nem cheira."
+  <Description>k__BackingField: "Uma marca padr\xE3o. Alguns dizem que, de alguma
+    forma, lembra um boxeador japon\xEAs chamado Makuno - alguma coisa. Sej\xE1 l\xE1
+    quem seja essa pessoa..."
   <Mesh>k__BackingField: {fileID: 2346716986137308042, guid: d69430b2cc558be41a7a9295def2db47,
     type: 3}
   <Material>k__BackingField: {fileID: 2100000, guid: 3624314766222f240bea7a9e042744ad,
