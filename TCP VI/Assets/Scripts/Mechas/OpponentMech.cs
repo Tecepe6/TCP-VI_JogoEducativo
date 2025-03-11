@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Python : Combatant
+public class OpponentMech : Combatant
 {
-    Animator animator;
+    [SerializeField] Animator animator;
     [Header("CONFIGURÁVEIS")]
     [SerializeField] private float waitTime;
 
-
+    
     [SerializeField] private int chanceAtaqueRapido;
     [SerializeField] private int chanceAtaqueForte;
 
@@ -20,10 +20,10 @@ public class Python : Combatant
     [SerializeField] private int chanceEsquivaEsquerda;
     */
 
-    public PythonState nextState;
+    public OpponentMechState nextState;
 
-    // Estados do Python
-    public enum PythonState
+    // Estados do OpponentMech
+    public enum OpponentMechState
     {
         Idle,
         QuickPunching,
@@ -35,7 +35,7 @@ public class Python : Combatant
     }
 
     [Header("ESTADO ATUAL")]
-    public PythonState currentState;
+    public OpponentMechState currentState;
 
     void Start()
     {
@@ -46,8 +46,8 @@ public class Python : Combatant
         animator = GetComponent<Animator>();
 
         // Define o estado atual do Hello World
-        currentState = PythonState.Idle;
-        nextState = PythonState.Null;
+        currentState = OpponentMechState.Idle;
+        nextState = OpponentMechState.Null;
     }
 
     void Update()
@@ -55,26 +55,26 @@ public class Python : Combatant
         // Troca de estados
         switch (currentState)
         {
-            case PythonState.Idle:
+            case OpponentMechState.Idle:
                 HandleIdle();
                 break;
-            case PythonState.QuickPunching:
+            case OpponentMechState.QuickPunching:
                 QuickPunch();
                 break;
-            case PythonState.StrongPunching:
+            case OpponentMechState.StrongPunching:
                 StrongPunch();
                 break;
-            case PythonState.SpecialPunching:
+            case OpponentMechState.SpecialPunching:
                 SpecialPunch();
                 break;
-            case PythonState.LeftDodging:
+            case OpponentMechState.LeftDodging:
                 DodgeLeft();
                 break;
-            case PythonState.RightDodging:
+            case OpponentMechState.RightDodging:
                 DodgeRight();
                 break;
         }
-
+        
         StartStaminaRecovery();
     }
 
@@ -85,12 +85,12 @@ public class Python : Combatant
         Debug.Log("Número Sorteado: " + randomNumber);
 
         // Resetando nextState antes de calcular a chance
-        nextState = PythonState.Idle;
+        nextState = OpponentMechState.Idle;
 
         // Se tiver o número certo de special points, usa o ataque especial
-        if (specialPunchCounter == requiredSpecialPunchPoints)
+        if(specialPunchCounter == requiredSpecialPunchPoints)
         {
-            nextState = PythonState.SpecialPunching;
+            nextState = OpponentMechState.SpecialPunching;
         }
 
         // 50% de chance de usar um quick punch
@@ -98,14 +98,14 @@ public class Python : Combatant
         {
             specialPunchCounter++;
 
-            nextState = PythonState.QuickPunching;
+            nextState = OpponentMechState.QuickPunching;
         }
         // 40% de chance de usar strong punch
         else if (randomNumber <= chanceAtaqueForte)
         {
             specialPunchCounter++;
 
-            nextState = PythonState.StrongPunching;
+            nextState = OpponentMechState.StrongPunching;
         }
 
         Debug.Log("Esperando por " + seconds + " segundos...");
@@ -118,7 +118,7 @@ public class Python : Combatant
     public void HandleIdle()
     {
         // Inicia a corrotina para esperar antes de decidir o pr�ximo movimento
-        if (nextState != PythonState.Null)
+        if(nextState != OpponentMechState.Null)
         {
             return;
         }
@@ -127,14 +127,14 @@ public class Python : Combatant
         StartCoroutine(WaitAndExecute(waitTime, () =>
         {
             currentState = nextState;
-            nextState = PythonState.Null;
+            nextState = OpponentMechState.Null;
         }));
     }
 
     // Fun��o chamada por eventos de anima��o que reseta os triggers de anima��o do Hello World. Servem para impedir que ele toque as anima��es de tomar dano imediatamente ap�s sair do StrongPucnh
     public void ReturnToIdle()
     {
-        currentState = PythonState.Idle;
+        currentState = OpponentMechState.Idle;
         animator.ResetTrigger("isTakingLightDamage");
         animator.ResetTrigger("isTakingHeavyDamage");
     }
@@ -142,12 +142,12 @@ public class Python : Combatant
     public override void QuickPunch()
     {
         // Verifica se a estamina atual � maior ou igual a estamina requerida para usar o QuickPunch
-        if (currentStamina >= _brandSO.QuickPunchRequiredStamina)
+        if (currentStamina >= _leftArmSO.QuickPunchRequiredStamina)
         {
             Debug.Log("QUICK PUNCH!");
 
             // Subtrai a estamina requerida para usar o soco pela estamina atual
-            currentStamina -= _brandSO.QuickPunchRequiredStamina;
+            currentStamina -= _leftArmSO.QuickPunchRequiredStamina;
 
             // Atualiza a barra de estamina com o valor atual
             staminaBar.SetStamina(currentStamina);
@@ -160,24 +160,24 @@ public class Python : Combatant
 
             // specialPunchCounter++;
 
-            currentState = PythonState.Idle;
+            currentState = OpponentMechState.Idle;  
         }
         else
         {
             ReturnToIdle();
         }
-
+        
         // Implementar anima��o de falha
     }
 
     // Mesma l�gica do QuickPunch, contudo, segue as informa��es de soco forte
     public override void StrongPunch()
     {
-        if (currentStamina >= _brandSO.StrongPunchRequiredStamina)
+        if(currentStamina >= _rightArmSO.StrongPunchRequiredStamina)
         {
             Debug.Log("STRONG PUNCH!!!");
 
-            currentStamina -= _brandSO.StrongPunchRequiredStamina;
+            currentStamina -= _rightArmSO.StrongPunchRequiredStamina;
             staminaBar.SetStamina(currentStamina);
             OnActionUsed();
 
@@ -186,23 +186,23 @@ public class Python : Combatant
 
             // specialPunchCounter++;
 
-            currentState = PythonState.Idle;
+            currentState = OpponentMechState.Idle;
         }
         else
         {
             ReturnToIdle();
         }
-
+        
         // Implementar anima��o de falha
     }
 
     public void SpecialPunch()
     {
-        if (currentStamina >= _brandSO.SpecialPunchRequiredStamina)
+        if(currentStamina >= _rightArmSO.SpecialPunchRequiredStamina)
         {
             Debug.Log("SPECIAL PUNCH!!!");
 
-            currentStamina -= _brandSO.SpecialPunchRequiredStamina;
+            currentStamina -= _rightArmSO.SpecialPunchRequiredStamina;
             staminaBar.SetStamina(currentStamina);
             OnActionUsed();
 
@@ -211,17 +211,14 @@ public class Python : Combatant
 
             specialPunchCounter = 0;
 
-            // animator.SetTrigger("isVulnerable");
-
-            // TROCA DE ESTADO É CHAMADA NA ANIMAÇÃO
-            currentState = PythonState.Idle;
+            currentState = OpponentMechState.Idle;
         }
     }
 
     // Mesma l�gica de Quick Punch, mas com as informa��es de esquiva
     public override void DodgeLeft()
     {
-        if (currentStamina >= _brandSO.DodgeRequiredStamina)
+        if(currentStamina >= _brandSO.DodgeRequiredStamina)
         {
             animator.SetTrigger("isLeftDodging");
 
@@ -233,7 +230,7 @@ public class Python : Combatant
             StartCoroutine(WaitAndExecute(1f, () =>
             {
                 // Transi��o para Idle ap�s a anima��o
-                currentState = PythonState.Idle;
+                currentState = OpponentMechState.Idle;
             }));
         }
 
@@ -243,7 +240,7 @@ public class Python : Combatant
     // Mesma l�gica de Quick Punch, mas com as informa��es de esquiva
     public override void DodgeRight()
     {
-        if (currentStamina >= _brandSO.DodgeRequiredStamina)
+        if(currentStamina >= _brandSO.DodgeRequiredStamina)
         {
             animator.SetTrigger("isRightDodging");
 
@@ -255,7 +252,7 @@ public class Python : Combatant
             StartCoroutine(WaitAndExecute(1f, () =>
             {
                 // Transi��o para Idle ap�s a anima��o
-                currentState = PythonState.Idle;
+                currentState = OpponentMechState.Idle;
             }));
         }
     }
