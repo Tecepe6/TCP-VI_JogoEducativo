@@ -26,24 +26,30 @@ public class Details : MonoBehaviour
             case MechaManager.Selected.RightArm:
                 ID = MechaManager.instance.GetSelectedPartID;
                 detailsTMP.text = /*$"{rightArms[ID].Description}\n\n"+*/
-                $"> Dano do Jab: {rightArms[ID].QuickDamage}\n" +
-                $"> Dano do Direto: {rightArms[ID].StrongDamage}";
+                //$"> Dano do Jab: {rightArms[ID].QuickDamage}\n" +
+                $"> Dano do Direto: {rightArms[ID].StrongDamage}\n"+
+                $"> Custo Direto: {rightArms[ID].StrongPunchRequiredStamina}";
                 break;
+
             case MechaManager.Selected.Brand:
                 ID = MechaManager.instance.GetSelectedPartID;
                 detailsTMP.text = /*$"{brands[ID].Description}\n\n"+*/
                 $"> Vida Máx.: {brands[ID].MaxLife}\n" +
                 $"> Estamina Máx.: {brands[ID].MaxStamina}\n" +
-                $"> Delay de Recuperação de Estamina: {brands[ID].StaminaRegenDelay}\n"+
+                $"> Rec. de Estamina: {brands[ID].StaminaRegenDelay}\n"+
+                /*
                 $"> Custo Jab: {brands[ID].QuickPunchRequiredStamina}\n" +
                 $"> Custo Direto: {brands[ID].StrongPunchRequiredStamina}\n" +
+                */
                 $"> Custo Esquiva: { brands[ID].DodgeRequiredStamina}";
                 break;
+
             case MechaManager.Selected.LeftArm:
                 ID = MechaManager.instance.GetSelectedPartID;
                 detailsTMP.text = /*$"{leftArms[ID].Description}\n\n"+*/
                 $"> Dano do Jab: {leftArms[ID].QuickDamage}\n" +
-                $"> Dano do Direto: {leftArms[ID].StrongDamage}";
+                //$"> Dano do Direto: {leftArms[ID].StrongDamage}"+
+                $"> Custo Jab: {leftArms[ID].QuickPunchRequiredStamina}";
                 break;
         }
     }

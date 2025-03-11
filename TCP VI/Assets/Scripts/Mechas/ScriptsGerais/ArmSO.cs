@@ -20,12 +20,17 @@ public class ArmSO : ScriptableObject
     [SerializeField][Range(1, 100)] private int quickDamage;
     [SerializeField][Range(1, 100)] private int strongDamage;
     [SerializeField][Range(1, 100)] private int specialDamage;
-    [SerializeField][Range(1, 100)] private int specialRequiredStamina;
+    [SerializeField][Range(1, 100)] private int quickPunchRequiredStamina;
+    [SerializeField][Range(1, 100)] private int strongPunchRequiredStamina;
+    [SerializeField][Range(1, 100)] private int specialPunchRequiredStamina;
+    //[SerializeField][Range(1, 100)] private int specialRequiredStamina;
 
     public int AttackSpeed { get { return attackSpeed; } set { attackSpeed = value; } }
     public int QuickDamage { get { return quickDamage; } set { quickDamage = value; } }
     public int StrongDamage { get { return strongDamage; } set { strongDamage = value; } }
-    public int SpecialRequiredStamina { get {  return specialRequiredStamina; } set {  specialRequiredStamina = value; } }
+    public int QuickPunchRequiredStamina { get { return quickPunchRequiredStamina; } private set { quickPunchRequiredStamina = value; } }
+    public int StrongPunchRequiredStamina { get { return strongPunchRequiredStamina; } private set { strongPunchRequiredStamina = value; } }
+    public int SpecialPunchRequiredStamina { get { return specialPunchRequiredStamina; } private set { specialPunchRequiredStamina = value; } }
     public int SpecialDamage { get { return specialDamage; } set { specialDamage = value; } }
 
     /*

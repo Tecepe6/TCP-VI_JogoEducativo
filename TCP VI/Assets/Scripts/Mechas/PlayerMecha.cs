@@ -76,7 +76,7 @@ public class PlayerMecha : Combatant
         if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.JoystickButton4)) && !isOnAnimation)
         {
             // Verifica se a estamina atual é maior ou igual a estamina necessária, de acordo com o ScriptableObject da marca
-            if(currentStamina >= _brandSO.QuickPunchRequiredStamina)
+            if(currentStamina >= _leftArmSO.QuickPunchRequiredStamina)
             {
                 // Define a booleana como verdadeira, impedindo que outras funções sejam utilizadas
                 // Ela é redefinida como false dentro da função ResetAnimationTriggers
@@ -89,7 +89,7 @@ public class PlayerMecha : Combatant
                 animator.SetTrigger("isQuickPunching");
 
                 // Subtrai a estamina atual para a estamina utilizada
-                currentStamina -= _brandSO.QuickPunchRequiredStamina;
+                currentStamina -= _leftArmSO.QuickPunchRequiredStamina;
 
                 // Atualiza a barra de estamina para o valor atual
                 staminaBar.SetStamina(currentStamina);
@@ -116,14 +116,14 @@ public class PlayerMecha : Combatant
     {
         if ((Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.JoystickButton5)) && !isOnAnimation)
         {
-            if(currentStamina >= _brandSO.StrongPunchRequiredStamina)
+            if(currentStamina >= _rightArmSO.StrongPunchRequiredStamina)
             {
                 isOnAnimation = true;
 
                 rightFist.StrongDamage();
                 animator.SetTrigger("isStrongPunching");
 
-                currentStamina -= _brandSO.StrongPunchRequiredStamina;
+                currentStamina -= _rightArmSO.StrongPunchRequiredStamina;
                 staminaBar.SetStamina(currentStamina);
                 OnActionUsed();
             }

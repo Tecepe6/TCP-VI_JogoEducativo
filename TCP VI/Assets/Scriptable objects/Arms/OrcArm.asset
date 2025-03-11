@@ -23,4 +23,6 @@ MonoBehaviour:
   quickDamage: 5
   strongDamage: 15
   specialDamage: 10
-  specialRequiredStamina: 0
+  quickPunchRequiredStamina: 0
+  strongPunchRequiredStamina: 0
+  specialPunchRequiredStamina: 0

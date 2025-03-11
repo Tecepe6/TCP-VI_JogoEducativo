@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: "Bra\xE7os Working Orc"
   <Description>k__BackingField: "Bra\xE7os duplos fazem o dobro de trabalho! Afinal,
-    Orcs devem trabalhar."
+    orcs devem trabalhar."
   <Mesh>k__BackingField: {fileID: 0}
   <Material>k__BackingField: {fileID: 0}
   <SkMesh>k__BackingField: {fileID: 0}
@@ -22,4 +22,6 @@ MonoBehaviour:
   quickDamage: 12
   strongDamage: 20
   specialDamage: 15
-  specialRequiredStamina: 0
+  quickPunchRequiredStamina: 20
+  strongPunchRequiredStamina: 35
+  specialPunchRequiredStamina: 35
