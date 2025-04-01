@@ -31,6 +31,8 @@ public class CombateManager : MonoBehaviour
         combatantScript.enabled = false;
 
         telaDePause.SetActive(false);
+
+        controleUI.SetActive(true);
     }
 
     void Update()

@@ -9,6 +9,8 @@ public class DaysManager : MonoBehaviour
     public int currentDay = 1;
     [Header("Dicionário de Dias e Cenas")]
     [SerializedDictionary("Day","Scene")] public SerializedDictionary<int, string> gameDays;
+    
+    // [SerializedDictionary("Day", "Oponente")] public SerializedDictionary<int, GameObject> opponentMechs;
 
     public void UnlockDay(int nextDay)
     {
